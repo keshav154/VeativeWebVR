@@ -1,0 +1,1607 @@
+<!-- <a-entity gearvr-controls laser-controls="hand: right" id="controller" line="color: #00ffff; opacity: 0.75" raycaster="far: 2"></a-entity> -->
+<link rel="manifest" href="manifest.json">
+<Title>Reproductive Parts of a Flower</Title>
+
+<script src="scripts/aframe.min.js"></script>
+<script src="scripts/aframe-extras.min.js"></script>
+<script src="scripts/utility.js"></script>
+<script src="scripts/voiceover.js"></script>
+<script src="scripts/gamemanager.js"></script>
+<script src="scripts/cardboardjoystick.js"></script>
+<script src="scripts/colorchange.js"></script>
+<script src="scripts/questionmanager.js"></script>
+<script src="scripts/scoremanager.js"></script>
+<script src="scripts/databasemanager.js"></script>
+<script src="scripts/highlight.js"></script>
+<script src="scripts/cursorzoom.js"></script>
+
+<script src="scripts/login.js"></script>
+<script src="appdata.js"></script>
+
+
+
+<script>
+    AFRAME.registerComponent('auto-enter-vr', {
+        init: function() {
+            //this.el.sceneEl.enterVR();
+            var scene = this;
+
+            scene.el.addEventListener('loaded', function() {
+                setTimeout(function() {
+
+                }, 3000);
+            });
+
+        }
+    });
+
+    AFRAME.registerComponent('foo', {
+        init: function() {
+
+            this.el.addEventListener('animationcomplete', myfun);
+        }
+    });
+
+
+
+    function myfun() {
+        console.log("Responding-----------------------");
+    }
+</script>
+<!--------------------------------------------------------------------------------------->
+
+<a-scene renderer="antialias: true;
+colorManagement: true;
+sortObjects: true;
+physicallyCorrectLights: true;">
+
+
+    <!-- Controllers -->
+    <a-entity setactive="value:false" gearvr-controls laser-controls="hand: right" id="gvrc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <a-entity setactive="value:false" daydream-controls laser-controls="hand: right" id="ddc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <a-entity setactive="value:false" oculus-go-controls laser-controls="hand: right" id="oc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <!-- /Controllers -->
+
+    <a-sound id="s_click" src="src: url(sounds/click.mp3)" poolSize=5></a-sound>
+    <a-sound id="s_hover" src="src: url(sounds/hover.wav)" poolSize=5></a-sound>
+    <!-- <a-sky src="images/skybox.jpg" rotation="0 -130 0" color="#555"></a-sky>
+<a-sound src="src: url(sounds/bg.mp3)" autoplay="true"></a-sound> -->
+
+    <a-sound id="s_btn_lo" src="src: url(sounds/C_Btn_Veiw LO.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_l1" src="src: url(sounds/Level1.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_as" src="src: url(sounds/Level2.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_objective" src="src: url(sounds/Instruction.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_lookAtTheShape" src="src: url(sounds/p_lookAtTheShape.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_clickTheLineToSplit" src="src: url(sounds/i_clickTheLineToSplit.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_clickThePlain" src="src: url(sounds/i_clickThePlain.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_nextToProceed" src="src: url(sounds/i_nextToProceed.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_theseTwoObjects" src="src: url(sounds/p_theseTwoObjects.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_lookAtGivenShape" src="src: url(sounds/p_lookAtGivenShape.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_considerThePlane" src="src: url(sounds/p_considerThePlane.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_theseTwoObjects2" src="src: url(sounds/p_theseTwoObjects2.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_complete" src="src: url(sounds/p_complete.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_score_inst" src="src: url(sounds/p_score_inst.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_p_comp_as" src="src: url(sounds/p_comp_as.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_greaterthan" src="src: url(sounds/p_greaterthan.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_lessthan" src="src: url(sounds/p_lessthan.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q1" src="src: url(sounds/Q1.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q2" src="src: url(sounds/Q2.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q3" src="src: url(sounds/Q3.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q4" src="src: url(sounds/Q4.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q5" src="src: url(sounds/Q5.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q6" src="src: url(sounds/Q6.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_score_inst" src="src: url(sounds/p_score_inst.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_welldone" src="src: url(sounds/welldone.wav)" poolSize=5></a-sound>
+    <a-sound id="s_tryagain" src="src: url(sounds/tryagain.wav)" poolSize=5></a-sound>
+    <a-sound id="s_currectOption" src="src: url(sounds/currectOption.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_p_L2" src="src: url(sounds/C_Inst_AssesmentScoringRule.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_ClickOnHighlighted" src="src: url(sounds/Level0/click on the highlighted flower bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Centerthe" src="src: url(sounds/Level0/Center the.wav)" poolSize=5></a-sound>
+    <a-sound id="s_clickOnEachTagPoint" src="src: url(sounds/Level0/Click on each tag point.wav)" poolSize=5></a-sound>
+    <a-sound id="s_clickOnLabel" src="src: url(sounds/Level0/Click on label to know more bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_pistle" src="src: url(sounds/Level0/pistilinstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_ovule" src="src: url(sounds/Level0/ovuleinstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_ovary" src="src: url(sounds/Level0/ovaryinstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_style" src="src: url(sounds/Level0/styleinstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_stigma" src="src: url(sounds/Level0/stigmainstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_stamen" src="src: url(sounds/Level0/stameninstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_filament" src="src: url(sounds/Level0/filamentinstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_anther" src="src: url(sounds/Level0/antherinstruction bg.wav)" poolSize=5></a-sound>
+    <a-sound id="s_levelComplete" src="src: url(sounds/Level0/C_Inst_LevelComplete.wav)" poolSize=5></a-sound>
+
+
+    <!-- level 2 sounds -->
+    <a-sound id="s_flowerquestion" src="src: url(sounds/Level1/flowerquestion.wav)" poolSize=5></a-sound>
+    <a-sound id="s_antherquestion2" src="src: url(sounds/Level1/antherquestion2 Q7.wav)" poolSize=5></a-sound>
+    <a-sound id="s_C_Inst_Assesment_Complete" src="src: url(sounds/Level1/C_Inst_Assesment_Complete.wav)" poolSize=5></a-sound>
+    <a-sound id="s_C_Inst_Assesment_GreaterThan60" src="src: url(sounds/Level1/C_Inst_Assesment_GreaterThan.wav)" poolSize=5></a-sound>
+    <a-sound id="s_C_Inst_Assesment_LessThan60" src="src: url(sounds/Level1/C_Inst_Assesment_LessThan.wav)" poolSize=5></a-sound>
+    <a-sound id="s_filamentquestion2" src="src: url(sounds/Level1/filamentquestion2 Q8.wav)" poolSize=5></a-sound>
+    <a-sound id="s_ovaryquestion2" src="src: url(sounds/Level1/ovaryquestion2 Q4.wav)" poolSize=5></a-sound>
+    <a-sound id="s_ovulequestion2" src="src: url(sounds/Level1/ovulequestion2 Q5.wav)" poolSize=5></a-sound>
+    <a-sound id="s_pistilquestion" src="src: url(sounds/Level1/pistilquestion Q1.wav)" poolSize=5></a-sound>
+    <a-sound id="s_stamenquestion2" src="src: url(sounds/Level1/stamenquestion2 Q6.wav)" poolSize=5></a-sound>
+    <a-sound id="s_stigmaquestion2" src="src: url(sounds/Level1/stigmaquestion2 Q2.wav)" poolSize=5></a-sound>
+    <a-sound id="s_stylequestion2" src="src: url(sounds/Level1/stylequestion2 Q3.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_close" src="src: url(sounds/btn_close.wav)" poolSize=5></a-sound>
+
+    <a-assets id="assets" timeout="3600000">
+
+        <img id="tex_menu_off" src="images/Btn_Off.png">
+        <img id="tex_menu_on" src="images/Btn_On.png">
+        <img id="closeButton" src="images/close.png">
+
+        <img id="img360" src="images/skybox.jpg">
+        <img id="img3602" src="images/skybox2.jpg">
+        <audio id="bgsound" src="sounds/Soft Music-MJ-02.wav"></audio>
+
+        <a-asset-item id="butterFly_full" src="models/Butterfly/ButterFly_Full.glb"></a-asset-item>
+        <a-asset-item id="butterFly_left" src="models/Butterfly/Half_Butterfly_Left.glb"></a-asset-item>
+        <a-asset-item id="butterFly_right" src="models/Butterfly/Half_Butterfly_Right.glb"></a-asset-item>
+        <a-asset-item id="leave_full" src="models/Leaf/Full_leaves.glb"></a-asset-item>
+        <a-asset-item id="leave_left" src="models/Leaf/Half_Leaf_Left.glb"></a-asset-item>
+        <a-asset-item id="leave_right" src="models/Leaf/Half_Leaf_Right.glb"></a-asset-item>
+
+
+        <a-asset-item id="building_full" src="models/Building/Building_Complete.glb"></a-asset-item>
+        <a-asset-item id="building_left" src="models/Building/Building_HalfSection_01.glb"></a-asset-item>
+        <a-asset-item id="building_right" src="models/Building/Building_HalfSection_02.glb"></a-asset-item>
+        <a-asset-item id="car_full" src="models/Car/Car Full.glb"></a-asset-item>
+        <a-asset-item id="car_left" src="models/Car/Half_Car_02.glb"></a-asset-item>
+        <a-asset-item id="car_right" src="models/Car/Half_Car_01.glb"></a-asset-item>
+
+        <a-asset-item id="m_L2_plant" src="models/ms100027/Gltf/Flower_Gltf/Flower.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower" src="models/ms100027/Gltf/Cut Section/flower.gltf" scale="1 1 1"></a-asset-item>
+
+        <a-asset-item id="m_L2_flower_cut_1" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Filament_01/Filament_01.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_2" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Filament_02/Filament_02.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_3" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Main_Filament/Main_Filament.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_4" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Ovule/Ovule.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_9" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Petal_01/Petal_01.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_5" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Petal_02/Petal_02.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_10" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Sepla_01/Sepal_01.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_6" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Sepla_02/Sepal_02.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_7" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Stigma_01/Stigma_01.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_L2_flower_cut_8" src="models/ms100027/Gltf/Cut Section/Cut_Parts/Stigma_02/Stigma_02.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="m_Ground" src="models/ms100027/Gltf/Ground/Ground.gltf" scale="1 1 1"></a-asset-item>
+
+        <a-asset-item id="arrow" src="models/Simblos/Arrow/Arrow.gltf" scale="1 1 1"></a-asset-item>
+        <a-asset-item id="whiteCircle" src="models/Simblos/White/White.gltf" scale="1 1 1"></a-asset-item>
+
+
+        <a-mixin id="Welldone" text="value:Well done ; width:2.8 ; align:center;  color: #35ff35"></a-mixin>
+        <a-mixin id="Tryagain" text="value:Try again ; width:2.8 ; align:center;  color: red"></a-mixin>
+
+        <a-mixin id="OK" text="value: OK; align:center; width: 3; color: white" material="color: black; opacity:1" click_sound cardboard_input color_hover>
+        </a-mixin>
+
+
+        <!-- //////////////// For Q1 -->
+        <a-mixin id="yellow" material="color: yellow"></a-mixin>
+        <a-mixin id="blueCubeShape" scale="1 0.34 0.054" geometry="primitive: box; width:0.01; " material="color: blue"></a-mixin>
+        <a-mixin id="plane" geometry="primitive: plane; height:0.35; width:0.35;"></a-mixin>
+
+        <a-asset-item id="model1" src="models/Substituting oxygen groups Structure of phenol/Substituting oxygen groups Structure of phenol.gltf" scale="1 1 1"></a-asset-item>
+
+
+    </a-assets>
+
+
+
+    <a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'></a-sound>
+
+
+    <!--------------------------------test--------------------------------------->
+
+    <a-entity id="testId" setactive="value:false">
+        <a-Light type="ambient" colo="#FF0000" position="0 3 0" intensity="1"></a-Light>
+
+        <a-entity id="testID" gltf-model="#model1" scale="1 1 1" position="0 -6 -0.2" animation-mixer="loop:once; enabled:false" animation="enabled:false; autoplay:false"></a-entity>
+
+        <a-image id="btn_test1" position="0 1 -3" rotation="0 0 0" geometry="primitive: plane; width: 1; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Play Anim; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="PlayAnimTest();">
+        </a-image>
+    </a-entity>
+    <!--------------------------------/test-------------------------------------->
+
+    <a-entity gltf-model="#m_Ground" scale="0.1 0.1 0.1" position="0 -2.8 0"></a-entity>
+    <a-Light type="ambient" colo="#FF0000" position="0 3 0" intensity="6"></a-Light>
+
+    <!-- ----------------------------  Main Menu  --------------------------------------->
+    <a-entity id="MainMenu" setactive="value:true">
+
+        <a-sky src="#img360" rotation="0 -130 0"></a-sky>
+
+        <a-image id="btn_close" setactive="value:false" position="1.2 2.2 -2" src="#closeButton" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input vo_hover onclick="btn_close_click();">
+        </a-image>
+        <!-- Title -->
+        <a-entity position="0 2.1 -2.105" geometry="primitive: plane; width: 1.6; height: 0.2;" material="color: black; opacity:1" text="value: Reproductive Parts of a Flower; align:center; width: 2.3 ">
+        </a-entity>
+
+        <a-image id="btn_lo" position="-1.09 1.5 -2.4" rotation="0 0 0" geometry="primitive: plane; width: 1; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: View learning \n objectives; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickLevel0();">
+        </a-image>
+
+        <a-image id="btn_l1" position="0 1.5 -2.4" geometry="primitive: plane; width: 1; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Pistil and\nstamen; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickLevel1();">
+        </a-image>
+
+
+
+        <a-image id="btn_as" position="1.09 1.5 -2.4" rotation="0 0 0" geometry="primitive: plane; width: 1; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Assess your \n knowledge; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickLevel2();">
+        </a-image>
+
+    </a-entity>
+    <!-- ----------------------------  /Main Menu  ------------------------------------- -->
+
+
+    <!-- ----------------------------  Level 0  ------------------------------------- -->
+    <a-entity id="LO" setactive="value:false">
+        <a-sky src="#img360" rotation="0 -130 0"></a-sky>
+
+
+        <!-- Objective panel -->
+        <a-entity id="p_objective" position="0 2 -3" vo_enable="play:false" geometry="primitive: plane; width: 3; height: 1.8" material="color: black; opacity:1">
+
+            <a-entity position="-0.06 0.188 0" text="value:Learning Objectives
+
+After completing this module, you will be able to:
+* Identify and name the male and female
+   reproductive parts of a flower.
+* Describe the structure of those parts.
+* Locate the positions of those parts.
+* Differentiate between the male and female
+  reproductive parts of a flower.; width: 3; xOffset:0.15; yOffset:0.15">
+            </a-entity>
+            <!-- Ok button -->
+            <a-image id="btn_ok" position="0 -0.66 0.5" src="#tex_menu_off" geometry="primitive: plane; width: 0.6; height: 0.3" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="OnClickObjectiveOk();">
+            </a-image>
+
+        </a-entity>
+
+
+    </a-entity>
+    <!-- ----------------------------  /Level 0 ------------------------------------- -->
+
+
+    <!-- ----------------------------  Level 1  ------------------------------------- -->
+    <a-entity id="L1_temp" setactive="value:false">
+        <a-sky src="#img3602" rotation="0 -130 0"></a-sky>
+
+        <!-- p_lookAtTheShape -->
+        <a-entity id="p_lookAtTheShape" position="0 1 -3" rotation="-10 0 0" setactive="value:true" geometry="primitive: plane; width: 2; height: 0.8" material="color: black; opacity:1" text="value:Look at the shapes given above.
+These are symmetrical shapes.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.24 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_lookAtTheShape_click();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity click_sound cardboard_input id="shape_Butterfly" gltf-model="#butterFly_full" position="-1 2 -3" scale="0.3 0.3 0.3" rotation="90 0 0"></a-entity>
+        <a-entity click_sound cardboard_input id="shape_leaf" gltf-model="#leave_full" position="1 2 -3" scale="0.3 0.3 0.3" rotation="90 0 0"></a-entity>
+
+        <a-entity id="shape_Butterfly_left" gltf-model="#butterFly_left" position="-1 2 -3" scale="0.3 0.3 0.3" rotation="90 0 0" setactive="value:false" animation="property: position; to: -1.25 2 -3 ; enabled:false; dur: 2000">
+        </a-entity>
+
+        <a-entity id="shape_Butterfly_right" gltf-model="#butterFly_right" position="-1 2 -3" scale="0.3 0.3 0.3" rotation="90 0 0" setactive="value:false" animation="property: position; to: -0.75 2 -3 ; enabled:false; dur: 2000">
+        </a-entity>
+
+        <a-entity id="shape_leaf_left" gltf-model="#leave_left" position="1 2 -3" scale="0.3 0.3 0.3" rotation="90 0 0" setactive="value:false" animation="property: position; to: 0.75 2 -3 ; enabled:false;">
+        </a-entity>
+
+        <a-entity id="shape_leaf_right" gltf-model="#leave_right" position="1 2 -3" scale="0.3 0.3 0.3" rotation="90 0 0" setactive="value:false" animation="property: position; to: 1.25 2 -3 ; enabled:false;">
+        </a-entity>
+
+
+        <!-- Next Button -->
+        <a-entity id="b_next" position="0.235 2.59 -3" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: NEXT; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="b_next_click();">
+        </a-entity>
+
+
+
+
+        <!-- These Two Objects -->
+        <a-entity id="p_theseTwoObjects" position="0 3 -3" rotation="10 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 0.9" material="color: black; opacity:1" text="value:These two objects have a line of symmetry
+as they can be divided into two halves that
+are mirror images of each other.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+
+            <a-image id="btn_ok" position="0 -0.24 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_theseTwoObjects_click();">
+            </a-image>
+        </a-entity>
+
+
+
+
+        <!-- Look At The given Shape -->
+        <a-entity id="p_lookAtGivenShape" position="1 2.5 -3" rotation="0 0 0" scale="0.7 0.7 0.7" setactive="value:false" geometry="primitive: plane; width: 2; height: 0.9" material="color: black; opacity:1" text="value:Look at the given shapes.
+A line can not divide a 3-D figure
+into two halves.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.24 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_lookAtGivenShape_click();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity id="shape_building_left" gltf-model="#building_left" position="-1 1 -3" scale="0.1 0.1 0.1" rotation="0 0 0" setactive="value:false" animation="property: position; to: -1.25 1 -3 ; enabled:false; dur: 2000; delay:1000">
+        </a-entity>
+
+        <a-entity id="shape_building_right" gltf-model="#building_right" position="-1 1 -3" scale="0.1 0.1 0.1" rotation="0 0 0" setactive="value:false" animation="property: position; to: -0.75 1 -3 ; enabled:false; dur: 2000 ; delay:1000">
+        </a-entity>
+
+        <a-entity id="shape_car_left" gltf-model="#car_left" position="1 1 -3" scale="0.1 0.1 0.1" rotation="0 0 0" setactive="value:false" animation="property: position; to: 0.75 1 -3 ; enabled:false; delay:1000">
+        </a-entity>
+
+        <a-entity id="shape_car_right" gltf-model="#car_right" position="1 1 -3" scale="0.1 0.1 0.1" rotation="0 0 0" setactive="value:false" animation="property: position; to: 1.25 1 -3 ; enabled:false; delay:1000">
+        </a-entity>
+
+
+
+        <!-- Consider the plane -->
+        <a-entity id="p_considerThePlane" position="0.84 2.69 -3" rotation="0 0 0" scale="0.7 0.7 0.7" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 0.7" material="color: black; opacity:1" text="value:Consider a plane on the building and the car.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.18 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_considerThePlane_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <!-- Building Devider -->
+        <a-entity id="buildingDevider" position="-1 2.82 -3" rotation="0 90 0" setactive="value:false" geometry="primitive: plane; width: 1; height: 0.2.5" material="color: blue;" click_sound cardboard_input animation="property: position; to: -1 1.82 -3 ; enabled:false; dur: 2000">
+        </a-entity>
+
+
+        <!-- Car Devider  -->
+        <a-entity id="carDevider" position="1 1.8 -3" rotation="0 -90 0" setactive="value:false" geometry="primitive: plane; width: 1; height: 0.25" material="color: blue;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;">
+        </a-entity>
+
+
+
+        <!-- Next Button 2 -->
+        <a-entity id="b_next2" position="0.235 2.59 -3" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: NEXT; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="b_next2_click();">
+        </a-entity>
+
+
+
+        <!-- These Two Objects2 -->
+        <a-entity id="p_theseTwoObjects2" position="0 3.2 -3" rotation="10 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 1.1" material="color: black; opacity:1" text="value:These two objects have a plane of
+symmetry because they can be divided
+into two halves such that the two halves
+are mirror images of each other.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.298 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_theseTwoObjects2_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <!-- Complete Activity -->
+        <a-entity id="p_complete" position="0 3.2 -3" rotation="10 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 0.9" material="color: black; opacity:1" text="value:You have completed this activity. Select OK
+to return to the menu and continue
+to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.24 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_complete_click();">
+            </a-image>
+        </a-entity>
+
+
+    </a-entity>
+
+
+    <!-- ----------------------------  /Level 1 temp ----------------------------------------->
+
+    <!-------------------------------  Level 1 ------------------------------------------>
+
+    <a-entity id="L1" setactive="value:false">
+
+        <a-Light type="ambient" colo="#FF0000" position="0 3 0" intensity="1"></a-Light>
+
+        <a-sky src="#img360" rotation="0 -130 0"></a-sky>
+
+        <a-entity id="flowerHighligher" setactive="value:true">
+            <!-- <a-entity gltf-model="#arrow" scale="2 2 2" position="0.005 1.466 -3.139" rotation="0 90 270"
+  animation-mixer="loop:once"></a-entity> -->
+            <a-sphere id="NextHighlighhted" highlight position="-0.02 1.314 -3.210" radius=".2" setactive="value:true" material="color:green" click_sound cardboard_input onclick="HighlightFlower ()">
+            </a-sphere>
+        </a-entity>
+
+
+
+        <a-entity id="m_L1_1" gltf-model="#m_L2_plant" animation-mixer scale="0.001 0.001 0.001" position="0 0 -4.175"></a-entity>
+
+        <a-entity id="p_stigma_infoPoint_1" position="2.958 0 0" scale="1 1 1" setactive="value:false">
+            <!-- panel 1 -->
+            <a-entity position="-0.46 2.143 -2.8" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.2" text="value:Ovule; align:center; width: 2.8;" material="color: black; opacity:0.8" click_sound cardboard_input color_hover onclick="Ovule_Ok();">
+            </a-entity>
+
+            <a-entity position="-0.18 1.54 -3" rotation="0 0 -70" setactive="value:true" geometry="primitive: plane; width: 1.2; height: 0.03" material="color: black; opacity:1; color:white">
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="p_stigma_infoPoint_2" position="2.958 0 0" scale="1 1 1" setactive="value:false">
+            <!-- panel 1 -->
+            <a-entity position="-0.34 2.135 -2.8" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.2" text="value:Ovary; align:center; width: 2.8;" material="color: black; opacity:0.8" click_sound cardboard_input color_hover onclick="Ovary_Ok();">
+            </a-entity>
+
+            <a-entity position="-0.16 1.64 -2.91" rotation="0 0 -70" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.03" material="color: black; opacity:1; color:white">
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="p_stigma_infoPoint_3" position="2.958 0 0" scale="1 1 1" setactive="value:false">
+            <!-- panel 1 -->
+            <a-entity position="-0.36 2.177 -2.8" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.2" text="value:Style; align:center; width: 2.8;" material="color: black; opacity:0.8" click_sound cardboard_input color_hover onclick="Style_Ok();">
+            </a-entity>
+
+            <a-entity position="-0.12 1.913 -3" rotation="0 0 -60" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.03" material="color: black; opacity:1; color:white">
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="p_stigma_infoPoint_4" position="2.958 0 0" scale="1 1 1" setactive="value:false">
+            <!-- panel 1 -->
+            <a-entity position="-0.51 2.169 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.2" text="value:Stigma; align:center; width: 2.8;" material="color: black; opacity:0.8" click_sound cardboard_input color_hover onclick="Stigma_Ok();">
+            </a-entity>
+
+            <a-entity position="-0.13 2.154 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.3; height: 0.03" material="color: black; opacity:1; color:white">
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="p_stamen_infoPoint_1" position="2.958 0 0" scale="1 1 1" setactive="value:false">
+            <!-- panel 1 -->
+            <a-entity position="-0.22 2.4 -1.89" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.2" text="value:Anthur; align:center; width: 2.5;" material="color: black; opacity:0.8" click_sound cardboard_input color_hover onclick="p_Anthur();">
+            </a-entity>
+
+            <a-entity position="-0.21 2.343 -1.91" rotation="0 0 -15" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.01" material="color: black; opacity:1; color:white">
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="p_stamen_infoPoint_2" position="2.958 0 0" scale="1 1 1" setactive="value:false">
+            <!-- panel 1 -->
+            <a-entity position="-0.22 2.4 -1.89" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.2" text="value:Filament; align:center; width: 2.5;" material="color: black; opacity:0.8" click_sound cardboard_input color_hover onclick="p_Filament();">
+            </a-entity>
+
+            <a-entity position="-0.12 2.133 -1.915" rotation="0 0 -60" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.02" material="color: black; opacity:1; color:white">
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="p_Filament_detail" position="1.154 2.18 -3" rotation="0 20 0" setactive="value:false" geometry="primitive: plane; width: 2; height: .8" material="color: black; opacity:1">
+
+            <a-entity text="value:The lower portion of the stamen\nthat supports the anther and\njoins it to the base of the flower.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.05 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.2 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_Filament_detail_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_Anthur_detail" position="1.154 2.18 -3" rotation="0 20 0" setactive="value:false" geometry="primitive: plane; width: 1.7; height: .8" material="color: black; opacity:1">
+
+            <a-entity text="value:The oval-shaped, upper\nportion of the stamen that\nproduces pollen.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.05 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.2 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_Anthur_detail_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_pistle_ovule" position="1.154 2 -3" rotation="0 20 0" setactive="value:false" geometry="primitive: plane; width: 2; height: .7" material="color: black; opacity:1">
+
+            <a-entity text="value:It is a small bead-like structure\npresent inside the ovary.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 0.01 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.15 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_pistle_ovule_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_pistle_ovary" position="1.154 2 -3" rotation="0 20 0" setactive="value:false" geometry="primitive: plane; width: 2; height: .7" material="color: black; opacity:1">
+
+            <a-entity text="value:The swollen base of the\npistil. It contains ovules.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 0.01 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.15 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_pistle_ovary_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_pistle_style" position="1.154 2 -3" rotation="0 20 0" setactive="value:false" geometry="primitive: plane; width: 2; height: .8" material="color: black; opacity:1">
+
+            <a-entity text="value:The stalk-like structure of\nthe pistil, joining the stigma\nto the ovary.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.03 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.17 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_pistle_style_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_pistle_stigma" position="1.154 2 -3" rotation="0 20 0" setactive="value:false" geometry="primitive: plane; width: 2; height: .8" material="color: black; opacity:1">
+
+            <a-entity text="value:The topmost part of the pistil\nhaving a flat, sticky surface for\npollen to adhere to.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.03 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.2 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_pistle_stigma_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_stamen_label" position="1.154 2 -3" rotation="0 20 0" setactive="value:false" geometry="primitive: plane; width: 2; height: .8" material="color: black; opacity:1">
+
+            <a-entity text="value:The topmost part of the pistil\nhaving a flat, sticky surface for\npollen to adhere to.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.03 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.2 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_pistle_stigma_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_L1_completePanel" position="2.84 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 2.3; height: .8" material="color: black; opacity:1">
+
+            <a-entity text="value:You have completed this activity. Select\nOK to return to the menu and continue\nto the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.03 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.2 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="Level1CompleteOkClick();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity id=stigma_anim2 gltf-model="#m_L2_flower_cut_7" animation-mixer scale="0.1 0.1 0.1" position="6.9 0.36 -8.7" setactive="value:false" animation="property: position; to: 2.96 1 -3 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__reset="property: position; to: 6.9 0.36 -8.7 ; enabled:false; dur: 1000; loop: false; easing:linear">
+
+            <a-entity id="stigma_infoPoints" setactive="value:false">
+                <a-entity id="stigma_infoPoint_1" setactive="value:true" position="-1.51 0 .224">
+                    <a-entity id="stigma_infoPoint_1_sphere" position="1.558 -0.03 -0.126" rotation="0 -90 0" scale="3 3 3" setactive="value:true" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="StigmaPoint1Info ()">
+                    </a-entity>
+                </a-entity>
+
+                <a-entity id="stigma_infoPoint_2" setactive="value:true" position="-1.51 0 .224">
+                    <a-entity id="stigma_infoPoint_2_sphere" position="1.571 0.54 0" rotation="0 -90 0" scale="3 3 3" setactive="value:true" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="StigmaPoint2Info ()">
+                    </a-entity>
+                </a-entity>
+
+                <a-entity id="stigma_infoPoint_3" setactive="value:true" position="-1.51 0 .224">
+                    <a-entity id="stigma_infoPoint_3_sphere" position="1.56 2.26 0" rotation="0 -90 0" scale="3 3 3" setactive="value:true" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="StigmaPoint3Info ()">
+                    </a-entity>
+                </a-entity>
+
+                <a-entity id="stigma_infoPoint_4" setactive="value:true" position="-1.51 0 .224">
+                    <a-entity id="stigma_infoPoint_4_sphere" position="1.59 3.82 0" rotation="0 -90 0" scale="3 3 3" setactive="value:true" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="StigmaPoint4Info ()">
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+
+        </a-entity>
+
+        <a-entity id=stamen_anim2 gltf-model="#m_L2_flower_cut_3" animation-mixer scale="0.1 0.1 0.1" position="6.79 0.14 -8.92" setactive="value:false" animation="property: position; to: 2.96 1 -2 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__reset="property: position; to: 6.9 0.36 -8.7 ; enabled:false; dur: 1000; loop: false; easing:linear">
+
+            <a-entity id="stamen_anim2Panel" scale="10 10 10" setactive="value:true">
+                <a-entity position="-0.40 1.146 0.039" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 0.45; height: 0.18" text="value:Stamen; align:center; width: 2.4;" material="color: black; opacity:0.8" click_sound cardboard_input color_hover onclick="StamenInfo();">
+                </a-entity>
+
+                <a-entity position="-0.07 1.1 0.086" rotation="0 0 -20" setactive="value:true" geometry="primitive: plane; width: 0.25; height: 0.02" material="color: black; opacity:1; color:white">
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="stamen_infoPoints" setactive="value:false" position="0 4.74 0">
+                <a-entity id="stamen_infoPoint_1" setactive="value:true" position="0.106 2.11 0.516">
+                    <a-entity id="stamen_infoPoint_1_sphere" position="0 0 0" rotation="0 -90 0" scale="1 1 1" setactive="value:true" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="StamenPoint1Info ()">
+                    </a-entity>
+                </a-entity>
+
+                <a-entity id="stamen_infoPoint_2" setactive="value:true" position="0.22 4.02 0.54">
+                    <a-entity id="stamen_infoPoint_2_sphere" position="0 0 0" rotation="0 -90 0" scale="1 1 1" setactive="value:true" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="StamenPoint2Info ()">
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+
+        </a-entity>
+
+        <a-entity id="stamen_panel1" position="4.75 0 0" setactive="value:false">
+            <!-- panel 1 -->
+            <a-entity id="p_m_L2_4_1" position="-2.3 2 -3" rotation="0 0 0" setactive="value:true; scale:0.5" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1" click_sound cardboard_input onclick="StigmaInfo ()">
+                <a-text value="Pistil" position="-0.3 0 0"></a-text>
+            </a-entity>
+
+            <a-entity position="-2 1.95 -3.1" rotation="0 0 -27" setactive="value:true" geometry="primitive: plane; width: 0.5; height: 0.03" material="color: black; opacity:1; color:white">
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="stigma_infoPanel" position="1 2 -3" rotation="0 20 0" visible="false" geometry="primitive: plane; width: 2.1; height: .9" material="color: black; opacity:1">
+
+            <a-entity text="value:The female reproductive part of the\nflower comprised of three parts: the\nstigma, style and ovary.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 0.01 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.24 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="stigma_infoPanel_Ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="stamen_infoPanel" position="1 2 -3" rotation="0 20 0" visible="false" geometry="primitive: plane; width: 1.7; height: .8" material="color: black; opacity:1">
+
+            <a-entity text="value:The male reproductive part\nof the flower comprising of\nthe anther and filament.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.05 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.24 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="Stamen_infoPanel_Ok();">
+            </a-image>
+        </a-entity>
+
+        <!-- Flower cut section -->
+        <a-entity id="m_L1_4_parent" visible="true" position="0 1.3 -3.319" animation="property: position; to: 3 0.2 -6 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__pos="property: position; to: 7 0.2 -9 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__posStamen="property: position; to: 7 0.2 -9 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__pos1="property: position; to: 3 0.2 -6 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__posStamen1="property: position; to: 3 0.2 -6 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 -360 0; enabled:false; dur: 12000; loop: true; easing:linear" animation__rotStamen="property: rotation; to: 0 -360 0; enabled:false; dur: 12000; loop: true; easing:linear">
+            <a-entity id="m_L1_4" visible="true" position="0 0 0.147" scale="0.05 0.05 0.05" click_sound cardboard_input onclick="HighlightFlower ()" animation__scale="property: scale; to: 1 1 1; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 20; enabled:false; dur: 1000; loop: false; easing:linear">
+                <a-entity position="0 0 3.087">
+
+                    <a-entity gltf-model="#m_L2_flower_cut_2" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                    <a-entity id="stamen_anim1" gltf-model="#m_L2_flower_cut_3" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                    <a-entity gltf-model="#m_L2_flower_cut_4" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                    <a-entity gltf-model="#m_L2_flower_cut_5" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                    <a-entity gltf-model="#m_L2_flower_cut_6" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                    <a-entity id=stigma_anim1 gltf-model="#m_L2_flower_cut_7" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3" animation="property: position; to: -2 0.57 3.3 ; enabled:false; dur: 1000; loop: false; easing:linear"></a-entity>
+
+
+                    <a-entity id="highlightPoint1" position="0 0.9 -3" rotation="0 -90 0" scale="1 1 1" setactive="value:false" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="HighlightStigma ()">
+                    </a-entity>
+
+                    <a-entity id="m_L1_4_cut" visible="true">
+                        <a-entity gltf-model="#m_L2_flower_cut_1" scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                        <a-entity gltf-model="#m_L2_flower_cut_9" scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                        <a-entity gltf-model="#m_L2_flower_cut_10" scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                        <a-entity gltf-model="#m_L2_flower_cut_8" scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+                    </a-entity>
+
+                    <a-entity id="highlightPoint2" position="0.414 1.234 -3.296" rotation="0 -90 0" scale="1 1 1" setactive="value:false" geometry="primitive: sphere; radius:0.1" material="color: red;" click_sound cardboard_input animation="property: position; to: 1 1.2 -3; enabled:false;  dur: 2000 ;" click_sound cardboard_input onclick="HighlightStamen ()">
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+        </a-entity>
+
+    </a-entity>
+
+    <!------------------------------  /Level 1-------------------------------------------->
+
+    <!------------------------------- Level 2 --------------------------------------------->
+
+    <a-entity id="AS" SetActive="value:false">
+        <a-Light type="ambient" colo="#FF0000" position="0 3 0" intensity="1"></a-Light>
+
+        <a-sky src="#img360" rotation="0 -130 0"></a-sky>
+
+        <a-entity id="plantCircle1" gltf-model="#whiteCircle" animation-mixer scale="1 1 1" position="
+0 -0.36 -4.2"></a-entity>
+
+        <a-entity id="plantCircle2" gltf-model="#whiteCircle" animation-mixer scale="1.6 1.6 1.6" position="
+0 -0.36 -4.2"></a-entity>
+
+        <a-entity id="plantCircle3" gltf-model="#whiteCircle" animation-mixer scale=".4 .4 .4" position="
+0 -0.36 -4.2"></a-entity>
+
+        <a-entity id="p_L2_1" position="0 2 -3" rotation="10 0 0" setactive="value:true" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-entity text="value:Follow the instructions to perform the assessment and earn points. You can try multiple times, but points are only awarded if you answer correctly on the first try.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.05 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.24 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="On_p_L2_1_click();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="m_L2_1" gltf-model="#m_L2_plant" animation-mixer scale="0.001 0.001 0.001" position="0 -0.4 -4.257"></a-entity>
+
+        <a-entity id="q_L2_1" position="0 2 -3" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Which of the following part of the plant bears the sexual reproductive structures?" position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity position="-1.5 0.2 0">
+                <a-text id="q1at" value="A. Flower" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" click_sound cardboard_input question="id:1 ; rightOption:a; option:a;" geometry="primitive: plane; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.5 0 0">
+                <a-text id="q1bt" value="B. Stem" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" click_sound cardboard_input question="id:1 ; rightOption:a; option:b;" geometry="primitive: plane; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.2 0">
+                <a-text id="q1ct" value="C. Root" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" click_sound cardboard_input question="id:1 ; rightOption:a; option:c;" geometry="primitive: plane; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q1dt" value="D. Leaf" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" click_sound cardboard_input question="id:1 ; rightOption:a; option:d;" geometry="primitive: plane; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity setactive="value:false" id="welldone_1" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_1" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_1" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+            </a-image>
+        </a-entity>
+
+        <!-- Flower model -->
+        <a-entity id="m_L2_3" gltf-model="#m_L2_flower" animation-mixer scale="0 0 0" position="0 -0.27 -6.224" visible="false" animation="property: scale; to: 0.1 0.1 0.1 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 -360 0 ; enabled:false; dur: 12000; loop: true; easing:linear; delay:1000" click_sound cardboard_input onclick="StopFlowerAnim ()">
+        </a-entity>
+
+        <!-- animation="property: scale; to: 0.1 0.1 0.1 ; enabled:false; dur: 1000; loop: false; easing:linear" -->
+
+        <!-- Flower cut section -->
+        <a-entity id="m_L2_4" visible="false" position="0 -0.4 -3">
+            <a-entity gltf-model="#m_L2_flower_cut_1" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+            <a-entity gltf-model="#m_L2_flower_cut_2" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+            <a-entity gltf-model="#m_L2_flower_cut_3" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+            <a-entity gltf-model="#m_L2_flower_cut_4" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+            <!-- <a-entity gltf-model="#model5" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity> -->
+            <a-entity gltf-model="#m_L2_flower_cut_5" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+            <!-- <a-entity gltf-model="#m_L2_flower_cut_6" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity> -->
+            <a-entity gltf-model="#m_L2_flower_cut_6" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+            <a-entity gltf-model="#m_L2_flower_cut_7" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity>
+            <!-- <a-entity gltf-model="#m_L2_flower_cut_8" animation-mixer scale="0.1 0.1 0.1" position="0 0 -3"></a-entity> -->
+
+            <a-entity id="panelType1" SetActive="value:true">
+                <!-- panel 1 -->
+                <a-entity id="p_m_L2_4_1" position="-2.3 2 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-0.98 1.6 -3" rotation="0 0 -27" setactive="value:true" geometry="primitive: plane; width: 2; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+
+                <!-- panel 2 -->
+                <a-entity id="p_m_L2_4_1" position="-2.31 1.3 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-0.97 1.163 -3" rotation="0 0 -10" setactive="value:true" geometry="primitive: plane; width: 1.7; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="panelType2" SetActive="value:false">
+                <!-- panel 1 -->
+                <a-entity id="p_m_L2_4_1" position="0 2.6 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="0 1.85 -3" rotation="0 0 90" setactive="value:true" geometry="primitive: plane; width: 1.2; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+
+                <!-- panel 2 -->
+                <a-entity id="p_m_L2_4_1" position="-2.3 2 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-0.98 1.6 -3" rotation="0 0 -27" setactive="value:true" geometry="primitive: plane; width: 2; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+
+                <!-- panel 3 -->
+                <a-entity id="p_m_L2_4_1" position="-2.3 1.3 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-0.97 1.163 -3" rotation="0 0 -10" setactive="value:true" geometry="primitive: plane; width: 1.7; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+
+                <!-- panel 4 -->
+                <a-entity id="p_m_L2_4_1" position="-1.65 0.3 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-0.63 0.2 -3" rotation="0 0 -10" setactive="value:true" geometry="primitive: plane; width: 1.1; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+
+                <!-- panel 5 -->
+                <a-entity id="p_m_L2_4_1" position="-1.27 -0.46 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-0.43 -0.24 -2.95" rotation="0 0 25" setactive="value:true" geometry="primitive: plane; width: 0.8; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="panelType3" SetActive="value:false">
+                <!-- panel 1 -->
+                <a-entity position="-2.3 2 -3" rotation="10 0 0" setactive="value:true" geometry="primitive: plane; width: 1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-1.1 1.6 -3" rotation="0 0 -27" setactive="value:true" geometry="primitive: plane; width: 1.6; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+
+                <!-- panel 2 -->
+                <a-entity id="p_m_L2_4_1" position="-2.3 1.3 -3" rotation="10 0 0" setactive="value:true" geometry="primitive: plane; width: 1.1; height: 0.35" material="color: black; opacity:1">
+                </a-entity>
+
+                <a-entity position="-1 1.1 -3" rotation="0 0 -10" setactive="value:true" geometry="primitive: plane; width: 1.7; height: 0.05" material="color: black; opacity:1; color:white">
+                </a-entity>
+            </a-entity>
+
+
+        </a-entity>
+
+        <a-entity id="q_L2_2" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the female reproductive part of the flower." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity position="-1.5 0.2 0">
+                <a-text id="q2at" value="A. Sepals" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="5 0 0" click_sound cardboard_input question="id:2 ; rightOption:c; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.5 0 0">
+                <a-text id="q2bt" value="B. Petals" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound cardboard_input question="id:2 ; rightOption:c; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity id="a_q_L2_2" position="-1.5 -0.2 0">
+                <a-text id="q2ct" value="C. Pistil" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound onclick="PistilMove()" cardboard_input question="id:2 ; rightOption:c; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q2dt" value="D. Stamen" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:2 ; rightOption:c; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity setactive="value:false" id="welldone_2" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_2" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+      </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_2" animation-mixer scale="0.7 0.7 0.7" rotation="-10 -33 0" position="2.172 1.052 -3.536" visible="false" animation="property: position; to: -2.53 1.61 -5.76 ; enabled:false; dur: 1000; loop: false; easing:linear">
+            <a-text value="Pistil"></a-text>
+        </a-entity>
+
+
+        <a-entity id="q_L2_3" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the portion of the pistil with the flat, sticky surface." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity position="-1.5 0.2 0">
+                <a-text id="q3at" value="A. Stamen" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="5 0 0" click_sound cardboard_input question="id:3 ; rightOption:b; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity id="a_q_L2_3" position="-1.5 0 0">
+                <a-text id="q3bt" value="B. Stigma" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound onclick="StigmaMove()" cardboard_input question="id:3 ; rightOption:b; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.2 0">
+                <a-text id="q3ct" value="C. Style" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound cardboard_input question="id:3 ; rightOption:b; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q3dt" value="D. Ovary" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:3 ; rightOption:b; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_3" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_3" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+              </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_3" animation-mixer scale="0.7 0.7 0.7" position="2.3 1.089 -3.7" rotation="-10 -33 0" visible="false" animation="property: position; to: -0.4 2.2 -5.5 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 0; enabled:false; loop: false; easing:linear">
+            <a-text value="Stigma"></a-text>
+        </a-entity>
+
+        <a-entity id="q_L2_4" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the middle stalk-like portion of the pistil." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity id="a_q_L2_4" position="-1.5 0.2 0">
+                <a-text id="q4at" value="A. Style" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="5 0 0" click_sound onclick="StyleMove()" cardboard_input question="id:4 ; rightOption:a; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.5 0 0">
+                <a-text id="q4bt" value="B. Stigma" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound cardboard_input question="id:4 ; rightOption:a; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.2 0">
+                <a-text id="q4ct" value="C. Ovary" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound cardboard_input question="id:4 ; rightOption:a; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q4dt" value="D. Pistil" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:4 ; rightOption:a; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_4" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_4" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+                  </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_4" animation-mixer scale="0.7 0.7 0.7" position="2.27 1.296 -3.602" rotation="-10 -33 0" visible="false" animation="property: position; to: -2.28 1.617 -5.5 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 0; enabled:false; loop: false; easing:linear">
+            <a-text value="Style"></a-text>
+        </a-entity>
+
+        <a-entity id="q_L2_5" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the swollen base of the pistil." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity position="-1.5 0.2 0">
+                <a-text id="q5at" value="A. Corolla" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="5 0 0" click_sound cardboard_input question="id:5 ; rightOption:b; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity id="a_q_L2_5" position="-1.5 0 0">
+                <a-text id="q5bt" value="B. Ovary" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound onclick="OvaryMove()" cardboard_input question="id:5 ; rightOption:b; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.2 0">
+                <a-text id="q5ct" value="C. Pollens" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound cardboard_input question="id:5 ; rightOption:b; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q5dt" value="D. Sepals" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:5 ; rightOption:b; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_5" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_5" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+                      </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_5" animation-mixer scale="0.7 0.7 0.7" position="2.328 1.09 -3.7" rotation="-10 -33 0" visible="false" animation="property: position; to: -1.8 0.1 -5.4 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 0; enabled:false; loop: false; easing:linear">
+            <a-text value="Ovary"></a-text>
+        </a-entity>
+
+
+        <a-entity id="q_L2_6" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the bead-like structure present in the ovary." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity position="-1.5 0.2 0">
+                <a-text id="q6at" value="A. Pollens" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="5 0 0" click_sound cardboard_input question="id:6 ; rightOption:c; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.5 0 0">
+                <a-text id="q6bt" value="B. Carpels" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound cardboard_input question="id:6 ; rightOption:c; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity id="a_q_L2_6" position="-1.5 -0.2 0">
+                <a-text id="q6ct" value="C. Ovule" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound onclick="OvuleMove()" cardboard_input question="id:6 ; rightOption:c; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q6dt" value="D. Filament" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:6 ; rightOption:c; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_6" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_6" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+                          </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_6" animation-mixer scale="0.7 0.7 0.7" position="2.311 0.88 -3.7" rotation="-10 -33 0" visible="false" animation="property: position; to: -1.5 -0.7 -5.6 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 0; enabled:false; loop: false; easing:linear">
+            <a-text value="Ovule"></a-text>
+        </a-entity>
+
+        <a-entity id="q_L2_7" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the male reproductive part of the flower." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity id="a_q_L2_7" position="-1.5 0.2 0">
+                <a-text id="q7at" value="A. Stamen" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="5 0 0" click_sound onclick="StamenMove()" cardboard_input question="id:7 ; rightOption:a; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.5 0 0">
+                <a-text id="q7bt" value="B. Carpels" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound cardboard_input question="id:7 ; rightOption:a; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.2 0">
+                <a-text id="q7ct" value="C. Ovule" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound cardboard_input question="id:7 ; rightOption:a; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q7dt" value="D. Filament" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:7 ; rightOption:a; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_7" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_7" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+                              </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_7" animation-mixer scale="0.7 0.7 0.7" position="2.3 1.28 -3.660" rotation="-10 -33 0" visible="false" animation="property: position; to: -2.6 0.9 -5.9 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 0; enabled:false; loop: false; easing:linear">
+            <a-text value="Stamen"></a-text>
+        </a-entity>
+
+        <a-entity id="q_L2_8" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the male reproductive part of the flower." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity position="-1.5 0.2 0">
+                <a-text id="q8at" value="A. Carpels" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="5 0 0" click_sound cardboard_input question="id:8 ; rightOption:c; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.5 0 0">
+                <a-text id="q8bt" value="B. Petals" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound cardboard_input question="id:8 ; rightOption:c; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity id="a_q_L2_8" position="-1.5 -0.2 0">
+                <a-text id="q8ct" value="C. Anther" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound onclick="AntherMove()" cardboard_input question="id:8 ; rightOption:c; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q8dt" value="D. Sepals" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:8 ; rightOption:c; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_8" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_8" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+                                  </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_8" animation-mixer scale="0.7 0.7 0.7" position="2.345 0.894 -3.7" rotation="-10 -33 0" visible="false" animation="property: position; to: -2.5 1.6 -5.5 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 0; enabled:false; loop: false; easing:linear">
+            <a-text value="Anther"></a-text>
+        </a-entity>
+
+
+        <a-entity id="q_L2_9" position="3.5 1.07 -3" rotation="-10 -33 0" geometry="primitive: plane; width: 3.5; height: 1.7" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Select the correct label for the stalk-like portion of the stamen which supports the anther." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+
+            <a-entity position="-1.5 0.2 0">
+                <a-text id="q9at" value="A. Stamen" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.35 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound cardboard_input question="id:9 ; rightOption:b; option:a;" geometry="primitive: box; height:0.2; width:0.6;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity id="a_q_L2_9" position="-1.5 0 0">
+                <a-text id="q9bt" value="B. Filament" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="4 0 0" click_sound onclick="FilamentMove()" cardboard_input question="id:9 ; rightOption:b; option:b;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.2 0">
+                <a-text id="q9ct" value="C. Style" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="2 0 0" click_sound cardboard_input question="id:9 ; rightOption:b; option:c;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.5 -0.4 0">
+                <a-text id="q9dt" value="D. Stigma" position="0 0 0" align="left" width="3"></a-text>
+                <a-entity position="0.3 -0.035 0.2" scale="1 0.5 1" rotation="0 0 0" click_sound cardboard_input question="id:9 ; rightOption:b; option:d;" geometry="primitive: box; height:0.2; width:0.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_9" mixin="Welldone" position="0 -0.6 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_9" mixin="Tryagain" position="0 -0.6 0"></a-entity>
+
+            <!-- <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="0 -0.6 0.01" onclick="q_L2_1_ok();">
+                    </a-image> -->
+
+        </a-entity>
+
+        <a-entity id="t_L2_9" animation-mixer scale="0.7 0.7 0.7" position="2.271 1.097 -3.584" rotation="-10 -33 0" visible="false" animation="property: position; to: -2.5 1 -5.5 ; enabled:false; dur: 1000; loop: false; easing:linear" animation__rot="property: rotation; to: 0 0 0; enabled:false; loop: false; easing:linear">
+            <a-text value="Filament"></a-text>
+        </a-entity>
+
+        <a-entity id="p_L2_2" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-entity text="value:You have completed the assessment. \nHere is your score:; width:3.4; align:center" position="0 0.3 0">
+            </a-entity>
+
+            <!-- <a-entity id="score_percent"
+              text="value:; width:3.4; align:center"
+              position="0 -0.05 0">
+            </a-entity> -->
+            <a-text id="score_percent" value="100 %" position="0 -0.05 0" align="center" width="2.8"></a-text>
+
+            <a-image id="btn_ok" position="0 -0.3 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="On_p_L2_2_click();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_L2_moreThan60" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-entity text="value:You scored well and you have completed\nthe module! Select OK to return to the\nmenu where you can exit.; width:3.4; align:center" position="0 0.2 0">
+            </a-entity>
+
+            <a-entity id="p_L2_2_score" text="value:; width:3.4; align:center" position="0 -0.05 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.3 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="On_p_L2_3_click();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="p_L2_lessThan60" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3.2; height: 1.1" material="color: black; opacity:1">
+
+            <a-entity text="value:You scored less than 60%. After returning to\nthe menu, you can try the assessment again\nto improve your score, or you can exit.; width:3.4; align:center" position="0 0.2 0">
+            </a-entity>
+
+            <a-entity id="p_L2_2_score" text="value:; width:3.4; align:center" position="0 -0.05 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.3 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="On_p_L2_3_click();">
+            </a-image>
+        </a-entity>
+        <!-- <a-entity id="m_L2_3" gltf-model="#m_L2_flower" animation-mixer scale="0.1 0.1 0.1" position="0 0 -4"
+      animation="property: rotation; to: 0 360 0 ; enabled:true; dur: 5000; loop: true; easing:linear"></a-entity>  -->
+    </a-entity>
+
+    <!-- scale from 0 to 0.1 -->
+
+
+
+
+
+    <!------------------------------- /Level 2 -------------------------------------------->
+
+
+
+    <!-- ----------------------------  A_Knowledge  ------------------------------------- -->
+    <a-entity id="AS11" setactive="value:false">
+        <a-sky src="#img3602" rotation="0 -130 0"></a-sky>
+
+        <a-entity id="p_score_inst" position="0 2 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:Follow the instructions to perform the assessment and earn points. You can try multiple times, but points are only awarded if you answer correctly on the first try.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.5 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_score_inst_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="Q1" position="0 2 -3" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.5" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Q.1. Which of the following figures shows
+         a correct line of symmetry?" position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-entity click_sound cardboard_input question="id:1 ; rightOption:a ; option:a ; " mixin="yellow plane" position="-1 0 0.01">
+                <a-text value="A." position="-0.33 0 0" align="center" width="3"></a-text>
+                <a-entity mixin="blueCubeShape"></a-entity>
+            </a-entity>
+
+            <a-entity click_sound cardboard_input question="id:1 ; rightOption:a ; option:b ; " mixin="yellow plane" position="0.7 0 0.01">
+                <a-text value="B." position="-0.35 0 0" align="center" width="3"></a-text>
+                <a-entity mixin="blueCubeShape" position="0.1 0 0"></a-entity>
+            </a-entity>
+
+            <a-entity click_sound cardboard_input question="id:1 ; rightOption:a  ; option:c ;  " mixin="yellow plane" position="-1 -0.5 0.01">
+                <a-text value="C." position="-0.33 0 0" align="center" width="3"></a-text>
+                <a-entity mixin="blueCubeShape" rotation='0 0 90' position="0 0.074 0"></a-entity>
+            </a-entity>
+
+            <a-entity click_sound cardboard_input question="id:1 ; rightOption:a  ; option:d ; " mixin="yellow plane" position="0.7 -0.5 0.01">
+                <a-text value="D." position="-0.35 0 0" align="center" width="3"></a-text>
+                <a-entity mixin="blueCubeShape" rotation='0 0 -40' position="-0.06 0.053 0"></a-entity>
+            </a-entity>
+
+
+            <a-entity setactive="value:false" id="welldone_1" mixin="Welldone" position="-0.17 -0.604 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_1" mixin="Tryagain" position="-0.17 -0.604 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_1" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.57 0.01" onclick="q1_ok();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="Q2" setactive="value:false" position="0 2 -3" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.5" material="color: black; opacity:1">
+            <a-text value="Q.2. Which of the following figures has an
+         infinite number of lines of symmetry?" position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-image question="id:2 ; rightOption:b ; option:a ; " src="images/imagesAs/Square.png" click_sound cardboard_input height='0.4' width='0.4' position="-1 0 0.01">
+                <a-text value="A." position="-0.33 0 0" align="center" width="3"></a-text>>
+
+            </a-image>
+
+            <a-image question="id:2 ; rightOption:b ; option:b ; " src="images/imagesAs/Circle.png" click_sound cardboard_input height='0.4' width='0.4' position="0.7 0 0.01">
+                <a-text value="B." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:2 ; rightOption:b  ; option:c ;  " src="images/imagesAs/Octagon.png" click_sound cardboard_input height='0.4' width='0.4' position="-1 -0.5 0.01">
+                <a-text value="C." position="-0.33 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:2 ; rightOption:b  ; option:d ; " src="images/imagesAs/Triangle.png" click_sound cardboard_input height='0.4' width='0.4' position="0.7 -0.5 0.01">
+                <a-text value="D." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+
+            <a-entity setactive="value:false" id="welldone_2" mixin="Welldone" position="-0.17 -0.604 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_2" mixin="Tryagain" position="-0.17 -0.604 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.57 0.01" onclick="q2_ok();">
+            </a-image>
+        </a-entity>
+
+
+
+
+        <a-entity id="Q3" setactive="value:false" position="0 2 -3" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.5" material="color: black; opacity:1">
+            <a-text value="Q.3. Which of the following figures has an
+         infinite number of lines of symmetry?" position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-entity question="id:3 ; rightOption:a ; option:a ;" click_sound cardboard_input position="-1 0 0.01">
+                <a-text value="A." position="-0.33 0 0" align="center" width="3"></a-text>
+                <a-entity geometry="primitive: cylinder; radius: 0.07; height: 0.3" material="color: green;" rotation="0 0 -40"></a-entity>
+                <!-- <a-entity mixin="blueCubeShape" ></a-entity> -->
+            </a-entity>
+
+            <a-image question="id:3 ; rightOption:a ; option:b ; " src="images/imagesAs/Triangle.png" click_sound cardboard_input height='0.25' width='0.4' position="0.7 0 0.01">
+                <a-text value="B." position="-0.35 0 0" align="center" width="3"></a-text>
+                <a-entity mixin="blueCubeShape" position="-0.119 -0.040 0" rotation="0 0 -40"></a-entity>
+            </a-image>
+
+            <a-image question="id:3 ; rightOption:a  ; option:c ;  " src="images/imagesAs/Triangle.png" click_sound cardboard_input height='.25' width='0.4' position="-1 -0.5 0.01">
+                <a-text value="C." position="-0.33 0 0" align="center" width="3"></a-text>
+                <a-entity mixin="blueCubeShape" position="0 -0.058 0" rotation="0 0 70" scale="1 0.5 0.054"></a-entity>
+            </a-image>
+
+            <a-image question="id:3 ; rightOption:a  ; option:d ; " src="images/imagesAs/Triangle.png" click_sound cardboard_input height='0.25' width='0.4' position="0.7 -0.5 0.01">
+                <a-text value="D." position="-0.35 0 0" align="center" width="3"></a-text>
+                <a-entity mixin="blueCubeShape" position="-0.105 -0.033 0" rotation="0 0 -60"></a-entity>
+            </a-image>
+
+
+            <a-entity setactive="value:false" id="welldone_3" mixin="Welldone" position="-0.17 -0.604 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_3" mixin="Tryagain" position="-0.17 -0.604 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_3" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.57 0.01" onclick="q3_ok();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="Q4" setactive="value:false" position="0 2 -3" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.5" material="color: black; opacity:1">
+            <a-text value="Q.4.  Click on the shape which is not
+          symmetrical." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-image question="id:4 ; rightOption:b ; option:a ; " src="images/imagesAs/Square.png" click_sound cardboard_input height='0.3' width='0.3' position="-1 0 0.01">
+                <a-text value="A." position="-0.33 0 0" align="center" width="3"></a-text>>
+
+            </a-image>
+
+            <a-image question="id:4 ; rightOption:b ; option:b ; " src="images/imagesAs/L_Shape.png" click_sound cardboard_input height='0.3' width='0.3' position="0.7 0 0.01">
+                <a-text value="B." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:4 ; rightOption:b  ; option:c ;  " src="images/imagesAs/Circle.png" click_sound cardboard_input height='0.3' width='0.3' position="-1 -0.5 0.01">
+                <a-text value="C." position="-0.33 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:4 ; rightOption:b  ; option:d ; " src="images/imagesAs/Plus.png" click_sound cardboard_input height='0.3' width='0.3' position="0.7 -0.5 0.01">
+                <a-text value="D." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+
+            <a-entity setactive="value:false" id="welldone_4" mixin="Welldone" position="-0.17 -0.604 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_4" mixin="Tryagain" position="-0.17 -0.604 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_4" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.57 0.01" onclick="q4_ok();">
+            </a-image>
+        </a-entity>
+
+
+
+
+        <a-entity id="Q5" setactive="value:false" position="0 2 -3" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.5" material="color: black; opacity:1">
+            <a-text value="Q.5. Click on the shape which has a plane
+        of symmetry." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-image question="id:5 ; rightOption:c ; option:a ; " src="images/imagesAs/Triangle.png" click_sound cardboard_input height='0.3' width='0.35' position="-1 0 0.01">
+                <a-text value="A." position="-0.33 0 0" align="center" width="3"></a-text>>
+
+            </a-image>
+
+            <a-image question="id:5 ; rightOption:c ; option:b ; " src="images/imagesAs/Goob.png" click_sound cardboard_input height='0.3' width='0.3' position="0.7 0 0.01">
+                <a-text value="B." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:5 ; rightOption:c  ; option:c ;  " src="images/imagesAs/Cube.png" click_sound cardboard_input height='0.3' width='0.3' position="-1 -0.5 0.01">
+                <a-text value="C." position="-0.33 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:5 ; rightOption:c  ; option:d ; " src="images/imagesAs/Kite.png" click_sound cardboard_input height='0.3' width='0.3' position="0.7 -0.5 0.01">
+                <a-text value="D." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+
+            <a-entity setactive="value:false" id="welldone_5" mixin="Welldone" position="-0.17 -0.604 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_5" mixin="Tryagain" position="-0.17 -0.604 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_5" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.57 0.01" onclick="q5_ok();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="Q6" setactive="value:false" position="0 2 -3" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.5" material="color: black; opacity:1">
+            <a-text value="Q.6. Click on the shape that is not
+         symmetrical." position="0 0.496 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-image question="id:6 ; rightOption:b ; option:a ; " src="images/imagesAs/Triangle.png" click_sound cardboard_input height='0.3' width='0.35' position="-1 0 0.01">
+                <a-text value="A." position="-0.33 0 0" align="center" width="3"></a-text>>
+
+            </a-image>
+
+            <a-image question="id:6 ; rightOption:b ; option:b ; " src="images/imagesAs/Goob.png" click_sound cardboard_input height='0.3' width='0.3' position="0.7 0 0.01">
+                <a-text value="B." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:6 ; rightOption:b  ; option:c ;  " src="images/imagesAs/Hexa.png" click_sound cardboard_input height='0.3' width='0.3' position="-1 -0.5 0.01">
+                <a-text value="C." position="-0.33 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+            <a-image question="id:6 ; rightOption:b  ; option:d ; " src="images/imagesAs/Kite.png" click_sound cardboard_input height='0.3' width='0.3' position="0.7 -0.5 0.01">
+                <a-text value="D." position="-0.35 0 0" align="center" width="3"></a-text>
+
+            </a-image>
+
+
+            <a-entity setactive="value:false" id="welldone_6" mixin="Welldone" position="-0.17 -0.604 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_6" mixin="Tryagain" position="-0.17 -0.604 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_6" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.57 0.01" onclick="q6_ok();">
+            </a-image>
+        </a-entity>
+
+
+
+        <!-- <a-entity id="p_comp_as" position="0 2 -3"
+    setactive="value:false"
+    geometry="primitive: plane; width: 2.4; height: 1.1"
+    material="color: black; opacity:0.53">
+
+    <a-text value="You have completed the assessment.
+    Here is your score:" position="0 0.3 0" align="center" width="2.8"></a-text>
+
+    <a-text id="score_percent" value="100 %" position="0 0 0" align="center" width="2.8"></a-text>
+
+    <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_comp_as_click();">
+
+ </a-entity> -->
+
+
+        <a-entity id="p_lessthan" position="0 2 -3" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-text value="You have scored less than 60%. After returning
+      to the menu, you can try the assessment
+      again to improve your score, or you can exit." position="0 0.2 0" align="center" width="2.8"></a-text>
+
+            <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_lessthan_click();">
+
+        </a-entity>
+
+
+        <a-entity id="p_greaterthan" position="0 2 -3" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-text value="You scored well and you have completed the module! Select OK to return to the menu where you can exit." position="0 0.2 0" align="center" width="2.8"></a-text>
+
+            <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_greaterthan_click();">
+
+        </a-entity>
+
+
+
+        <a-entity id="p_L2_2" position="0 2 -3" rotation="10 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-entity text="value:Follow the instructions to perform the assessment and earn points. You can try multiple times, but points are only awarded if you answer correctly on the first try.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1" position="0 -0.05 0">
+            </a-entity>
+
+            <a-image id="btn_ok" position="0 -0.24 0.211" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="On_p_L2_2_click();">
+            </a-image>
+        </a-entity>
+
+
+    </a-entity>
+    <!-- ----------------------------  /A_Knowledge  ------------------------------------- -->
+
+
+
+
+
+    <a-camera id="main_camera" look-controls wasd-controls="enabled:false" animation="property: position; to: 3 2 0 ; enabled:false; dur: 1000; loop: false; easing:linear">
+        <a-cursor id="cursor" fuse="false" cursor-zoom fuseTimeout='60000' setactive="value:false" rayOrigin="mouse" geometry="primitive: ring" material="color: white;  shader: flat">
+        </a-cursor>
+
+
+        <!------------------------------------------ Camera instructions -->
+
+
+        <!-- click the line to split -->
+        <a-entity id="i_clickTheLineToSplit" setactive="value:false" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.5; height: 0.55" material="color: black; opacity:1" text="value:Click the line to split each image into two
+identical halves that are mirror images
+of each other..; align:center; width: 2.8;">
+        </a-entity>
+
+
+        <!-- next to proceed  -->
+        <a-entity id="i_nextToProceed" setactive="value:false ; scale: 0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 1.7; height: 0.27" material="color: black; opacity:1" text="value:Select NEXT to proceed.; align:center; width: 2.8;">
+        </a-entity>
+
+
+
+
+        <!-- click the plain  -->
+        <a-entity id="i_clickThePlain" setactive="value:false ; scale: 0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.2; height: 0.6" material="color: black; opacity:1" text="value:Click the plane to split each image
+  into two identical halves that are
+mirror images of each other.; align:center; width: 2.8;">
+        </a-entity>
+
+
+        <!-- click the plain  -->
+        <a-entity id="l_score" setactive="value:false ; scale: 0.1" position="-0.15 0.1 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 0.8; height: 0.25" material="color: black; opacity:1" text="value: Score : 0; align:center; width: 2.8;">
+
+        </a-entity>
+
+        <!-- click the plain  -->
+        <a-entity id="c_L1_1" setactive="value:false ; scale: 0.1" position="0 -0.15 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 1.8; height: 0.25" material="color: black; opacity:1" text="value: Click on the highlighted flower.; align:center; width: 2.8;">
+
+        </a-entity>
+
+        <a-entity id="c_L1_2" setactive="value:false ; scale: 0.1" position="0 -0.15 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.2; height: 0.7" material="color: black; opacity:1" text="value: Center the pointer on the flower, and\nthen rotate it by using your controller.\nClick on the flower to have a more\ndetailed view of its structure.; align:center; width: 2.8;">
+
+        </a-entity>
+
+        <a-entity id="c_L1_3" setactive="value:false ; scale: 0.1" position="0 -0.15 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 1.5; height: 0.4" material="color: black; opacity:1" text="value: Click on each tag point to\nknow about the part.; align:center; width: 2.8;">
+
+        </a-entity>
+
+        <a-entity id="c_L1_4" setactive="value:false ; scale: 0.1" position="0 -0.15 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 1.8; height: 0.2" material="color: black; opacity:1" text="value: Click on the label to know more; align:center; width: 2.8;">
+
+        </a-entity>
+
+    </a-camera>
+
+    <!-- <a-sky  color="#555"></a-sky> -->
+
+
+</a-scene>
+
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<script>
+    var assetsId = '#assets';
+    var entity = document.querySelector(assetsId);
+    var controllerId = null;
+
+    if (entity != null) {
+        entity.addEventListener("loaded", function() {
+            console.log("All Assets looded");
+            setTimeout(ShowMainMenu, 2000);
+            setInterval(ActivateController, 1000);
+            login_isUserAuthenticated();
+
+        });
+
+        entity.addEventListener("timeout", function() {
+            console.log("Time up to load assets");
+            setTimeout(location.reload.bind(location), 500);
+        });
+
+    } else {
+        console.log("Exception : Id not found ID: ", assetsId);
+    }
+
+
+    function ShowMainMenu() {
+        SetActive('#MainMenu', true);
+        if (login_isReferred()) {
+            SetActive('#btn_close', true);
+        }
+    }
+
+
+    function ActivateController() {
+        let cId = "";
+
+        if (AFRAME.utils.device.isGearVR()) {
+            cId = '#gvrc';
+            app_device_platform = "GearVR";
+        } else if (isDayDream()) {
+            cId = '#ddc';
+            var gvrc = document.querySelector('#gvrc');
+            var oc = document.querySelector('#oc');
+            gvrc.parentNode.removeChild(gvrc);
+            oc.parentNode.removeChild(oc);
+            SetActive('#cursor', false);
+            app_device_platform = "Daydream";
+        } else if (AFRAME.utils.device.isOculusGo()) {
+            cId = '#oc';
+            app_device_platform = "OculusGo";
+        } else {
+            cId = '#cursor';
+
+            let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                app_device_platform = "Cardboard";
+                let scene = document.querySelector('a-scene');
+                //scene.setAttribute('vr-mode-ui','enabled',true);
+            } else {
+                app_device_platform = "Desktop";
+                let scene = document.querySelector('a-scene');
+                //scene.setAttribute('vr-mode-ui','enabled',false);
+            }
+
+        }
+
+        if (cId != controllerId) {
+            SetActive(controllerId, false);
+            controllerId = cId;
+            SetActive(controllerId, true);
+            console.log("controller id is ", controllerId);
+        }
+    }
+
+    function isDayDream() {
+        let isDayDream = false;
+        let gamepad = navigator.getGamepads()[0];
+        if (gamepad != undefined) {
+            let gamepadId = gamepad.id;
+            isDayDream = gamepadId.includes("Daydream") || gamepadId.includes("daydream");
+        }
+        return isDayDream;
+    }
+
+    window.onload = function() {
+
+        login_referred_set();
+
+        if (!login_isUserAuthenticated()) {
+            window.location.href = "login.html";
+        } else {
+            console.log("User Name : ", login_getCookie('unicef_name'));
+        }
+        //
+    };
+</script>
