@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<!-- login layout -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Unicef</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="loginform/theme_admin_panel.css?v=1563889273" media="screen" rel="stylesheet" type="text/css">
+    <link href="loginform/bootstrap.css?v=1518621016" media="screen" rel="stylesheet" type="text/css">
+    <link href="loginform/components.css?v=1563888743" media="screen" rel="stylesheet" type="text/css">
+    <link href="loginform/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+
+
+    <script type="text/javascript" src="loginform/jquery.min.js"></script>
+    <script type="text/javascript" src="loginform/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="loginform/form_select2.js"></script>
+    <script type="text/javascript" src="loginform/select2.min.js"></script>
+
+
+
+    <style type="text/css">
+        /*for other*/
+        body.layout-boxed {
+            background: #e2e3e3 !important
+        }
+
+        .module-center {
+            margin-left: 0.8% !important;
+        }
+
+        @media screen and (max-width:1220px) {
+            .custom-work .actual-box {
+                text-align: center;
+            }
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.2857em;
+            max-height: 42px;
+            color: #444;
+            overflow: hidden;
+        }
+
+        .anchor-tag {
+            width: 270px;
+            height: 360px;
+            display: inline-block;
+            margin-bottom: 11px;
+            margin-left: 21px;
+        }
+
+        .card {
+            width: 275px;
+            height: 352px;
+            background: #fff;
+        }
+
+        .anchor-tag:hover .card {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            cursor: pointer;
+            -webkit-transition: scale 1s;
+            transition: scale 1s;
+            transform: scale(0.99);
+            transition: all 0.4s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        footer {
+            margin-left: 0;
+        }
+
+        .card-container {
+            padding-left: 5px;
+        }
+
+        @media (max-width:1910px) {
+            .card-container {
+                text-align: center;
+            }
+        }
+
+        .filter-search-header {
+            margin-bottom: 20px;
+            background: url(../public/images/explore_library_bg.jpg);
+            height: auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .card-text {
+            clear: both;
+            font-size: 13px;
+            height: 82px;
+            overflow: hidden;
+            color: rgba(0, 0, 0, .68);
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body class="layout-boxed">
+    <div class="login-container">
+        <script>
+            $(window).load(function() {
+                $("#session_unicef").hide();
+                var unicef_name_cooki = getCookie('unicef_name');
+                if (unicef_name_cooki != '') {
+                    $("#session_unicef").show();
+                    $("#cooki_name").text(unicef_name_cooki);
+                }
+            });
+        </script>
+
+        <div class="filter-search-header" style="min-height:150px">
+            <div id='session_unicef' style="display: block;color: #d2cccc;float: right;padding: 20px 30px;font-size: 20px;">
+                Hi, <span id='cooki_name'></span> | <span style="cursor: pointer;" onclick="removeCookies();"> Not You?</span>
+            </div>
+        </div>
+
+        <!-- Basic modal -->
+        <div id="modal_default" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close model_close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">Please save your basic details</h5>
+                    </div>
+                    <div class="modal-body">
+                        <fieldset class="mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Full Name</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" placeholder="Enter your fullname..." id="username" name="username" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Age</label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" placeholder="Enter your age..." id="age" name="age" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Gender</label>
+                                <div class="col-lg-10">
+                                    <select class="form-control select" data-fouc id="gender" name="gender">
+                                        <option value="Boy">Boy</option>
+                                        <option value="Girl">Girl</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">Avatar</label>
+                                <div class="col-lg-10">
+                                    <select data-placeholder="Select avatar" class="form-control select-icons" data-fouc id="avatar" name="avatar">
+                                        <option value="Monkey" data-icon="fas fa-bicycle" selected> Monkey</option>
+                                        <option value="Snake" data-icon="Snake">Snake</option>
+                                        <option value="Zebra" data-icon="Zebra">Zebra</option>
+                                        <option value="Flower" data-icon="Flower">Flower</option>
+                                        <option value="Rain" data-icon="Rain">Rain</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="text-right">
+                            <input type="hidden" id="module_id" name="module_id">
+                            <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /basic modal -->
+        <link href="loginform/styles.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" charset="UTF-8" src="loginform/components_modals.js?v=1563881110"></script>
+        <script>
+            checkCookie();
+
+            $(document).ready(function() {
+                $(".error").remove();
+                var validate = true;
+                $("#submitBtn").click(function() {
+                    var username = $('#username').val();
+                    var age = $('#age').val();
+                    var gender = $('#gender').val();
+                    var avatar = $('#avatar').val();
+                    age = parseInt($('#age').val());
+                    $(".error").remove();
+
+                    if (username.length < 1) {
+                        $('#username').after('<span class="error">Please enter full name.</span>');
+                        validate = false;
+                    } else if (age.length < 1) {
+                        $('#age').after('<span class="error">Please enter age.</span>');
+                        validate = false;
+                    } else if (isNaN(age)) {
+                        $('#age').after('<span class="error">Please valid age.</span>');
+                        validate = false;
+                    } else if (age < 1) {
+                        $('#age').after('<span class="error">Please valid age.</span>');
+                        validate = false;
+                    } else if (gender.length < 1) {
+                        $('#gender').after('<span class="error">Please select gender.</span>');
+                        validate = false;
+                    } else if (avatar.length < 1) {
+                        $('#avatar').after('<span class="error">Please select avtar.</span>');
+                        validate = false;
+                    } else {
+                        validate = true;
+                    }
+
+
+                    //console.log(validate);
+                    if (validate) {
+                        // document.cookie = "unicef_name="+username+";path=/";
+                        // document.cookie = "unicef_age="+age+";path=/";
+                        // document.cookie = "unicef_avatar="+avatar+";path=/";
+                        // document.cookie = "unicef_gender="+gender+";path=/";
+
+                        setCookie("unicef_name", username, 1);
+                        setCookie("unicef_age", age, 1);
+                        setCookie("unicef_avatar", avatar, 1);
+                        setCookie("unicef_gender", gender, 1);
+
+
+                        $('#modal_default').find(".model_close").trigger('click');
+
+                        //window.location.reload();
+                        var module_id = $('#module_id').val();
+                        window.location.href = "index.html";
+
+                    }
+                });
+
+            });
+
+            var setCookie = function(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); //d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+
+            function removeCookies() {
+                document.cookie = 'unicef_name=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                document.cookie = 'unicef_age=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                document.cookie = 'unicef_avatar=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                document.cookie = 'unicef_gender=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                window.location.reload();
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            function checkCookie(moduleId) {
+                if (getCookie('unicef_name') === '') {
+                    $("#module_id").val(moduleId);
+                    $("#modal_default").modal('show');
+                } else {
+                    window.location.href = "index.html";
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
