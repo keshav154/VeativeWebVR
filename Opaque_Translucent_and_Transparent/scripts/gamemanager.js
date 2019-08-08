@@ -161,6 +161,9 @@ function b_Release_click() {
         SetActive('#b_cube2', true);
         SetOnClickListener('#m_Lance_Transparent', "");
         SetOnClickListener('#b_cube2', 'b_cube2_click()');
+        GetEntityById("#b_cube1").setAttribute('radius',0.000005);
+        GetEntityById("#b_cube2").setAttribute('radius',0.2);
+        GetEntityById("#b_cube3").setAttribute('radius',0.000005);
     } else if (release == 1) {
         SetActive('#b_release', false);
         SetActive('#i_NowLookAround', false);
@@ -171,6 +174,9 @@ function b_Release_click() {
         SetActive('#b_cube3', true);
         SetOnClickListener('#m_Lance_Translucent', "");
         SetOnClickListener('#b_cube3', 'b_cube3_click()');
+        GetEntityById("#b_cube1").setAttribute('radius',0.000005);
+        GetEntityById("#b_cube2").setAttribute('radius',0.000005);
+        GetEntityById("#b_cube3").setAttribute('radius',0.2);
 
     } else if (release == 2) {
         SetActive('#b_release', false);
@@ -181,6 +187,9 @@ function b_Release_click() {
         SetActive('#b_continue', true);
         SetActive('#i_Continue', true, 0.1);
         PlayVO2('#p_continueClickInst');
+        GetEntityById("#b_cube1").setAttribute('radius',0.000005);
+        GetEntityById("#b_cube2").setAttribute('radius',0.000005);
+        GetEntityById("#b_cube3").setAttribute('radius',0.000005);
 
     }
 }
@@ -257,6 +266,9 @@ function b_Continue_click() {
     SetActive('#b_continue', false);
     SetActive('#Q1_L1', true);
     PlayVO2('#p_L1Q1');
+    GetEntityById("#b_cube1").setAttribute('radius',0.000005);
+    GetEntityById("#b_cube2").setAttribute('radius',0.000005);
+    GetEntityById("#b_cube3").setAttribute('radius',0.000005);
 }
 
 function q1_ok() {
