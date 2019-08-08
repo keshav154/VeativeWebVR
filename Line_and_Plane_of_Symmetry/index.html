@@ -15,69 +15,6 @@
 <script src="scripts/cursorzoom.js"></script>
 <script src="appdata.js"></script>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.5/platform.min.js"></script> -->
-
-
-
-<!-- For keyboard -->
-<!-- <script src="https://rawgit.com/aframevr/aframe/c4aa63e/dist/aframe-master.min.js"></script> -->
-<!-- <script src="./dist/aframe-super-keyboard.min.js"></script> -->
-
-
-<!-- For UI -->
-<!-- <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script> -->
-
-
-<!-- <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
-   <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
-   <script src="https://cdn.rawgit.com/etiennepinchon/aframe-material/master/dist/aframe-material.min.js"></script>
-    <script type="text/javascript">
-     AFRAME.ASSETS_PATH = "./assets";
-   </script> -->
-
-
-
-<script>
-    AFRAME.registerComponent('auto-enter-vr', {
-        init: function() {
-            //this.el.sceneEl.enterVR();
-            var scene = this;
-
-            // scene.el.addEventListener('loaded', function () {
-            //     setTimeout(function(){
-            //
-            //       //myfun();
-            //
-            //     },3000);
-            // });
-
-
-            this.el.addEventListener('mouseenter', function() {
-                myfun();
-                this.sceneEl.enterVR();
-                console.log(this.sceneEl.is('vr-mode'));
-            });
-
-        }
-    });
-
-
-
-    AFRAME.registerComponent('foo', {
-        init: function() {
-
-            this.el.addEventListener('animationcomplete', myfun);
-        }
-    });
-
-
-
-    function myfun() {
-        console.log("Responding-----------------------");
-    }
-</script>
-
-
 
 <!-- --------------------------------------------------------------------------------- -->
 
@@ -183,7 +120,7 @@ physicallyCorrectLights: true;">
         <a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'></a-sound>
 
         <!-- Title -->
-        <a-entity auto-enter-vr position="0 2.5 -3" geometry="primitive: plane; width: 3; height: 0.35;" material="color: black; opacity:1" text=" value: Line and Plane of Symmetry; align:center; width: 5 ">
+        <a-entity  position="0 2.5 -3" geometry="primitive: plane; width: 3; height: 0.35;" material="color: black; opacity:1" text=" value: Line and Plane of Symmetry; align:center; width: 5 ">
         </a-entity>
 
 
@@ -361,7 +298,7 @@ into two halves.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffs
 
 
         <!-- These Two Objects2 -->
-        <a-entity id="p_theseTwoObjects2" position="0 3.2 -3" rotation="10 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 1.1" material="color: black; opacity:1" text="value:These two objects have a plane of
+        <a-entity id="p_theseTwoObjects2" position="0 3.2 -3" rotation="10 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 1.1" material="color: black; opacity:1" text="value:These two objects each have a plane of
 symmetry because they can be divided
 into two halves such that the two halves
 are mirror images of each other.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
