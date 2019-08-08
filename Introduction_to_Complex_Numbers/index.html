@@ -72,7 +72,7 @@ physicallyCorrectLights: true;">
     <a-sound id="s_L1" src="src: url(sounds/Animation_VO.wav)" poolSize=5></a-sound>
 
     <a-sound id="s_p_objective" src="src: url(sounds/ObjectiveContent.wav)" poolSize=5></a-sound>
-    <a-sound id="s_MainMenu_close" src="src: url(sounds/btn_close.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_close" src="src: url(sounds/btn_close.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_complete" src="src: url(sounds/p_complete.wav)" poolSize=5></a-sound>
     <!-- -----------------------------/Faiz --------------------->
     <a-assets id="assets" timeout="3600000">
@@ -109,16 +109,16 @@ physicallyCorrectLights: true;">
 
 
 
-    <a-sound src="#bgsound" autoplay="false" volume="0.5" loop='true'></a-sound>
+    <a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'></a-sound>
 
 
     <!-- ----------------------------  Main Menu  ------------------------------------- -->
-    <a-entity id="MainMenu" setactive="value:true">
+    <a-entity id="MainMenu" setactive="value:false">
 
         <a-sky src="#img360" rotation="0 -130 0"></a-sky>
 
 
-        <a-image id="btn_close" setactive="value:false" position="1.835 2.403 -2.602" rotation="0 -25 0" src="#MainMenu_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input vo_hover onclick="btn_close_click();">
+        <a-image id="btn_close" setactive="value:false;" position="1.835 2.403 -2.602" rotation="0 -25 0" src="#MainMenu_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input vo_hover onclick="btn_close_click();">
         </a-image>
 
 
@@ -158,8 +158,8 @@ physicallyCorrectLights: true;">
 
  After completing this module, you will be able to:
   Define complex numbers.
- Find the conjugate and the multiplicative
-   inverse of a complex number..; width: 2.8; xOffset:0.0; yOffset:1">
+ 1. Find the conjugate and the multiplicative
+     inverse of a complex number..; width: 2.8; xOffset:0.0; yOffset:1">
 
 
             <!-- Ok button -->
@@ -231,7 +231,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
         </a-entity>
 
 
-        <a-sphere id="Highlighhted" highlight position="5.5 .75 -1.8" radius=".25" setactive="value:false" click_sound cardboard_input onclick="ClickOnHighlighted()" static-body material="color:green">
+        <a-sphere id="Highlighhted" highlight position="5.5 .75 -1.8" radius="0.000001"   click_sound cardboard_input onclick="ClickOnHighlighted()" static-body material="color:green">
         </a-sphere>
 
         <a-entity id="Q1" setactive="value:false" position="5.5 .97 -3.1" rotation="0 0 0" geometry="primitive: plane; width: 3.5; height: 1.5" material="color: black; opacity:0">
@@ -501,7 +501,7 @@ a complex number=" position="0.298 0.010 0" align="left" anchor="center" width="
 
 
         <!--------------------------- flowerPotActivity -->
-        <a-sphere id="NextHighlighhted" highlight position="-2.817 0.513 -0.331" radius=".2" setactive="value:false" click_sound cardboard_input onclick="ClickNextHighlighted();" material="color:green">
+        <a-sphere id="NextHighlighhted" highlight position="-2.817 0.513 -0.331" radius=".00001" setactive="value:false" click_sound cardboard_input onclick="ClickNextHighlighted();" material="color:green">
         </a-sphere>
 
 
@@ -909,8 +909,8 @@ mirror images of each other.; align:center; width: 2.8;">
 
     function ShowMainMenu() {
         SetActive('#MainMenu', true);
-        if (!login_isReferred()) {
-            SetActive('#btn_close', false);
+        if (login_isReferred()) {
+            SetActive('#btn_close', true);
         }
     }
 

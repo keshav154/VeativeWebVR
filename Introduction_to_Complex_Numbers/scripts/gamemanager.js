@@ -87,6 +87,7 @@ function clickOnScoreIns() {
     EnableWASD_Controls();
     PlayVO2("#p_L2_MoveToHighlighted");
     SetActive('#Highlighhted', true);
+    GetEntityById("#Highlighhted").setAttribute('radius',0.25);
     SetActive('#l_score', true, .1);
 
     // let ent=GetEntityById('#Highlighhted');
@@ -100,6 +101,7 @@ function ClickOnHighlighted() {
     a.setAttribute('animation', 'enabled', 'true');
     SetActive('#Highlighhted', false);
     SetActive("#p_L2_MoveToHighlighted", false);
+        GetEntityById("#Highlighhted").setAttribute('radius',0.000005);
     setTimeout(() => {
 
         SetActive("#p_L2_ClickOnLamp", true, .1);
@@ -215,6 +217,8 @@ function q4_okActivity() {
     if (R_Conj & L_Conj) {
         addScore(4, 1)
         SetActive("#welldone_4", true);
+          PlayVO2('#welldone');
+
         setTimeout(() => {
             SetActive("#welldone_4", false);
         }, 2000)
@@ -233,6 +237,8 @@ function q4_okActivity() {
 
         addScore(4, 2)
         SetActive("#tryagain_4", true);
+        PlayVO2('#tryagain');
+
         setTimeout(() => {
             SetActive("#tryagain_4", false);
             SetActive("#Q4_RightAns", true);
@@ -375,6 +381,7 @@ function DragActivityOk() {
     SetActive('#p_L2_FindInverse', false);
     PlayVO2('#p_L2_MoveNextHighlighted');
     SetActive('#NextHighlighhted', true, 1);
+    GetEntityById("#NextHighlighhted").setAttribute('radius',0.25);
     SetActive('#p_L2_MoveNextHighlighted', true, .1);
     SetActive('#AfterDragOk', false);
 
@@ -385,6 +392,7 @@ function ClickNextHighlighted() {
 
     var a = document.querySelector('#player');
     a.setAttribute('animation__2', 'enabled', 'true');
+    GetEntityById("#NextHighlighhted").setAttribute('radius',0.000001);
     SetActive('#p_L2_MoveNextHighlighted', false, .1);
     SetActive('#NextHighlighhted', false);
     setTimeout(() => {
@@ -429,7 +437,7 @@ function p_comp_as_click() {
     SetActive("#p_here_your_score", false);
     SetActive(l_scoreId, false);
 
-    if (getPercent() >= '60') {
+    if (getPercent() >=60) {
         SetActive("#p_greaterthan", true, .5);
         PlayVO2("#p_greaterthan");
     } else {
@@ -465,7 +473,7 @@ function L1_AnimComplete() {
 
         SetActive('#m1', false);
         //SetActive('#L1',false);
-        PlayVO2("#p_L1");
+        PlayVO2("#p_complete");
     }, 89000)
 
 }
