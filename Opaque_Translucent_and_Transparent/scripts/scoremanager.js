@@ -7,21 +7,25 @@ var score=0;
 
 function addScore(id,attempt)
 {
-score +=getScore(attempt);
-var scorePanel=document.querySelector(l_scoreId);
-scorePanel.setAttribute('text','value','Score : '.concat(score));
+  if (id < 100) {
+        score +=getScore(attempt);
+        var scorePanel=document.querySelector(l_scoreId);
+        scorePanel.setAttribute('text','value','Score : '.concat(score));
 
-// console.log("dflkjdfkjdf ",id," ",attempt);
+        // console.log("dflkjdfkjdf ",id," ",attempt);
 
-let qinfo=GetQuestionInfo(id);
-qinfo.uScore=getScore(attempt);
-qinfo.qId='Q'.concat(id);
+        let qinfo=GetQuestionInfo(id);
+        qinfo.uScore=getScore(attempt);
+        qinfo.qId='Q'.concat(id);
 
-addScoreData(qinfo);
+        addScoreData(qinfo);
 
-if(id==question_count)
-saveScoreToLocalDB();
+        if(id==question_count)
+        saveScoreToLocalDB();
 }
+
+}
+
 
 
 

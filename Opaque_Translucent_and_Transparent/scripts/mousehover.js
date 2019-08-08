@@ -1,12 +1,13 @@
 var mousehover_enable=false;
 
-
 AFRAME.registerComponent('mouse_hover', {
   init: function () {
 
   var elename=this.el.getAttribute('id');
 
   this.el.addEventListener('mouseenter', function (evt) {
+
+    console.log("Mouse ++ ",mousehover_get());
 
     if(mousehover_get())
     {
@@ -15,6 +16,8 @@ AFRAME.registerComponent('mouse_hover', {
   });
 
   this.el.addEventListener('mouseleave', function (evt) {
+
+console.log("Mouse -- ",mousehover_get());
 
     if(mousehover_get())
     {

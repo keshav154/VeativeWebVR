@@ -86,14 +86,25 @@ function OnClickAS() {
 function OnClickObjectiveOk() {
     SetActive('#LO', false);
     //SetActive('#MainMenu',true);
-    OnClickL1();
+  //  OnClickL1();
     StopVO2(5);
+    SetActive('#MainMenu', false);
+    SetActive('#L1', true);
+    SetActive(i_MoveToHighlightId, true, 0.1);
+    SetOnClickListener('#m_Lance_Transparent', "");
+    SetOnClickListener('#m_Lance_Translucent', "");
+    SetOnClickListener('#m_Lance_Opaque', "");
+    PlayVO2('#p_movetohighlight');
+    DisableControlls(false);
+    SetOnClickListener('#b_cube2', "");
+    SetOnClickListener('#b_cube3', "");
 }
 
 
 
 ///___________________  Level_1 Functions
-function b_cube1_click() {
+function b_cube1_click()
+{
     var a = document.querySelector('#Player');
     a.setAttribute('animation', 'enabled', 'true');
     SetActive(i_MoveToHighlightId, false);
@@ -279,15 +290,14 @@ function q3_ok() {
 }
 
 
-function ClickScreenTransparent() {
+function ClickScreenTransparent()
+ {
     screenCount++;
     SetActive('#i_ItTransmit1', true);
     PlayVO2('#p_transparent_d');
-    if (screenCount == 3) {
-        SetActive('#i_ItTransmit1', false);
-        SetActive('#i_ClickOnEach', false);
-        setTimeout(enableKeyConcept, 2000);
-
+    if (screenCount == 3)
+    {
+        setTimeout(enableKeyConcept, 7000);
     }
     SetActive('#i_ItTransmit2', false);
     SetActive('#i_ItTransmit3', false);
@@ -300,10 +310,9 @@ function ClickScreenTransulent() {
     SetActive('#i_ItTransmit2', true);
     PlayVO2('#p_translucent_d');
 
-    if (screenCount == 3) {
-        SetActive('#i_ItTransmit2', false);
-        SetActive('#i_ClickOnEach', false);
-        setTimeout(enableKeyConcept, 2000);
+    if (screenCount == 3)
+    {
+        setTimeout(enableKeyConcept, 7000);
     }
     SetActive('#i_ItTransmit1', false);
     SetActive('#i_ItTransmit3', false);
@@ -316,9 +325,7 @@ function ClickScreenOpaque() {
     PlayVO2('#p_opaque_d');
 
     if (screenCount == 3) {
-        SetActive('#i_ItTransmit3', false);
-        SetActive('#i_ClickOnEach', false);
-        setTimeout(enableKeyConcept, 2000);
+        setTimeout(enableKeyConcept, 7000);
     }
     SetActive('#i_ItTransmit2', false);
     SetActive('#i_ItTransmit1', false);
@@ -327,6 +334,10 @@ function ClickScreenOpaque() {
 
 
 function enableKeyConcept() {
+    SetActive('#i_ItTransmit1', false);
+    SetActive('#i_ItTransmit2', false);
+    SetActive('#i_ItTransmit3', false);
+    SetActive('#i_ClickOnEach', false);
     SetActive('#p_keyConcept', true);
     PlayVO2('#p_outcome');
 }
@@ -360,6 +371,8 @@ function p_score_inst_click() {
     SetActive('#i_ClickOnAny', true, 0.1);
     PlayVO2('#p_dragObject');
 
+    console.log("Mouse over value ",mousehover_get());
+
 }
 
 
@@ -374,105 +387,103 @@ var attempt = 0;
 
 
 function ClickOnModels(num) {
-    switch (num) {
-        case 1:
-            SetActive('#m_Brick_Wall', false);
-            SetActive('#cm_Brick_Wall_1', true, 0.1);
-            disableSelect();
-            enableSelect();
-            modelNameEnable = '#m_Brick_Wall';
-            modelNameDisable = '#cm_Brick_Wall_1';
-            modelNameEnableDupl = '#m_Brick_Wall_Dup';
-            utility_changeText('#p_materialFill_'.concat(number), 'Brick Wall');
-            rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
-            questionRightAnswer = "Opaque";
-            // SetOnClickListener('#m_Brick_Wall',"");
-            break;
 
-        case 2:
-            SetActive('#m_Glass', false);
-            SetActive('#cm_Glass_1', true, 0.1);
-            disableSelect();
-            enableSelect();
-            modelNameEnable = '#m_Glass';
-            modelNameDisable = '#cm_Glass_1';
-            modelNameEnableDupl = '#m_Glass_Dup';
-            utility_changeText('#p_materialFill_'.concat(number), 'Glass');
-            rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
-            questionRightAnswer = "Transparent";
-            // SetOnClickListener('#m_Glass',"");
+if(mousehover_get())
+{
+  switch (num) {
+      case 1:
+          SetActive('#m_Brick_Wall', false);
+          SetActive('#cm_Brick_Wall_1', true, 0.1);
+          disableSelect();
+          enableSelect();
+          modelNameEnable = '#m_Brick_Wall';
+          modelNameDisable = '#cm_Brick_Wall_1';
+          modelNameEnableDupl = '#m_Brick_Wall_Dup';
+          utility_changeText('#p_materialFill_'.concat(number), 'Brick Wall');
+          rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
+          questionRightAnswer = "Opaque";
+          break;
 
-            break;
+      case 2:
+          SetActive('#m_Glass', false);
+          SetActive('#cm_Glass_1', true, 0.1);
+          disableSelect();
+          enableSelect();
+          modelNameEnable = '#m_Glass';
+          modelNameDisable = '#cm_Glass_1';
+          modelNameEnableDupl = '#m_Glass_Dup';
+          utility_changeText('#p_materialFill_'.concat(number), 'Glass');
+          rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
+          questionRightAnswer = "Transparent";
+          break;
 
-        case 3:
-            SetActive('#m_Wood', false);
-            SetActive('#cm_Wood_1', true, 0.1);
-            disableSelect();
-            enableSelect();
-            modelNameEnable = '#m_Wood';
-            modelNameDisable = '#cm_Wood_1';
-            modelNameEnableDupl = '#m_Wood_Dup';
-            utility_changeText('#p_materialFill_'.concat(number), 'Wood');
-            rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
-            questionRightAnswer = "Opaque";
-            // SetOnClickListener('#m_Wood',"");
+      case 3:
+          SetActive('#m_Wood', false);
+          SetActive('#cm_Wood_1', true, 0.1);
+          disableSelect();
+          enableSelect();
+          modelNameEnable = '#m_Wood';
+          modelNameDisable = '#cm_Wood_1';
+          modelNameEnableDupl = '#m_Wood_Dup';
+          utility_changeText('#p_materialFill_'.concat(number), 'Wood');
+          rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
+          questionRightAnswer = "Opaque";
+          break;
 
-            break;
+      case 4:
+          SetActive('#m_Cellophane', false);
+          SetActive('#cm_Cellophane_1', true, 0.1);
+          AnimationMixerPlay('#cm_Cellophane_1');
+          disableSelect();
+          enableSelect();
+          modelNameEnable = '#m_Cellophane';
+          modelNameDisable = '#cm_Cellophane_1';
+          modelNameEnableDupl = '#m_Cellophane_Dup';
+          utility_changeText('#p_materialFill_'.concat(number), 'Cellophane');
+          rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
+          questionRightAnswer = "Translucent";
+          break;
 
-        case 4:
-            SetActive('#m_Cellophane', false);
-            SetActive('#cm_Cellophane_1', true, 0.1);
-            AnimationMixerPlay('#cm_Cellophane_1');
-            disableSelect();
-            enableSelect();
-            modelNameEnable = '#m_Cellophane';
-            modelNameDisable = '#cm_Cellophane_1';
-            modelNameEnableDupl = '#m_Cellophane_Dup';
-            utility_changeText('#p_materialFill_'.concat(number), 'Cellophane');
-            rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
-            questionRightAnswer = "Translucent";
-            // SetOnClickListener('#m_Cellophane',"");
+      case 5:
+          SetActive('#m_Transparent', false);
+          SetActive('#cm_Transparent_1', true, 0.1);
+          disableSelect();
+          enableSelect();
+          modelNameEnable = '#m_Transparent';
+          modelNameDisable = '#cm_Transparent_1';
+          modelNameEnableDupl = '#m_Transparent_Dup';
+          utility_changeText('#p_materialFill_'.concat(number), 'Transparent');
+          rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
+          questionRightAnswer = "Transparent";
+          break;
 
-            break;
+      case 6:
+          SetActive('#m_Oil_Paper', false);
+          SetActive('#cm_Oil_Paper_1', true, 0.1);
+          AnimationMixerPlay('#cm_Oil_Paper_1');
+          disableSelect();
+          enableSelect();
+          modelNameEnable = '#m_Oil_Paper';
+          modelNameDisable = '#cm_Oil_Paper_1';
+          modelNameEnableDupl = '#m_Oil_Paper_Dup';
+          utility_changeText('#p_materialFill_'.concat(number), 'Oil Paper');
+          rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
+          questionRightAnswer = "Translucent";
+          break;
 
-        case 5:
-            SetActive('#m_Transparent', false);
-            SetActive('#cm_Transparent_1', true, 0.1);
-            disableSelect();
-            enableSelect();
-            modelNameEnable = '#m_Transparent';
-            modelNameDisable = '#cm_Transparent_1';
-            modelNameEnableDupl = '#m_Transparent_Dup';
-            utility_changeText('#p_materialFill_'.concat(number), 'Transparent');
-            rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
-            questionRightAnswer = "Transparent";
-            // SetOnClickListener('#m_Transparent',"");
+  }
+      if (number < 7)
+        {
+          number++;
+        }
+       else
+        {
+          number = 1;
+        }
+  setTimeout(disableModel, 2000, modelNameEnable, modelNameDisable);
+  disableClickOnModel();
+}
 
-            break;
-
-        case 6:
-            SetActive('#m_Oil_Paper', false);
-            SetActive('#cm_Oil_Paper_1', true, 0.1);
-            AnimationMixerPlay('#cm_Oil_Paper_1');
-            disableSelect();
-            enableSelect();
-            modelNameEnable = '#m_Oil_Paper';
-            modelNameDisable = '#cm_Oil_Paper_1';
-            modelNameEnableDupl = '#m_Oil_Paper_Dup';
-            utility_changeText('#p_materialFill_'.concat(number), 'Oil Paper');
-            rightanswerId = '#p_materialFill_'.concat(number).concat('_type');
-            questionRightAnswer = "Translucent";
-
-            break;
-
-    }
-    if (number < 7) {
-        number++;
-    } else {
-        number = 1;
-    }
-    setTimeout(disableModel, 2000, modelNameEnable, modelNameDisable);
-    disableClickOnModel();
 }
 
 function disableModel() {
@@ -485,17 +496,18 @@ function disableModel() {
     PlayVO2('#p_clickToSelect');
 }
 
-function OpenDropDown() {
+function OpenDropDown()
+{
     SetActive('#b_opequeSelect', true);
     SetActive('#b_translucentSelect', true);
     SetActive('#b_transparentSelect', true);
-
 }
 
 
 function OnDropDownOptionClick(id) {
 
-    if (questionRightAnswer == id) {
+    if (questionRightAnswer == id)
+    {
         wrongCount++;
         utility_changeText(rightanswerId, id);
         SetActive('#welldone_as', true);
@@ -506,29 +518,44 @@ function OnDropDownOptionClick(id) {
         enableClickOnModel();
         disableSelect();
         SetActive('#i_ClickOnDropDown', false);
-
-        if (number > 6) {
-            setTimeout(enablelastPanels, 3000);
+        if (number > 6)
+        {
+          setTimeout(enablelastPanels, 3000);
         }
         wrongCount = 0;
 
-    } else {
+    }
+     else
+     {
         wrongCount++;
-        if (wrongCount < 2) {
+        if (wrongCount < 2)
+        {
             SetActive('#tryagain_as', true);
             PlayVO2('#tryagainNew');
             setTimeout(disTryagain, 2000);
-        } else {
+        }
+         else
+         {
             autoCorrect_();
+            PlayVO2('#currectOption');
         }
     }
+
+
 }
 
 
 function diswelldone() {
     SetActive('#welldone_as', false);
-    SetActive('#i_ClickOnAny', true, 0.1);
-    PlayVO2('#p_dragObject');
+    if (number > 6)
+    {
+      SetActive('#i_ClickOnAny', false);
+    }
+    else {
+      SetActive('#i_ClickOnAny', true, 0.1);
+        PlayVO2('#p_dragObject');
+    }
+
 }
 
 function disTryagain() {
@@ -549,21 +576,29 @@ function enableSelect() {
 }
 
 
-function autoCorrect_() {
-    PlayVO2('#currectOption');
+function autoCorrect_()
+{
     utility_changeText(rightanswerId, questionRightAnswer);
     SetActive('#b_select', false);
     addScore(number - 1, 2);
+    setTimeout(enableAfterVO,2000);
     enableClickOnModel();
-    if (number > 6) {
-        setTimeout(enablelastPanels, 3000);
 
-    }
     wrongCount = 0;
     SetActive('#i_ClickOnDropDown', false);
+}
+
+function enableAfterVO()
+{
+  if (number > 6)
+  {
+      setTimeout(enablelastPanels, 3000);
+  }
+  else
+  {
     SetActive('#i_ClickOnAny', true, 0.1);
     PlayVO2('#p_dragObject');
-
+  }
 }
 
 function disableClickOnModel() {
@@ -585,7 +620,8 @@ function enableClickOnModel() {
 }
 
 
-function enablelastPanels() {
+function enablelastPanels()
+{
     SetActive('#p_table', false);
     SetActive('#i_ClickOnDropDown', false);
     SetActive('#i_ClickOnAny', false);
@@ -597,32 +633,38 @@ function enablelastPanels() {
 
 
 
-function p_comp_as_click() {
+function p_comp_as_click()
+{
     SetActive(p_comp_asId, false);
     SetActive(l_scoreId, false);
-
-    if (getPercent() >= 60) {
+    if (getPercent() >= 60)
+    {
         SetActive(p_greaterthanId, true);
-        PlayVO2('#p_Assesment_GreaterThan60%');
-    } else {
+        PlayVO2('#p_Assesment_GreaterThan60');
+    }
+    else
+    {
         SetActive(p_lessthanId, true);
-        PlayVO2('#p_Assesment_LessThan60%');
+        PlayVO2('#p_Assesment_LessThan60');
     }
 }
 
 
-function p_lessthan_click() {
+function p_lessthan_click()
+{
     SetActive(p_lessthanId, false);
     GoToMainMenu();
 }
 
 
-function p_greaterthan_click() {
+function p_greaterthan_click()
+{
     SetActive(p_greaterthanId, false);
     GoToMainMenu();
 }
 
-function GoToMainMenu() {
+function GoToMainMenu()
+{
     setTimeout(location.reload.bind(location), 1000);
 }
 

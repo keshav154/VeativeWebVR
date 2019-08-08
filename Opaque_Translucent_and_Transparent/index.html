@@ -1,4 +1,3 @@
-<!-- <a-entity gearvr-controls laser-controls="hand: right" id="controller" line="color: #00ffff; opacity: 0.75" raycaster="far: 2"></a-entity> -->
 <link rel="manifest" href="manifest.json">
 <Title>Opaque, Translucent and Transparent</Title>
 
@@ -59,8 +58,8 @@ physicallyCorrectLights: true;">
     <a-sound id="s_welldoneNew" src="src: url(sounds/welldone.wav)" poolSize=5></a-sound>
     <a-sound id="s_tryagainNew" src="src: url(sounds/tryagain.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_Assesment_Complete" src="src: url(sounds/p_Assesment_Complete.wav)" poolSize=5></a-sound>
-    <a-sound id="s_p_Assesment_GreaterThan60%" src="src: url(sounds/p_Assesment_GreaterThan60%.wav)" poolSize=5></a-sound>
-    <a-sound id="s_p_Assesment_LessThan60%" src="src: url(sounds/p_Assesment_LessThan60%.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_Assesment_GreaterThan60" src="src: url(sounds/p_Assesment_GreaterThan60.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_Assesment_LessThan60" src="src: url(sounds/p_Assesment_LessThan60.wav)" poolSize=5></a-sound>
     <a-sound id="s_btn_close" src="src: url(sounds/btn_close.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_dragScreen1" src="src: url(sounds/p_dragScreen1.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_dragScreen2" src="src: url(sounds/p_dragScreen2.wav)" poolSize=5></a-sound>
@@ -91,7 +90,7 @@ physicallyCorrectLights: true;">
         <img id="img3602" src="images/skybox2.jpg">
         <audio id="bgsound" src="sounds/bg.mp3"></audio>
 
-        <a-asset-item id="bg" src="models/BG/BG.gltf"></a-asset-item>
+        <a-asset-item id="bg" src="models/BG/New_BG.gltf"></a-asset-item>
         <a-asset-item id="Lance_Opaqe" src="models/Lance_Opaqe/Lance_Opaque.gltf"></a-asset-item>
         <a-asset-item id="Lance_Opaqe_anim" src="models/Anim/opaque/opaque_anim.gltf"></a-asset-item>
         <a-asset-item id="Lance_Translucent" src="models/Lance_Translucent/Lance_Translucent.gltf"></a-asset-item>
@@ -150,7 +149,6 @@ physicallyCorrectLights: true;">
         <a-image id="btn_lo" position="-1.4 1.5 -3" geometry="primitive: plane; width: 1.3; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: View learning \n objectives; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickObjective();">
         </a-image>
 
-        <!-- <a-image src="#tex_menu_off" position="0.7 1.5 -3"></a-image> -->
 
         <a-image id="btn_l1" position="0 1.5 -3" geometry="primitive: plane; width: 1.3; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Opaque, translucent\nand transparent\n objects; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickL1();">
         </a-image>
@@ -198,8 +196,7 @@ physicallyCorrectLights: true;">
         <a-light intensity="3" position="0 0 0" rotation="0 0 0" type="ambient"></a-light>
         <a-entity id="bg" gltf-model="#bg" position="-1 0.8 -6" scale="0.5 0.5 0.5" rotation="0 90 0">
         </a-entity>
-        <!-- <a-entity id="Lance_Opaqe" gltf-model="#Lance_Opaqe" position = "-1 .8 -6" scale="0.5 0.5 0.5" rotation="0 90 0">
-</a-entity> -->
+
 
         <a-entity id="m_Lance_Transparent" gltf-model="#Lance_Transparent" position="-1 .8 -6" scale="0.5 0.5 0.5" rotation="0 90 0" click_sound cardboard_input vo_hover color_hover onclick="Lance_Transparent();">
         </a-entity>
@@ -243,32 +240,32 @@ physicallyCorrectLights: true;">
         <a-entity id="Q1_L1" position="1 2.5 -5" rotation="0 0 0" geometry="primitive: plane; width: 3; height: 2" setactive="value:false" material="color: black; opacity:1">
             <a-text value="Q.1. How do objects appear when seen through a transparent screen?" position="0.1 0.6 0" align="left" anchor="center" width="3"></a-text>
             <a-entity position="-1.35 0.3 0.02">
-                <a-text id="q1at" value="A. The objects are clearly visible through a transparent screen." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.35 -0.038 0.1" click_sound cardboard_input question="id:1 ; rightOption:a; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                <a-text id="q101at" value="A. The objects are clearly visible through a transparent screen." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.35 -0.038 0.1" click_sound cardboard_input question="id:101 ; rightOption:a; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.03 0.02">
-                <a-text id="q1bt" value="B. The objects appear blurry when seen through a transparent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.3 -0.025 0.1" click_sound cardboard_input question="id:1 ; rightOption:a; option:b;" geometry="primitive: plane; height:0.25; width:2.7;" material="opacity:0">
+                <a-text id="q101bt" value="B. The objects appear blurry when seen through a transparent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.3 -0.025 0.1" click_sound cardboard_input question="id:101 ; rightOption:a; option:b;" geometry="primitive: plane; height:0.25; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.28 0.02">
-                <a-text id="q1ct" value="C. The objects are not visible when seen through a transparent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.31 -0.038 0.1" click_sound cardboard_input question="id:1 ; rightOption:a; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                <a-text id="q101ct" value="C. The objects are not visible when seen through a transparent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.31 -0.038 0.1" click_sound cardboard_input question="id:101 ; rightOption:a; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.56 0.02">
-                <a-text id="q1dt" value="D. None of the above." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.3 -0.035 0.1" click_sound cardboard_input question="id:1 ; rightOption:a; option:d;" geometry="primitive: plane; height:0.2; width:2.6;" material="opacity:0">
+                <a-text id="q101dt" value="D. None of the above." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.3 -0.035 0.1" click_sound cardboard_input question="id:101 ; rightOption:a; option:d;" geometry="primitive: plane; height:0.2; width:2.6;" material="opacity:0">
                 </a-entity>
             </a-entity>
 
-            <a-entity setactive="value:false" id="welldone_1" mixin="Welldone" position="-0.17 -0.8 0">
+            <a-entity setactive="value:false" id="welldone_101" mixin="Welldone" position="-0.17 -0.8 0">
             </a-entity>
-            <a-entity setactive="value:false" id="tryagain_1" mixin="Tryagain" position="-0.17 -0.8 0">
+            <a-entity setactive="value:false" id="tryagain_101" mixin="Tryagain" position="-0.17 -0.8 0">
             </a-entity>
 
-            <a-image setactive="value: false" id="btn_ok_1" mixin="OK" width="0.5" height="0.25" position="-0.2 -0.8 0.5" onclick="q1_ok();">
+            <a-image setactive="value: false" id="btn_ok_101" mixin="OK" width="0.5" height="0.25" position="-0.2 -0.8 0.5" onclick="q1_ok();">
             </a-image>
 
         </a-entity>
@@ -280,32 +277,32 @@ physicallyCorrectLights: true;">
         <a-entity id="Q2_L1" position="1 2.5 -5" rotation="0 0 0" geometry="primitive: plane; width: 3; height: 2" setactive="value:false" material="color: black; opacity:1">
             <a-text value="Q.2. How do objects appear when seen through a translucent screen?" position="0.1 0.6 0" align="left" anchor="center" width="3"></a-text>
             <a-entity position="-1.35 0.3 0.02">
-                <a-text id="q2at" value="A. The objects are clearly visible through a translucent screen." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.35 -0.038 0.1" click_sound cardboard_input question="id:2 ; rightOption:b; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                <a-text id="q102at" value="A. The objects are clearly visible through a translucent screen." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.35 -0.038 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.03 0.02">
-                <a-text id="q2bt" value="B. The objects appear blurry when seen through a transculent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.3 -0.025 0.1" click_sound cardboard_input question="id:2 ; rightOption:b; option:b;" geometry="primitive: plane; height:0.25; width:2.7;" material="opacity:0">
+                <a-text id="q102bt" value="B. The objects appear blurry when seen through a transculent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.3 -0.025 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:b;" geometry="primitive: plane; height:0.25; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.28 0.02">
-                <a-text id="q2ct" value="C. The objects are not visible when seen through a transculent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.31 -0.038 0.1" click_sound cardboard_input question="id:2 ; rightOption:b; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                <a-text id="q102ct" value="C. The objects are not visible when seen through a transculent screen." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.31 -0.038 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.56 0.02">
-                <a-text id="q2dt" value="D. None of the above." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.3 -0.035 0.1" click_sound cardboard_input question="id:2 ; rightOption:b; option:d;" geometry="primitive: plane; height:0.2; width:2.6;" material="opacity:0">
+                <a-text id="q102dt" value="D. None of the above." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.3 -0.035 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:d;" geometry="primitive: plane; height:0.2; width:2.6;" material="opacity:0">
                 </a-entity>
             </a-entity>
 
-            <a-entity setactive="value:false" id="welldone_2" mixin="Welldone" position="-0.17 -0.8 0">
+            <a-entity setactive="value:false" id="welldone_102" mixin="Welldone" position="-0.17 -0.8 0">
             </a-entity>
-            <a-entity setactive="value:false" id="tryagain_2" mixin="Tryagain" position="-0.17 -0.8 0">
+            <a-entity setactive="value:false" id="tryagain_102" mixin="Tryagain" position="-0.17 -0.8 0">
             </a-entity>
 
-            <a-image setactive="value: false" id="btn_ok_2" mixin="OK" width="0.5" height="0.25" position="-0.2 -0.8 0.5" onclick="q2_ok();">
+            <a-image setactive="value: false" id="btn_ok_102" mixin="OK" width="0.5" height="0.25" position="-0.2 -0.8 0.5" onclick="q2_ok();">
             </a-image>
 
         </a-entity>
@@ -316,32 +313,32 @@ physicallyCorrectLights: true;">
         <a-entity id="Q3_L1" position="1 2.5 -5" rotation="0 0 0" geometry="primitive: plane; width: 3.2; height: 2" setactive="value:false" material="color: black; opacity:1">
             <a-text value="Q.3. How do objects appear when seen through an opaque screen?" position="0.1 0.6 0" align="left" anchor="center" width="2.9"></a-text>
             <a-entity position="-1.35 0.3 0.02">
-                <a-text id="q3at" value="A. The objects are clearly visible through a opaque screen." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.35 -0.038 0.1" click_sound cardboard_input question="id:3 ; rightOption:c; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                <a-text id="q103at" value="A. The objects are clearly visible through a opaque screen." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.35 -0.038 0.1" click_sound cardboard_input question="id:103 ; rightOption:c; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.03 0.02">
-                <a-text id="q3bt" value="B. The objects appear blurry when seen through a opaque screen." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.3 -0.025 0.1" click_sound cardboard_input question="id:3 ; rightOption:c; option:b;" geometry="primitive: plane; height:0.25; width:2.7;" material="opacity:0">
+                <a-text id="q103bt" value="B. The objects appear blurry when seen through a opaque screen." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.3 -0.025 0.1" click_sound cardboard_input question="id:103 ; rightOption:c; option:b;" geometry="primitive: plane; height:0.25; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.28 0.02">
-                <a-text id="q3ct" value="C. The objects are not visible when seen through a opaque screen." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.31 -0.038 0.1" click_sound cardboard_input question="id:3 ; rightOption:c; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                <a-text id="q103ct" value="C. The objects are not visible when seen through a opaque screen." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.31 -0.038 0.1" click_sound cardboard_input question="id:103 ; rightOption:c; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
                 </a-entity>
             </a-entity>
             <a-entity position="-1.35 -0.56 0.02">
-                <a-text id="q3dt" value="D. None of the above." position="0 0 0.1" align="left" width="2.5"></a-text>
-                <a-entity position="1.3 -0.035 0.1" click_sound cardboard_input question="id:3 ; rightOption:c; option:d;" geometry="primitive: plane; height:0.2; width:2.6;" material="opacity:0">
+                <a-text id="q103dt" value="D. None of the above." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity position="1.3 -0.035 0.1" click_sound cardboard_input question="id:103 ; rightOption:c; option:d;" geometry="primitive: plane; height:0.2; width:2.6;" material="opacity:0">
                 </a-entity>
             </a-entity>
 
-            <a-entity setactive="value:false" id="welldone_3" mixin="Welldone" position="-0.17 -0.8 0">
+            <a-entity setactive="value:false" id="welldone_103" mixin="Welldone" position="-0.17 -0.8 0">
             </a-entity>
-            <a-entity setactive="value:false" id="tryagain_3" mixin="Tryagain" position="-0.17 -0.8 0">
+            <a-entity setactive="value:false" id="tryagain_103" mixin="Tryagain" position="-0.17 -0.8 0">
             </a-entity>
 
-            <a-image setactive="value: false" id="btn_ok_3" mixin="OK" width="0.5" height="0.25" position="-0.2 -0.8 0.5" onclick="q3_ok();">
+            <a-image setactive="value: false" id="btn_ok_103" mixin="OK" width="0.5" height="0.25" position="-0.2 -0.8 0.5" onclick="q3_ok();">
             </a-image>
 
         </a-entity>
@@ -578,7 +575,8 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
 
 
             <!---------------SELECT BUTTON------------------->
-            <a-entity <a-image id="b_select" position="-0.53 1.4 -3" SetActive="value:false" geometry="primitive: plane; width: 1; height: 0.2" material="color: black; opacity:.8" text="value: SELECT; align:center; width: 2.8; color: white" click_sound cardboard_input color_hover onclick="OpenDropDown()">
+            <a-entity
+                <a-image id="b_select" position="-0.53 1.4 -3" SetActive="value:false" geometry="primitive: plane; width: 1; height: 0.2" material="color: black; opacity:.8" text="value: SELECT; align:center; width: 2.8; color: white" click_sound cardboard_input color_hover onclick="OpenDropDown();">
                 </a-image>
 
                 <a-image id="b_opequeSelect" position="0 -0.194 0" SetActive="value:true" geometry="primitive: plane; width: 1; height: 0.2" material="color: black; opacity:1" text="value: Opaque; align:center; width: 2.8; color: white" click_sound cardboard_input color_hover onclick="OnDropDownOptionClick('Opaque')">
@@ -591,7 +589,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
                 </a-image>
 
 
-                <a-image id="b_dropdown" setactive="value:true" position="0.359 0.018 0.100" src="#AS_dropDown" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound vo_hover cardboard_input onclick="btn_close_click();">
+                <a-image id="b_dropdown" setactive="value:true" position="0.359 0.018 0.100" src="#AS_dropDown" geometry="primitive: plane; width: 0.15; height: 0.15" >
                 </a-image>
 
             </a-entity>
@@ -611,6 +609,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
             <a-text id="score_percent" value="100 %" position="0 0 0" align="center" width="2.8"></a-text>
 
             <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_comp_as_click();">
+              </a-image>
 
         </a-entity>
 
@@ -622,6 +621,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
      again to improve your score, or you can exit." position="0 0.2 0" align="center" width="2.8"></a-text>
 
             <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_lessthan_click();">
+              </a-image>
 
         </a-entity>
 
@@ -631,6 +631,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
             <a-text value="You scored well and you have completed the module! Select OK to return to the menu where you can exit." position="0 0.2 0" align="center" width="2.8"></a-text>
 
             <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_greaterthan_click();">
+              </a-image>
 
         </a-entity>
 
@@ -695,8 +696,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
             <a-entity id="i_m_Glass" setactive="value:false; scale:1" vo_enable position="0 -0.2 -2" geometry="primitive: plane; width: .6; height: 0.2" material="color: black; opacity:1" text="value:Glass; align:center; width: 2;">
             </a-entity>
 
-            <a-entity id="i_m_Wood""
-  setactive=" value:false; scale:1" vo_enable position="0 -0.2 -2" geometry="primitive: plane; width: .6; height: 0.2" material="color: black; opacity:1" text="value:Wood; align:center; width: 2;">
+            <a-entity id="i_m_Wood" setactive=" value:false; scale:1;" vo_enable position="0 -0.2 -2" geometry="primitive: plane; width: .6; height: 0.2" material="color: black; opacity:1" text="value:Wood; align:center; width: 2;">
             </a-entity>
 
             <a-entity id="i_m_Cellophane" setactive="value:false; scale:1" vo_enable position="0 -0.2 -2" geometry="primitive: plane; width: .6; height: 0.2" material="color: black; opacity:1" text="value:Cellophane; align:center; width: 2;">
@@ -720,9 +720,6 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
             <a-entity id="m_Lance_Opaque_anim" setactive="value:false" animation-mixer="loop:repeat; time-scale:0;" gltf-model="#Lance_Opaqe_anim" position="0.024 -0.4 -2.1" scale="0.5 0.5 0.5" rotation="0 90 0">
             </a-entity>
 
-            <!-- <a-entity id="cm_m_Brick_Wall" gltf-model="#Brick_wall" position = "0 0 -3"
- rotation="0 0 0"
-</a-entity> -->
 
             <a-entity id="cm_Brick_Wall_1" gltf-model="#Brick_wall_1" setactive="value:false" position="0 0 -0.159" scale="2 2 2" rotation="0 90 90">
             </a-entity>
@@ -752,18 +749,10 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
             <a-entity id="cm_Oil_Paper_1" setactive="value:false" animation-mixer="loop:repeat; time-scale:0;" gltf-model="#Oil_Paper_1" position="0 0 -0.1" scale="6 6 6" rotation="0 90 90">
             </a-entity>
 
-            <!-- <a-entity setactive="value:false" id="welldone_as" mixin="Well done" position="0 -0.5 -2">
-</a-entity>
-<a-entity setactive="value:false" id="tryagain_as" mixin="Try again" position="0 -0.5 -2">
-</a-entity> -->
-
-
-
-
 
         </a-camera>
 
-        <!-- <a-sky  color="#555"></a-sky> -->
+
     </a-entity>
 </a-scene>
 
