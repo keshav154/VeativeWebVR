@@ -211,19 +211,17 @@ Note: This is recommended if loading file name is ‘dog.png’ then id should b
 
 &lt;a-assets id="assets"  timeout="3600000"&gt;
     
-	&lt;img id="tex_menu_off" src="images/Btn_Off.png"&gt;   // Load texture
+&lt;img id="tex_menu_off" src="images/Btn_Off.png"&gt;   // Load texture
 
-	&lt;img id="img360" src="images/skybox.jpg"&gt;    // Load 360 Image
+&lt;img id="img360" src="images/skybox.jpg"&gt;    // Load 360 Image
 
-	&lt;audio id="bgsound" src="sounds/bg.mp3"&gt;&lt;/audio&gt;  //Load audio
+&lt;audio id="bgsound" src="sounds/bg.mp3"&gt;&lt;/audio&gt;  //Load audio
 
-    &lt;a-asset-item id="butterFly_full" src="models/Butterfly/ButterFly_Full.glb"&gt;&lt;/a-asset-item&gt;  // Load 3D model (.gltf)
+&lt;a-asset-item id="butterFly_full" src="models/Butterfly/ButterFly_Full.glb"&gt;&lt;/a-asset-item&gt;  // Load 3D model (.gltf)
     
 &lt;/a-assets&gt;
 
 &lt;/a-scene"&gt;
-
-
 
 
 
