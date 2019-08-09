@@ -18,7 +18,7 @@ Install html-preview package: To show Output on editor we will have to add html-
 
 Step 1. Open Atom editor.
 
-Step 2. Go to Packages Tab &gt;&gt; Setting View &gt;&gt; Install Packages/Themes
+Step 2. Go to Packages Tab >> Setting View >> Install Packages/Themes
 
 Step 3. Search for atom-html-preview Package
 
@@ -26,7 +26,7 @@ Step 4. Install first one from showing list.
 
 Step 5. After installation we can show output of web page
 
-Use html-preview package: To use html preview Go to Packages Tab &gt;&gt; Preview HTML &gt;&gt; Enable Preview. By enabling preview you can show the output of your project.
+Use html-preview package: To use html preview Go to Packages Tab >> Preview HTML >> Enable Preview. By enabling preview you can show the output of your project.
 
 
 
@@ -88,7 +88,7 @@ Creating Game play(Using Index.html)
 Linking manifest file to add below line
 
 ```
-&lt; link rel="manifest" href="manifest.json" &gt;
+< link rel="manifest" href="manifest.json" >
 ```
 
 Add Module Title
@@ -97,7 +97,7 @@ Add Module Title
 Add Title to page to add below line
 
 ```
-&lt;Title&gt;MS300035&lt;/Title&gt;
+<Title>MS300035</Title>
 ```
 
  Load scripts
@@ -107,18 +107,18 @@ Load Script using `<script>` tag
 
 ```
 
-&lt;script src="scripts/aframe.min.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/utility.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/voiceover.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/gamemanager.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/cardboardjoystick.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/colorchange.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/questionmanager.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/scoremanager.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/databasemanager.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/login.js"&gt;&lt;/script&gt;
-&lt;script src="scripts/cursorzoom.js"&gt;&lt;/script&gt;
-&lt;script src="appdata.js"&gt;&lt;/script&gt;
+<script src="scripts/aframe.min.js"></script>
+<script src="scripts/utility.js"></script>
+<script src="scripts/voiceover.js"></script>
+<script src="scripts/gamemanager.js"></script>
+<script src="scripts/cardboardjoystick.js"></script>
+<script src="scripts/colorchange.js"></script>
+<script src="scripts/questionmanager.js"></script>
+<script src="scripts/scoremanager.js"></script>
+<script src="scripts/databasemanager.js"></script>
+<script src="scripts/login.js"></script>
+<script src="scripts/cursorzoom.js"></script>
+<script src="appdata.js"></script>
 
 ```
 
@@ -128,7 +128,7 @@ Create Scene
 Create Scene by adding a-scene Tag like below line
 
 ```
-&lt; a-scene renderer="antialias: true;"&gt;  code here    &lt;/a-scene&gt; &gt;
+< a-scene renderer="antialias: true;">  code here    </a-scene> >
 ```
 
 
@@ -138,24 +138,22 @@ Add Camera
 Add following code:
 
 ```
+< a-scene renderer="antialias: true;" >
 
-&lt; a-scene renderer="antialias: true;" &gt;
-
-&lt;a-camera look-controls wasd-controls&gt;
-		&lt;a-cursor 
+<a-camera look-controls wasd-controls>
+		<a-cursor 
 		fuse="false" 
 		fuseTimeout='60000' 
 		rayOrigin= "mouse" 
 		geometry="primitive: ring" 
-		material="color: white;  shader: flat"&gt;
+		material="color: white;  shader: flat">
 		
-		&lt;/a-cursor&gt;
-&lt;/a-camera&gt;
+		</a-cursor>
+</a-camera>
 
- &lt;/a-scene&gt;
+ </a-scene>
 
 ```
-
 
 Load sound in scene
 --------
@@ -169,14 +167,14 @@ Note: This is recommended if clip name is ‘click.wav’ then sound id sound be
 
 ```
 
-&lt;a-scene renderer="antialias: true;"&gt;
+<a-scene renderer="antialias: true;">
 
-&lt;a-sound id="s_click" src="src: url(sounds/click.mp3)" poolSize=5&gt;&lt;/a-sound&gt; 
-&lt;a-sound id="s_hover" src="src: url(sounds/hover.wav)" poolSize=5&gt;&lt;/a-sound&gt; 
-&lt;a-sound id="s_btn_lo" src="src: url(sounds/btn_lo.wav)" poolSize=5&gt;&lt;/a-sound&gt; 
-&lt;a-sound id="s_btn_l1" src="src: url(sounds/btn_l1.wav)" poolSize=5&gt;&lt;/a-sound&gt; 
+<a-sound id="s_click" src="src: url(sounds/click.mp3)" poolSize=5></a-sound> 
+<a-sound id="s_hover" src="src: url(sounds/hover.wav)" poolSize=5></a-sound> 
+<a-sound id="s_btn_lo" src="src: url(sounds/btn_lo.wav)" poolSize=5></a-sound> 
+<a-sound id="s_btn_l1" src="src: url(sounds/btn_l1.wav)" poolSize=5></a-sound> 
 
- &lt;/a-scene&gt;
+ </a-scene>
 
 ```
 
@@ -191,21 +189,21 @@ Note: This is recommended if loading file name is ‘dog.png’ then id should b
 
 
 ```
-&lt;a-scene renderer="antialias: true;"&gt;
+<a-scene renderer="antialias: true;">
 
-&lt;a-assets id="assets"  timeout="3600000"&gt;
+<a-assets id="assets"  timeout="3600000">
     
-&lt;img id="tex_menu_off" src="images/Btn_Off.png"&gt;   // Load texture
+<img id="tex_menu_off" src="images/Btn_Off.png">   // Load texture
 
-&lt;img id="img360" src="images/skybox.jpg"&gt;    // Load 360 Image
+<img id="img360" src="images/skybox.jpg">    // Load 360 Image
 
-&lt;audio id="bgsound" src="sounds/bg.mp3"&gt;&lt;/audio&gt;  //Load audio
+<audio id="bgsound" src="sounds/bg.mp3"></audio>  //Load audio
 
-&lt;a-asset-item id="butterFly_full" src="models/Butterfly/ButterFly_Full.glb"&gt;&lt;/a-asset-item&gt;  // Load 3D model (.gltf)
+<a-asset-item id="butterFly_full" src="models/Butterfly/ButterFly_Full.glb"></a-asset-item>  // Load 3D model (.gltf)
     
-&lt;/a-assets&gt;
+</a-assets>
 
-&lt;/a-scene"&gt;
+</a-scene">
 
 ```
 
@@ -221,11 +219,11 @@ Note: To disable autoplay change property autoplay="false"
 
 ```
 
-&lt;a-scene renderer="antialias: true;"&gt;
+<a-scene renderer="antialias: true;">
 
-&lt;a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'&gt;&lt;/a-sound&gt;
+<a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'></a-sound>
 
-&lt;a-scene&gt;
+<a-scene>
 
 ```
 
@@ -245,11 +243,11 @@ Note: Change rotation with rotation property.
 ```
 
 
-&lt;a-scene renderer="antialias: true;"&gt;
+<a-scene renderer="antialias: true;">
 
-&lt;a-sky src="#img360" rotation="0 -130 0"&gt;&lt;/a-sky&gt;
+<a-sky src="#img360" rotation="0 -130 0"></a-sky>
 
-&lt;a-scene&gt;
+<a-scene>
  
 ```
 
@@ -267,17 +265,17 @@ Note: To active/deactive level as default use property setactive="value:true/fal
 
 ```
 
-&lt;a-scene renderer="antialias: true;"&gt;
+<a-scene renderer="antialias: true;">
 
-&lt;a-entity id="MainMenu" setactive="value:true"&gt; Code for main menu level  &lt;/a-entity&gt;
+<a-entity id="MainMenu" setactive="value:true"> Code for main menu level  </a-entity>
 
-&lt;a-entity id="LO" setactive="value:false"&gt; Code for LO level  &lt;/a-entity&gt;
+<a-entity id="LO" setactive="value:false"> Code for LO level  </a-entity>
 
-&lt;a-entity id="L1" setactive="value:false"&gt; Code for L1 level  &lt;/a-entity&gt;
+<a-entity id="L1" setactive="value:false"> Code for L1 level  </a-entity>
 
-&lt;a-entity id="AS" setactive="value:false"&gt; Code for AS level  &lt;/a-entity&gt;
+<a-entity id="AS" setactive="value:false"> Code for AS level  </a-entity>
 
-&lt;a-scene&gt;
+<a-scene>
 
 ```
 
@@ -288,46 +286,46 @@ Add MainMenu
 
 ```
 
-&lt;a-entity id="MainMenu" setactive="value:true"&gt;
+<a-entity id="MainMenu" setactive="value:true">
 
 
-&lt;!-- Title --&gt;
-&lt;a-entity  position="0 2.5 -3"
+<!-- Title -->
+<a-entity  position="0 2.5 -3"
   geometry="primitive: plane; width: 3; height: 0.35;"
   material="color: black; opacity:0.53"
-  text="value: Line and Plane of Symmetry; align:center; width: 5 "&gt;
-&lt;/a-entity&gt;
+  text="value: Line and Plane of Symmetry; align:center; width: 5 ">
+</a-entity>
 
 
 
-&lt;a-image id="btn_lo" position="-1.3 1.5 -3"
+<a-image id="btn_lo" position="-1.3 1.5 -3"
   geometry="primitive: plane; width: 1.2; height: 0.65"
   material="color: white; opacity:1 ; src: #tex_menu_off ;"
   text="value: View learning \n objectives; align:center; width: 3"
-  click_sound cardboard_input vo_hover color_hover onclick="OnClickObjective();"&gt;
-&lt;/a-image&gt;
+  click_sound cardboard_input vo_hover color_hover onclick="OnClickObjective();">
+</a-image>
 
-&lt;!-- &lt;a-image src="#tex_menu_off" position="0.7 1.5 -3"&gt;&lt;/a-image&gt; --&gt;
+<!-- <a-image src="#tex_menu_off" position="0.7 1.5 -3"></a-image> -->
 
-&lt;a-image id="btn_l1" position="0 1.5 -3"
+<a-image id="btn_l1" position="0 1.5 -3"
   geometry="primitive: plane; width: 1.2; height: 0.65"
   material="color: white; opacity:1 ; src: #tex_menu_off ;"
   text="value: Learn about lines\n and planes\n of symmetry; align:center; width: 3"
-  click_sound cardboard_input vo_hover color_hover onclick="OnClickL1();"&gt;
-&lt;/a-image&gt;
+  click_sound cardboard_input vo_hover color_hover onclick="OnClickL1();">
+</a-image>
 
 
 
-&lt;a-image id="btn_as" position="1.3 1.5 -3"
+<a-image id="btn_as" position="1.3 1.5 -3"
   geometry="primitive: plane; width: 1.2; height: 0.65"
   material="color: white; opacity:1 ; src: #tex_menu_off ;"
   text="value: Assess your \n knowledge; align:center; width: 3"
-  click_sound  cardboard_input vo_hover color_hover  onclick="OnClickAS();"&gt;
-&lt;/a-image&gt;
+  click_sound  cardboard_input vo_hover color_hover  onclick="OnClickAS();">
+</a-image>
 
 
 
-&lt;/a-entity&gt;
+</a-entity>
 
 ```
 
@@ -345,23 +343,23 @@ Eg. if panel id is ‘p_comp_as’ method should be declared ‘p_comp_as_click(
 
 ```
 
-&lt;a-entity id="p_comp_as" position="0 2 -3"
+<a-entity id="p_comp_as" position="0 2 -3"
     setactive="value:false"
     geometry="primitive: plane; width: 2.4; height: 1.1"
-    material="color: black; opacity:0.53"&gt;
+    material="color: black; opacity:0.53">
 
-    &lt;a-text value="You have completed the assessment. 
+    <a-text value="You have completed the assessment. 
     Here is your score:" position="0 0.3 0" align="center"  
-     width="2.8"&gt;&lt;/a-text&gt;
+     width="2.8"></a-text>
 
-    &lt;a-image id="btn_ok" position="0 -0.56 0.01"
+    <a-image id="btn_ok" position="0 -0.56 0.01"
    src="#tex_menu_off"
   geometry="primitive: plane; width: 0.6; height: 0.3"
   text="value: OK; align:center; width: 3; color: white"
-  click_sound cardboard_input color_hover onclick="p_comp_as_click();"&gt;
-&lt;/a-image&gt;
+  click_sound cardboard_input color_hover onclick="p_comp_as_click();">
+</a-image>
   
- &lt;/a-entity&gt;
+ </a-entity>
 ```
 
 
@@ -370,21 +368,21 @@ Add Panel In Camera
 --
 
 
-Add panel inside &lt;a-camera&gt; tag.
+Add panel inside <a-camera> tag.
 
 
 Note: Panel in camera should have scale ‘0.1’ for xyz.
 
 ```
-&lt;a-entity id="i_nextToProceed" 
+<a-entity id="i_nextToProceed" 
   setactive="value:false ; scale: 0.1"
   vo_enable
   position="0 -0.13 -0.3"
   scale="0.1 0.1 0.1"
   geometry="primitive: plane; width: 1.7; height: 0.27"
   material="color: black; opacity:0.53"
-  text="value:Select NEXT to proceed.; align:center; width: 2.8;"&gt;
-&lt;/a-entity&gt;
+  text="value:Select NEXT to proceed.; align:center; width: 2.8;">
+</a-entity>
 
 ```
 
@@ -395,14 +393,14 @@ Add Controller For GearVR, Oculus and Daydream
 --
 
 ```
-&lt;!-- Controllers --&gt;
-    &lt;a-entity setactive="value:false" gearvr-controls laser-controls="hand: right"  
-           id="gvrc" line="color: #00ffff; opacity: 0.75"&gt;&lt;/a-entity&gt;
-    &lt;a-entity setactive="value:false" daydream-controls laser-controls="hand: right" 
-id="ddc" line="color: #00ffff; opacity: 0.75"&gt;&lt;/a-entity&gt;
-    &lt;a-entity setactive="value:false" oculus-go-controls laser-controls="hand: right" 
-id="oc" line="color: #00ffff; opacity: 0.75"&gt;&lt;/a-entity&gt;
- &lt;!-- /Controllers --&gt;
+<!-- Controllers -->
+    <a-entity setactive="value:false" gearvr-controls laser-controls="hand: right"  
+           id="gvrc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <a-entity setactive="value:false" daydream-controls laser-controls="hand: right" 
+id="ddc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <a-entity setactive="value:false" oculus-go-controls laser-controls="hand: right" 
+id="oc" line="color: #00ffff; opacity: 0.75"></a-entity>
+ <!-- /Controllers -->
 ```
 
 
@@ -413,7 +411,7 @@ Controller setting for different platforms (Cardboard,DayDream,GearVR and Oculus
 Add below code in index.html file at last
 
 ```
-	&lt;script&gt;
+	<script>
 	    var assetsId = '#assets';
 	    var entity = document.querySelector(assetsId);
 	    var controllerId = null;
@@ -508,7 +506,7 @@ Add below code in index.html file at last
             console.log("User Name : ", login_getCookie('unicef_name'));
         }
     };
-	&lt;/script&gt;
+	</script>
 ```
 
 
