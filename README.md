@@ -103,7 +103,7 @@ Add Title to page to add below line
  Load scripts
 ---
 
-Load Script using &lt;script&gt; tag
+Load Script using `&lt;script&gt;` tag
 
 ```
 
