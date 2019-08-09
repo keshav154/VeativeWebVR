@@ -87,30 +87,25 @@ Creating Game play(Using Index.html)
 
 Linking manifest file to add below line
 
---------------Code -----------------
-
-
+```
 &lt; link rel="manifest" href="manifest.json" &gt;
-
-
+```
 
 Add Module Title
 ----
 
 Add Title to page to add below line
 
-
------------------------------ Code ------------------------------
-
+```
 &lt;Title&gt;MS300035&lt;/Title&gt;
-
+```
 
  Load scripts
 ---
 
 Load Script using &lt;script&gt; tag
 
------------------------------ Code ------------------------------
+```
 
 &lt;script src="scripts/aframe.min.js"&gt;&lt;/script&gt;
 &lt;script src="scripts/utility.js"&gt;&lt;/script&gt;
@@ -125,23 +120,16 @@ Load Script using &lt;script&gt; tag
 &lt;script src="scripts/cursorzoom.js"&gt;&lt;/script&gt;
 &lt;script src="appdata.js"&gt;&lt;/script&gt;
 
-
-
-
-
-
+```
 
 Create Scene
 ---
  
 Create Scene by adding a-scene Tag like below line
 
------------------------------ Code ------------------------------
-
+```
 &lt; a-scene renderer="antialias: true;"&gt;  code here    &lt;/a-scene&gt; &gt;
-
-
-
+```
 
 
 Add Camera
@@ -149,7 +137,7 @@ Add Camera
 
 Add following code:
 
------------------------------ Code ------------------------------
+```
 
 &lt; a-scene renderer="antialias: true;" &gt;
 
@@ -166,9 +154,7 @@ Add following code:
 
  &lt;/a-scene&gt;
 
-
-
-
+```
 
 
 Load sound in scene
@@ -181,7 +167,7 @@ Note: This is recommended if clip name is ‘click.wav’ then sound id sound be
 (s_NameOfClip).
 
 
------------------------------ Code ------------------------------
+```
 
 &lt;a-scene renderer="antialias: true;"&gt;
 
@@ -192,7 +178,7 @@ Note: This is recommended if clip name is ‘click.wav’ then sound id sound be
 
  &lt;/a-scene&gt;
 
-
+```
 
 Load Assets
 ---
@@ -204,9 +190,7 @@ Load assets with a-sound
 Note: This is recommended if loading file name is ‘dog.png’ then id should be ‘dog’ .
 
 
------------------------------ Code ------------------------------------------------------------------
-
-
+```
 &lt;a-scene renderer="antialias: true;"&gt;
 
 &lt;a-assets id="assets"  timeout="3600000"&gt;
@@ -223,8 +207,7 @@ Note: This is recommended if loading file name is ‘dog.png’ then id should b
 
 &lt;/a-scene"&gt;
 
-
-
+```
 
 
 Add Background music
@@ -236,8 +219,7 @@ Add Background music with a-sound tag in a-scene tag.
 Note: To disable autoplay change property autoplay="false"
 
 
------------------------------ Code ------------------------------------------------------------------
-
+```
 
 &lt;a-scene renderer="antialias: true;"&gt;
 
@@ -245,7 +227,7 @@ Note: To disable autoplay change property autoplay="false"
 
 &lt;a-scene&gt;
 
-
+```
 
 
 
@@ -260,7 +242,7 @@ Note: Change rotation with rotation property.
 
 
 
------------------------------ Code ------------------------------------------------------------------
+```
 
 
 &lt;a-scene renderer="antialias: true;"&gt;
@@ -269,16 +251,7 @@ Note: Change rotation with rotation property.
 
 &lt;a-scene&gt;
  
-
-
-
-
-
-
-
-
-
-
+```
 
 
 
@@ -292,7 +265,7 @@ Add level inside a-scene tag with a-entity tag.
 Note: To active/deactive level as default use property setactive="value:true/false"
 
 
------------------------------ Code ------------------------------------------------------------------
+```
 
 &lt;a-scene renderer="antialias: true;"&gt;
 
@@ -306,16 +279,14 @@ Note: To active/deactive level as default use property setactive="value:true/fal
 
 &lt;a-scene&gt;
 
-
+```
 
 
 
 Add MainMenu
 ---
 
-
-
------------------------------ Code ------------------------------------------------------------------
+```
 
 &lt;a-entity id="MainMenu" setactive="value:true"&gt;
 
@@ -358,7 +329,7 @@ Add MainMenu
 
 &lt;/a-entity&gt;
 
-
+```
 
 
 
@@ -372,7 +343,7 @@ Eg. if panel id is ‘p_comp_as’ method should be declared ‘p_comp_as_click(
 
 
 
------------------------------ Code ------------------------------------------------------------------
+```
 
 &lt;a-entity id="p_comp_as" position="0 2 -3"
     setactive="value:false"
@@ -391,15 +362,7 @@ Eg. if panel id is ‘p_comp_as’ method should be declared ‘p_comp_as_click(
 &lt;/a-image&gt;
   
  &lt;/a-entity&gt;
-
-
-
-
-
-
-
-
-
+```
 
 
 
@@ -412,9 +375,7 @@ Add panel inside &lt;a-camera&gt; tag.
 
 Note: Panel in camera should have scale ‘0.1’ for xyz.
 
-
------------------------------ Code ------------------------------
-
+```
 &lt;a-entity id="i_nextToProceed" 
   setactive="value:false ; scale: 0.1"
   vo_enable
@@ -425,7 +386,7 @@ Note: Panel in camera should have scale ‘0.1’ for xyz.
   text="value:Select NEXT to proceed.; align:center; width: 2.8;"&gt;
 &lt;/a-entity&gt;
 
-
+```
 
 
 
@@ -433,9 +394,7 @@ Note: Panel in camera should have scale ‘0.1’ for xyz.
 Add Controller For GearVR, Oculus and Daydream
 --
 
-
------------------------------ Code ------------------------------
-
+```
 &lt;!-- Controllers --&gt;
     &lt;a-entity setactive="value:false" gearvr-controls laser-controls="hand: right"  
            id="gvrc" line="color: #00ffff; opacity: 0.75"&gt;&lt;/a-entity&gt;
@@ -444,7 +403,7 @@ id="ddc" line="color: #00ffff; opacity: 0.75"&gt;&lt;/a-entity&gt;
     &lt;a-entity setactive="value:false" oculus-go-controls laser-controls="hand: right" 
 id="oc" line="color: #00ffff; opacity: 0.75"&gt;&lt;/a-entity&gt;
  &lt;!-- /Controllers --&gt;
-
+```
 
 
 
@@ -566,9 +525,6 @@ unicef_age,
 unicef_avatar,
 
 unicef_gender
-
-
-
 
 
 
