@@ -453,12 +453,11 @@ Controller setting for different platforms (Cardboard,DayDream,GearVR and Oculus
 
 Add below code in index.html file at last
 
------------------------------ Code ------------------------------
-
-&lt;script&gt;
-    var assetsId = '#assets';
-    var entity = document.querySelector(assetsId);
-    var controllerId = null;
+```
+	&lt;script&gt;
+	    var assetsId = '#assets';
+	    var entity = document.querySelector(assetsId);
+	    var controllerId = null;
 
     if (entity != null) {
         entity.addEventListener("loaded", function() {
@@ -550,8 +549,8 @@ Add below code in index.html file at last
             console.log("User Name : ", login_getCookie('unicef_name'));
         }
     };
-&lt;/script&gt;
-
+	&lt;/script&gt;
+```
 
 
 
