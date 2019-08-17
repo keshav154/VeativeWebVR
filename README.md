@@ -1,17 +1,15 @@
 # VeativeWebVR
 WebVR Module for Cardboard, DayDream, Oculus Go and GearVR devices
 
-Technology Used
-===================================
+## Technology Used
 
 Framework : A-Frame
 IDE       :	Atom
 Scripting : JavaScript
 
 
+## How to setup Atom
 
-How to setup Atom
-----
 Install Atom : Download the file from https://atom.io/ and Install  AtomSetup-x64 in your pc.
 
 Install html-preview package: To show Output on editor we will have to add html-preview package to Atom editor:
@@ -29,9 +27,7 @@ Step 5. After installation we can show output of web page
 Use html-preview package: To use html preview Go to Packages Tab >> Preview HTML >> Enable Preview. By enabling preview you can show the output of your project.
 
 
-
-How to create new Project
------------------------
+## How to create new Project
 
 Step1: Create folder structure same as below
 
@@ -62,8 +58,7 @@ Step3: Copy login.html, manifest.json, appdata.js file and loginform folder to y
 Step4: Open Atom editor and Select File tab then select Add Project Folder and select project directory.
 
 
-Uses and Description of Downloaded Project
----
+## Uses and Description of Downloaded Project
 
 Step1: Open Atom editor and Select File tab then select Add Project Folder and select downloaded project directory
 
@@ -77,13 +72,13 @@ User name, user age , avatar and gender
 After submitting the form user will be redirected to module. User will login for 24 hour with login name.
  
 
-Creating Game play(Using Index.html)
-----
+## Creating Game play(Using Index.html)
 
 
 
- Linking Manifest
----
+
+## Linking Manifest
+
 
 Linking manifest file to add below line
 
@@ -91,8 +86,8 @@ Linking manifest file to add below line
 < link rel="manifest" href="manifest.json" >
 ```
 
-Add Module Title
-----
+## Add Module Title
+
 
 Add Title to page to add below line
 
@@ -100,13 +95,11 @@ Add Title to page to add below line
 <Title>MS300035</Title>
 ```
 
- Load scripts
----
+## Load scripts
 
 Load Script using `<script>` tag
 
 ```
-
 <script src="scripts/aframe.min.js"></script>
 <script src="scripts/utility.js"></script>
 <script src="scripts/voiceover.js"></script>
@@ -119,11 +112,10 @@ Load Script using `<script>` tag
 <script src="scripts/login.js"></script>
 <script src="scripts/cursorzoom.js"></script>
 <script src="appdata.js"></script>
-
 ```
 
-Create Scene
----
+## Create Scene
+
  
 Create Scene by adding a-scene Tag like below line
 
@@ -132,31 +124,24 @@ Create Scene by adding a-scene Tag like below line
 ```
 
 
-Add Camera
-------
+## Add Camera
 
 Add following code:
-
 ```
-< a-scene renderer="antialias: true;" >
-
-<a-camera look-controls wasd-controls>
+<a-scene renderer="antialias: true;">
+	<a-camera look-controls wasd-controls>
 		<a-cursor 
-		fuse="false" 
-		fuseTimeout='60000' 
-		rayOrigin= "mouse" 
-		geometry="primitive: ring" 
-		material="color: white;  shader: flat">
-		
+			fuse="false" 
+			fuseTimeout='60000' 
+			rayOrigin= "mouse" 
+			geometry="primitive: ring" 
+			material="color: white;  shader: flat">
 		</a-cursor>
-</a-camera>
-
- </a-scene>
-
+	</a-camera>
+</a-scene>
 ```
 
-Load sound in scene
---------
+## Load sound in scene
 
 Write code to load sound inside a-scene Tag.
 Load sound with a-sound 
@@ -164,130 +149,75 @@ Load sound with a-sound
 Note: This is recommended if clip name is ‘click.wav’ then sound id sound be ‘s_click’ 
 (s_NameOfClip).
 
-
 ```
-
 <a-scene renderer="antialias: true;">
-
-<a-sound id="s_click" src="src: url(sounds/click.mp3)" poolSize=5></a-sound> 
-<a-sound id="s_hover" src="src: url(sounds/hover.wav)" poolSize=5></a-sound> 
-<a-sound id="s_btn_lo" src="src: url(sounds/btn_lo.wav)" poolSize=5></a-sound> 
-<a-sound id="s_btn_l1" src="src: url(sounds/btn_l1.wav)" poolSize=5></a-sound> 
-
- </a-scene>
-
+	<a-sound id="s_click" src="src: url(sounds/click.mp3)" poolSize=5></a-sound> 
+	<a-sound id="s_hover" src="src: url(sounds/hover.wav)" poolSize=5></a-sound> 
+	<a-sound id="s_btn_lo" src="src: url(sounds/btn_lo.wav)" poolSize=5></a-sound> 
+	<a-sound id="s_btn_l1" src="src: url(sounds/btn_l1.wav)" poolSize=5></a-sound> 
+</a-scene>
 ```
 
-Load Assets
----
+## Load Assets
 
 Write code to load assets inside a-scene Tag.
 Load assets with a-sound 
 
-
 Note: This is recommended if loading file name is ‘dog.png’ then id should be ‘dog’ .
-
 
 ```
 <a-scene renderer="antialias: true;">
-
 <a-assets id="assets"  timeout="3600000">
-    
 <img id="tex_menu_off" src="images/Btn_Off.png">   // Load texture
-
 <img id="img360" src="images/skybox.jpg">    // Load 360 Image
-
 <audio id="bgsound" src="sounds/bg.mp3"></audio>  //Load audio
-
 <a-asset-item id="butterFly_full" src="models/Butterfly/ButterFly_Full.glb"></a-asset-item>  // Load 3D model (.gltf)
-    
 </a-assets>
-
 </a-scene">
-
 ```
 
-
-Add Background music
-------------
-
+## Add Background music
 
 Add Background music with a-sound tag in a-scene tag.
 
 Note: To disable autoplay change property autoplay="false"
 
-
 ```
-
 <a-scene renderer="antialias: true;">
-
 <a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'></a-sound>
-
 <a-scene>
-
 ```
 
-
-
-Add Skybox	
----
-
-
+## Add Skybox	
 
 Add Skybox in with a-sky tag inside a-scene tag.
 
 Note: Change rotation with rotation property.
 
-
-
 ```
-
-
 <a-scene renderer="antialias: true;">
-
 <a-sky src="#img360" rotation="0 -130 0"></a-sky>
-
 <a-scene>
- 
 ```
 
-
-
-Add Level
---
-
+## Add Level
 
 Add level inside a-scene tag with a-entity tag.
-
-
 Note: To active/deactive level as default use property setactive="value:true/false"
 
-
 ```
-
 <a-scene renderer="antialias: true;">
-
 <a-entity id="MainMenu" setactive="value:true"> Code for main menu level  </a-entity>
-
 <a-entity id="LO" setactive="value:false"> Code for LO level  </a-entity>
-
 <a-entity id="L1" setactive="value:false"> Code for L1 level  </a-entity>
-
 <a-entity id="AS" setactive="value:false"> Code for AS level  </a-entity>
-
 <a-scene>
-
 ```
 
-
-
-Add MainMenu
----
+## Add MainMenu
 
 ```
-
 <a-entity id="MainMenu" setactive="value:true">
-
 
 <!-- Title -->
 <a-entity  position="0 2.5 -3"
@@ -295,8 +225,6 @@ Add MainMenu
   material="color: black; opacity:0.53"
   text="value: Line and Plane of Symmetry; align:center; width: 5 ">
 </a-entity>
-
-
 
 <a-image id="btn_lo" position="-1.3 1.5 -3"
   geometry="primitive: plane; width: 1.2; height: 0.65"
@@ -314,8 +242,6 @@ Add MainMenu
   click_sound cardboard_input vo_hover color_hover onclick="OnClickL1();">
 </a-image>
 
-
-
 <a-image id="btn_as" position="1.3 1.5 -3"
   geometry="primitive: plane; width: 1.2; height: 0.65"
   material="color: white; opacity:1 ; src: #tex_menu_off ;"
@@ -323,26 +249,15 @@ Add MainMenu
   click_sound  cardboard_input vo_hover color_hover  onclick="OnClickAS();">
 </a-image>
 
-
-
 </a-entity>
-
 ```
 
-
-
-Add Panel With OK Button
---
-
-
+## Add Panel With OK Button
 
 Note: Method execute on ok click should name PanelIdName_click().
 Eg. if panel id is ‘p_comp_as’ method should be declared ‘p_comp_as_click()’
 
-
-
 ```
-
 <a-entity id="p_comp_as" position="0 2 -3"
     setactive="value:false"
     geometry="primitive: plane; width: 2.4; height: 1.1"
@@ -357,19 +272,13 @@ Eg. if panel id is ‘p_comp_as’ method should be declared ‘p_comp_as_click(
   geometry="primitive: plane; width: 0.6; height: 0.3"
   text="value: OK; align:center; width: 3; color: white"
   click_sound cardboard_input color_hover onclick="p_comp_as_click();">
-</a-image>
-  
- </a-entity>
+  </a-image>
+</a-entity>
 ```
 
-
-
-Add Panel In Camera
---
-
+## Add Panel In Camera
 
 Add panel inside <a-camera> tag.
-
 
 Note: Panel in camera should have scale ‘0.1’ for xyz.
 
@@ -383,14 +292,9 @@ Note: Panel in camera should have scale ‘0.1’ for xyz.
   material="color: black; opacity:0.53"
   text="value:Select NEXT to proceed.; align:center; width: 2.8;">
 </a-entity>
-
 ```
 
-
-
-
-Add Controller For GearVR, Oculus and Daydream
---
+## Add Controller For GearVR, Oculus and Daydream
 
 ```
 <!-- Controllers -->
@@ -405,8 +309,7 @@ id="oc" line="color: #00ffff; opacity: 0.75"></a-entity>
 
 
 
-Controller setting for different platforms (Cardboard,DayDream,GearVR and OculusGo)
---
+## Controller setting for different platforms (Cardboard,DayDream,GearVR and OculusGo)
 
 Add below code in index.html file at last
 
@@ -510,11 +413,7 @@ Add below code in index.html file at last
 ```
 
 
-
-
-
-Cookie parameters
-----
+## Cookie parameters
 
 unicef_name,
 
@@ -523,6 +422,3 @@ unicef_age,
 unicef_avatar,
 
 unicef_gender
-
-
-
