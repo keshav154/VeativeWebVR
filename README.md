@@ -12,7 +12,18 @@ Scripting : JavaScript
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## How to setup Atom
+## Demos
+
+* [Line and Plane of Symmetry](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms300035/)
+* [Introduction to Complex Numbers](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs300012/)
+* [Reproductive Parts of a Flower](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms100027/)
+* [Opaque Translucent and Transparent](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs400052/)
+* [Volume and Surface Area of Cylinder](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs300016/)
+* [Series and Parallel Circuits](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs400034/)
+
+## Working with VeativeWebVR
+
+### How to setup Atom
 
 Install Atom : Download the file from https://atom.io/ and Install  AtomSetup-x64 in your pc.
 
@@ -31,7 +42,7 @@ Step 5. After installation we can show output of web page
 Use html-preview package: To use html preview Go to Packages Tab >> Preview HTML >> Enable Preview. By enabling preview you can show the output of your project.
 
 
-## How to create new Project
+### How to create new Project
 
 Step1: Create folder structure same as below
 
@@ -62,7 +73,7 @@ Step3: Copy login.html, manifest.json, appdata.js file and loginform folder to y
 Step4: Open Atom editor and Select File tab then select Add Project Folder and select project directory.
 
 
-## Uses and Description of Downloaded Project
+### Uses and Description of Downloaded Project
 
 Step1: Open Atom editor and Select File tab then select Add Project Folder and select downloaded project directory
 
@@ -76,12 +87,10 @@ User name, user age , avatar and gender
 After submitting the form user will be redirected to module. User will login for 24 hour with login name.
  
 
-## Creating Game play(Using Index.html)
+### Creating Game play (Using Index.html)
 
 
-
-
-## Linking Manifest
+### Linking Manifest
 
 
 Linking manifest file to add below line
@@ -90,7 +99,7 @@ Linking manifest file to add below line
 < link rel="manifest" href="manifest.json" >
 ```
 
-## Add Module Title
+### Add Module Title
 
 
 Add Title to page to add below line
@@ -99,7 +108,7 @@ Add Title to page to add below line
 <Title>MS300035</Title>
 ```
 
-## Load scripts
+### Load scripts
 
 Load Script using `<script>` tag
 
@@ -118,7 +127,7 @@ Load Script using `<script>` tag
 <script src="appdata.js"></script>
 ```
 
-## Create Scene
+### Create Scene
 
  
 Create Scene by adding a-scene Tag like below line
@@ -128,7 +137,7 @@ Create Scene by adding a-scene Tag like below line
 ```
 
 
-## Add Camera
+### Add Camera
 
 Add following code:
 ```
@@ -145,7 +154,7 @@ Add following code:
 </a-scene>
 ```
 
-## Load sound in scene
+### Load sound in scene
 
 Write code to load sound inside a-scene Tag.
 Load sound with a-sound 
@@ -162,7 +171,7 @@ Note: This is recommended if clip name is ‘click.wav’ then sound id sound be
 </a-scene>
 ```
 
-## Load Assets
+### Load Assets
 
 Write code to load assets inside a-scene Tag.
 Load assets with a-sound 
@@ -180,7 +189,7 @@ Note: This is recommended if loading file name is ‘dog.png’ then id should b
 </a-scene">
 ```
 
-## Add Background music
+### Add Background music
 
 Add Background music with a-sound tag in a-scene tag.
 
@@ -192,7 +201,7 @@ Note: To disable autoplay change property autoplay="false"
 <a-scene>
 ```
 
-## Add Skybox	
+### Add Skybox	
 
 Add Skybox in with a-sky tag inside a-scene tag.
 
@@ -204,7 +213,7 @@ Note: Change rotation with rotation property.
 <a-scene>
 ```
 
-## Add Level
+### Add Level
 
 Add level inside a-scene tag with a-entity tag.
 Note: To active/deactive level as default use property setactive="value:true/false"
@@ -218,7 +227,7 @@ Note: To active/deactive level as default use property setactive="value:true/fal
 <a-scene>
 ```
 
-## Add MainMenu
+### Add MainMenu
 
 ```
 <a-entity id="MainMenu" setactive="value:true">
@@ -256,7 +265,7 @@ Note: To active/deactive level as default use property setactive="value:true/fal
 </a-entity>
 ```
 
-## Add Panel With OK Button
+### Add Panel With OK Button
 
 Note: Method execute on ok click should name PanelIdName_click().
 Eg. if panel id is ‘p_comp_as’ method should be declared ‘p_comp_as_click()’
@@ -280,7 +289,7 @@ Eg. if panel id is ‘p_comp_as’ method should be declared ‘p_comp_as_click(
 </a-entity>
 ```
 
-## Add Panel In Camera
+### Add Panel In Camera
 
 Add panel inside <a-camera> tag.
 
@@ -298,7 +307,7 @@ Note: Panel in camera should have scale ‘0.1’ for xyz.
 </a-entity>
 ```
 
-## Add Controller For GearVR, Oculus and Daydream
+### Add Controller For GearVR, Oculus and Daydream
 
 ```
 <!-- Controllers -->
@@ -313,7 +322,7 @@ id="oc" line="color: #00ffff; opacity: 0.75"></a-entity>
 
 
 
-## Controller setting for different platforms (Cardboard,DayDream,GearVR and OculusGo)
+### Controller setting for different platforms (Cardboard,DayDream,GearVR and OculusGo)
 
 Add below code in index.html file at last
 
@@ -417,7 +426,7 @@ Add below code in index.html file at last
 ```
 
 
-## Cookie parameters
+### Cookie parameters
 
 unicef_name,
 
