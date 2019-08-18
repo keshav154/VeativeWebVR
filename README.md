@@ -1,5 +1,6 @@
 # VeativeWebVR
-WebVR Module for Cardboard, DayDream, Oculus Go and GearVR devices
+
+Gaining real-life experience in certain professions can be difficult to achieve, dangerous, or just plain expensive. However, WebVR can connect users with those experiences, from the most specialized skill-set training, to simple lab experiments performed by school students. VeativeWebVR is a package of 6 Interactive WebVR Modules covering topics from STEM for Cardboard, DayDream, Oculus Go and GearVR devices usages.
 
 ## Technology Used
 
@@ -7,6 +8,9 @@ Framework : A-Frame
 IDE       :	Atom
 Scripting : JavaScript
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ## How to setup Atom
 
