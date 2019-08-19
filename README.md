@@ -15,15 +15,15 @@ These instructions will get you a copy of the project up and running on your loc
 ## Demos
 
 * [Line and Plane of Symmetry](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms300035/)
+* [Structure of Phenol](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ss200049/)
 * [Introduction to Complex Numbers](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs300012/)
 * [Reproductive Parts of a Flower](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms100027/)
 * [Opaque Translucent and Transparent](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs400052/)
-* [Volume and Surface Area of Cylinder](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs300016/)
 * [Series and Parallel Circuits](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs400034/)
 
 ## Working with VeativeWebVR
 
-### How to setup Atom
+### How to set up Atom
 
 Install Atom : Download the file from https://atom.io/ and Install  AtomSetup-x64 in your pc.
 
