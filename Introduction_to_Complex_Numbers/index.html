@@ -20,7 +20,7 @@
 <script src="scripts/transform.js"></script>
 <script src="scripts/cursorzoom.js"></script>
 
-<!-- --------------------------------------------------------------------------------- -->
+<!---->
 
 
 <a-scene auto-enter-vr renderer="antialias: true;
@@ -41,20 +41,14 @@ physicallyCorrectLights: true;">
     <a-sound id="s_hover" src="src: url(sounds/hover.wav)" poolSize=5></a-sound>
     <!-- <a-sky src="images/skybox.jpg" rotation="0 -130 0" color="#555"></a-sky>
 <a-sound src="src: url(sounds/bg.mp3)" autoplay="true"></a-sound> -->
-
-    <!-- ----------------------------------Faiz------------ -->
     <a-sound id="s_p_L2_Scoring" src="src: url(sounds/p_scoreIns.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L1" src="src: url(sounds/C_Inst_ActivityComplete.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L2_ClickImgPart" src="src: url(sounds/Instruction4.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L2_FindConjugate" src="src: url(sounds/Instruction5.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L2_FindInverse" src="src: url(sounds/Instruction6.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L2_DragBoquet" src="src: url(sounds/Instruction8.wav)" poolSize=5></a-sound>
-
-
     <a-sound id="s_p_L2_MoveNextHighlighted" src="src: url(sounds/Instruction7.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L2_ObserveBouteq" src="src: url(sounds/Observation.wav)" poolSize=5></a-sound>
-
-
     <a-sound id="s_p_L2_MoveToHighlighted" src="src: url(sounds/Instruction1.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L2_ClickOnLapm" src="src: url(sounds/Instruction2.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_L2_ClickRealPart" src="src: url(sounds/Instruction3.wav)" poolSize=5></a-sound>
@@ -65,16 +59,13 @@ physicallyCorrectLights: true;">
     <a-sound id="s_p_greaterthan" src="src: url(sounds/p_greaterthan.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_lessthan" src="src: url(sounds/p_lessthan.wav)" poolSize=5></a-sound>
     <a-sound id="s_btn_l0" src="src: url(sounds/C_Btn_Veiw LO.wav)" poolSize=5></a-sound>
-
     <a-sound id="s_btn_l2" src="src: url(sounds/Level2.wav)" poolSize=5></a-sound>
     <a-sound id="s_btn_l1" src="src: url(sounds/Level1.wav)" poolSize=5></a-sound>
-
     <a-sound id="s_L1" src="src: url(sounds/Animation_VO.wav)" poolSize=5></a-sound>
-
     <a-sound id="s_p_objective" src="src: url(sounds/ObjectiveContent.wav)" poolSize=5></a-sound>
     <a-sound id="s_btn_close" src="src: url(sounds/btn_close.wav)" poolSize=5></a-sound>
     <a-sound id="s_p_complete" src="src: url(sounds/p_complete.wav)" poolSize=5></a-sound>
-    <!-- -----------------------------/Faiz --------------------->
+
     <a-assets id="assets" timeout="3600000">
 
         <img id="tex_menu_off" src="images/Btn_Off.png">
@@ -85,17 +76,11 @@ physicallyCorrectLights: true;">
         <img id="img3602" src="images/skybox2.jpg">
         <audio id="bgsound" src="sounds/bg.mp3"></audio>
 
-
         <a-asset-item id="Model_L2" src="models/HS300012/Complex No BG/BG.gltf"></a-asset-item>
         <a-asset-item id="Model_L1" src="models/HS300012/Complex Numbers.gltf"></a-asset-item>
         <a-asset-item id="Model_L1_2" src="models/HS300012/Classroom/Classroom.gltf"></a-asset-item>
 
-
-
-
-
         <!-- <a-asset-item id="model1" src="models/HS300012-Introduction to Complex Numbers/Complex Numbers.gltf" scale="1 1 1"></a-asset-item> -->
-
 
         <a-mixin id="Welldone" text="value:Well Done ; width:2.8 ; align:center;  color: #35ff35"></a-mixin>
         <a-mixin id="Tryagain" text="value:Try Again ; width:2.8 ; align:center;  color: red"></a-mixin>
@@ -103,24 +88,18 @@ physicallyCorrectLights: true;">
         <a-mixin id="OK" text="value: OK; align:center; width: 3; color: white" material="color: black; opacity:0.8" click_sound cardboard_input color_hover>
         </a-mixin>
 
-
         <img id="MainMenu_close" src="images/close.png">
     </a-assets>
 
-
-
     <a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'></a-sound>
 
-
-    <!-- ----------------------------  Main Menu  ------------------------------------- -->
+    <!---------------------------  Main Menu  ------------------------------------->
     <a-entity id="MainMenu" setactive="value:false">
 
         <a-sky src="#img360" rotation="0 -130 0"></a-sky>
 
-
         <a-image id="btn_close" setactive="value:false;" position="1.835 2.403 -2.602" rotation="0 -25 0" src="#MainMenu_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input vo_hover onclick="btn_close_click();">
         </a-image>
-
 
 
         <!-- Title -->
@@ -133,24 +112,17 @@ physicallyCorrectLights: true;">
 
         >
 
-
-
         <a-image id="btn_l1" position="0 1.5 -2.6" geometry="primitive: plane; width: 1.5; height: 1.07" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value:Learn about \n complex numbers; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickLevelL1();L1_AnimComplete()">
         </a-image>
-
 
         <a-image id="btn_l2" position="1.6 1.5 -2.6" rotation="0 0 0" geometry="primitive: plane; width: 1.5; height: 1.07" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Assess your \n knowledge; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="clickOnAssessUrKnowledge();">
         </a-image>
 
-
-
-
-
     </a-entity>
-    <!-- ----------------------------  /Main Menu  ------------------------------------- -->
+    <!---------------------------  /Main Menu  --------------------------------------->
 
 
-    <!-- ----------------------------  Objective Scene  ------------------------------------- -->
+    <!------------------------------  Objective Scene  ------------------------------>
     <a-entity id="LO" setactive="value:false">
         <a-sky src="#img360" rotation="0 -130 0"></a-sky>
 
@@ -170,10 +142,10 @@ physicallyCorrectLights: true;">
 
 
     </a-entity>
-    <!-- ----------------------------  /Objective Scene  ------------------------------------- -->
+    <!-------------------------  /Objective Scene  ------------------------------>
 
 
-    <!-- ----------------------------  Level 1  ------------------------------------- -->
+    <!--------------------------  Level 1  ------------------------------------->
     <a-entity id="L1" setactive="value:false" position="0 0 -1.30">
         <!-- <a-sky src="#img3602" rotation="0 -130 0"></a-sky> -->
 
@@ -182,19 +154,12 @@ physicallyCorrectLights: true;">
         <a-light position="-2.0 -10.7 -6.5" type="ambient" intensity="4"></a-light>
 
 
-
-
-
         <a-entity id="p_L1" position="0 1.717  -2.646" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 0.9" material="color: black; opacity:1" text="value:You have completed this activity. Select OK to return to the menu and continue to the next activity.; align:center; baseline:bottom;  width: 2.5; xOffset:0.0; yOffset:1">
-
 
 
             <a-image id="btn_ok" position="0 -0.24 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:1" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="clickOnAssessUrKnowledge();">
             </a-image>
         </a-entity>
-
-
-
 
 
         <!-- Complete Activity -->
@@ -211,9 +176,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
     </a-entity>
 
 
-    <!-- ----------------------------  /Level 1  ------------------------------------- -->
-
-
+    <!-----------------------------  /Level 1  --------------------------------------->
 
     <!---------------------------------  / Level3 ---------------------------------------->
 
@@ -281,9 +244,6 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
             </a-image>
 
 
-
-
-
             <a-entity setactive="value:false" id="welldone_2" mixin="Welldone" position="-0.17 -0.35 0"></a-entity>
             <a-entity setactive="value:false" id="tryagain_2" mixin="Tryagain" position="-0.17 -0.35 0"></a-entity>
 
@@ -305,9 +265,6 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
                 <a-text id="q3bt" value="-4i" position="-0.01 0 0" align="center" width="3"></a-text>
 
             </a-image>
-
-
-
 
 
             <a-entity setactive="value:false" id="welldone_3" mixin="Welldone" position="-0.17 -0.35 0"></a-entity>
@@ -372,7 +329,7 @@ to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; 
             <!-- <a-image setactive="value:false" id="btn_ok_3" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.35 0.01" onclick="q3_okActivity();">
 											</a-image> -->
         </a-entity>
-        <!-- -------------------------------------------------------DragDropAlternative ----------- -->
+        <!-------------------------------DragDropAlternative ------------->
         <a-entity id="Drag_Panel" position="5.4 1.6 -3" rotation="0 0 0" scale=".3 .3 .3" setactive="value:false" geometry="primitive: plane; width: .85; height: .5" material="color: black; opacity:0" text="value:    ; align:center; baseline:bottom;  width: 2; xOffset:0.0; yOffset:1">
             <a-text id="Q5_Ins" value="   Complex number=
 
@@ -381,7 +338,7 @@ a complex number=" position="0.298 0.010 0" align="left" anchor="center" width="
 
         </a-entity>
 
-        <!-- ----------------------------------------------Dorpins position -->
+        <!----------------------Dorpins position -->
         <a-entity id="Drop_Panel" position="5.4 1.12 -3" rotation="0 0 0" scale=".3 .3 .3" setactive="value:false" geometry="primitive: plane; width: .7; height: .37" material="color: black; opacity:1" text="value:    ; align:center; baseline:bottom;  width: 2; xOffset:0.0; yOffset:1">
             <a-text id="1" value=" 1" position="0.546 0.041 0" align="left" anchor="center" width="3.37" scale='.4 .4 .4'></a-text>
             <a-text id="X" value=" X" position="0.659 -0.015 0" align="left" anchor="center" width="3.37" scale='.4 .4 .4'></a-text>
@@ -413,9 +370,9 @@ a complex number=" position="0.298 0.010 0" align="left" anchor="center" width="
 
         </a-entity>
 
-        <!-- ----------------------------------------------Dorpins position -->
+        <!--------------------------Dorpins position -->
 
-        <!-- -------------------------------------------------------DragDropAlternative ----------- -->
+        <!-----------------------------------------DragDropAlternative ------------>
 
         <a-entity id="Q5" setactive="value:false" position="5.4 1.59 -3" rotation="0 0 0" geometry="primitive: plane; width: .85; height: .5" material="color: black; opacity:1">
 
@@ -429,9 +386,6 @@ a complex number=" position="0.298 0.010 0" align="left" anchor="center" width="
                 <a-text id="q5bt" value="-3 + 4i" position="-0.01 0 0" align="center" width="3"></a-text>
 
             </a-image>
-
-
-
 
 
             <a-entity setactive="value:false" id="welldone_5" scale=".5 .5 .5" mixin="Welldone" position="0.075 -1.021 -0.176"></a-entity>
@@ -457,9 +411,6 @@ a complex number=" position="0.298 0.010 0" align="left" anchor="center" width="
             </a-image>
 
 
-
-
-
             <a-entity setactive="value:false" id="welldone_6" scale=".5 .5 .5" mixin="Welldone" position="0.075 -1.021 -0.176"></a-entity>
             <a-entity setactive="value:false" id="tryagain_6" scale=".5 .5 .5" mixin="Tryagain" position="0.075 -1.021 -0.176"></a-entity>
 
@@ -483,9 +434,6 @@ a complex number=" position="0.298 0.010 0" align="left" anchor="center" width="
             </a-image>
 
 
-
-
-
             <a-entity setactive="value:false" id="welldone_7" scale=".5 .5 .5" mixin="Welldone" position="0.075 -1.021 -0.176"></a-entity>
             <a-entity setactive="value:false" id="tryagain_7" scale=".5 .5 .5" mixin="Tryagain" position="0.075 -1.021 -0.176"></a-entity>
 
@@ -499,12 +447,9 @@ a complex number=" position="0.298 0.010 0" align="left" anchor="center" width="
         </a-image>
 
 
-
-        <!--------------------------- flowerPotActivity -->
+        <!--------- flowerPotActivity -->
         <a-sphere id="NextHighlighhted" highlight position="-2.817 0.513 -0.331" radius=".00001" setactive="value:false" click_sound cardboard_input onclick="ClickNextHighlighted();" material="color:green">
         </a-sphere>
-
-
 
         <a-entity id="p_L2_ObserveBouteq" position="-3.753  1.3  -0.201" scale=".5 .5 .5" rotation="0 90 0" setactive="value:false;scale:.5" geometry="primitive: plane; width: 2; height: 1" material="color: black; opacity:1" text="value:Observe these bouquets.Here, the
 				 number of flowers in any b
@@ -563,7 +508,6 @@ material=" color: black; opacity:1" click_sound cardboard_input height='0.13' wi
         </a-entity>
 
 
-
         <a-entity id="p_here_your_score" position="-3.929  1.3  -0.201" scale=".5 .5 .5" rotation="0 90 0" setactive="value:false;scale:.5" geometry="primitive: plane; width: 2.4; height: 1.1" material="color: black; opacity:1">
 
             <a-text value="You have completed the assessment.
@@ -600,20 +544,11 @@ material=" color: black; opacity:1" click_sound cardboard_input height='0.13' wi
     </a-entity>
 
 
-    <!------------------------------  /Level 2 ----------------------------------------->
+    <!-------------  /Level 2 -------------------->
 
+    <!------------  /Level3 --------------------->
 
-
-
-
-    <!-------------------------------  /Level3 ---------------------------------------->
-
-
-
-    <!-- ----------------------------  A_Knowledge  ------------------------------------- -->
-
-
-
+    <!---------------  A_Knowledge  -------------------->
 
 
     <!-- <a-entity id="Q4" setactive="value:false" position="0 2 -3" rotation="0 0 0"
@@ -669,8 +604,6 @@ material=" color: black; opacity:1" click_sound cardboard_input height='0.13' wi
   </a-entity>
 
 
-
-
   <a-entity id="Q5" setactive="value:false" position="0 2 -3" rotation="0 0 0"
     geometry="primitive: plane; width: 3.5; height: 1.5"
     material="color: black; opacity:0.53"
@@ -722,7 +655,6 @@ material=" color: black; opacity:1" click_sound cardboard_input height='0.13' wi
         <a-image setactive="value:false" id="btn_ok_5" mixin="OK" width="0.5" height="0.25" position="-0.16 -0.57 0.01" onclick="q5_ok();">
         </a-image>
   </a-entity>
-
 
 
 <a-entity id="Q6" setactive="value:false" position="0 2 -3" rotation="0 0 0"
@@ -779,9 +711,7 @@ material=" color: black; opacity:1" click_sound cardboard_input height='0.13' wi
 
  -->
 
-
-
-    <!-- ----------------------------  /A_Knowledge  ------------------------------------- -->
+    <!---------------------------  /A_Knowledge  ------------------------------>
 
 
     <!-- <a-entity  id="player" position='0 0 0' player_movement  player_movement dynamic-body="mass:0;"
@@ -794,55 +724,51 @@ material=" color: black; opacity:1" click_sound cardboard_input height='0.13' wi
 
             </a-cursor>
 
-
-            <!------------------------------------------ Camera instructions -->
+            <!------------------- Camera instructions -->
             <!-- click the plain  -->
             <a-entity id="l_score" setactive="value:false ; scale: 0.1" position="-0.15 0.1 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 0.8; height: 0.25" material="color: black; opacity:1" text="value: Score : 0; align:center; width: 2.8;">
             </a-entity>
 
 
-
-            <!-- ---------P_MoveToHighlighted -->
+            <!--------P_MoveToHighlighted -->
             <a-entity id="p_L2_MoveToHighlighted" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.9; height: 0.4" material="color: black; opacity:1" text="value:Select the highlighted area by using your controller.; align:center; width: 2.8;">
             </a-entity>
-            <!-- ---------P_clickLamp -->
+            <!--------P_clickLamp -->
 
             <a-entity id="p_L2_ClickOnLamp" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.7; height: 0.4" material="color: black; opacity:1" text="value:Click on the lamp that represents a complex number.; align:center; width: 2.8;">
             </a-entity>
-            <!-- --------clickRealpart -->
+            <!-------clickRealpart -->
             <a-entity id="p_L2_ClickRealPart" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.7; height: 0.4" material="color: black; opacity:1" text="value:Click on the real part of the highlighted complex number.; align:center; width: 2.8;">
             </a-entity>
 
 
-            <!-- --------clickImgpart -->
+            <!--------clickImgpart -->
             <a-entity id="p_L2_ClickImgPart" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.7; height: 0.4" material="color: black; opacity:1" text="value:Click on the imaginary part of the highlighted complex number.; align:center; width: 2.8;">
             </a-entity>
 
-            <!-- --------clickImgpart -->
+            <!--------clickImgpart -->
             <a-entity id="p_L2_FindConjugate" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.8; height: 0.4" material="color: black; opacity:1" text="value:Find the conjugate of -3 - 4i by changing its sign using the drop down button and then click on OK.; align:center; width: 2.8;">
             </a-entity>
 
 
-            <!-- --------findMultiplicativeInvers -->
+            <!--------findMultiplicativeInvers -->
             <a-entity id="p_L2_FindInverse" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 3; height: 0.5" material="color: black; opacity:1" text="value:Find the multiplicative inverse of -3 - 4i by selecting the appropriate complex numbers.; align:center; width: 2.8;">
             </a-entity>
 
-            <!-- --------MoveNextHighlighted -->
+            <!---------MoveNextHighlighted -->
             <a-entity id="p_L2_MoveNextHighlighted" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.9; height: 0.4" material="color: black; opacity:1" text="value:Select the next highlighted object by using your controller.; align:center; width: 2.8;">
             </a-entity>
 
 
-            <!-- --------DragBoquet -->
+            <!----------DragBoquet -->
             <a-entity id="p_L2_DragBoquet" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.8; height: 0.4" material="color: black; opacity:1" text="value:Select the appropriate bouquet of flowers into the vase to produce the correct highlighted equation.; align:center; width: 2.8;">
             </a-entity>
 
 
-            <!-- --------ClickTheButton -->
+            <!----------ClickTheButton -->
             <a-entity id="p_L2_ClickTheButton" setactive="value:false ; scale:.1" vo_enable position="0.005 -.1 -0.307" geometry="primitive: plane; width: 2.8; height: 0.4" material="color: black; opacity:1" text="value:Select the button to answer the question; align:center; width: 2.8;">
             </a-entity>
 
-
-            <!-- ----------------------------------------------------Faizzzzzzzzzzz--------------- -->
             <!-- click the line to split -->
 
             <!-- click the line to split -->
@@ -851,21 +777,15 @@ identical halves that are mirror images
 of each other..; align:center; width: 2.8;">
             </a-entity>
 
-
             <!-- next to proceed  -->
             <a-entity id="i_nextToProceed" setactive="value:false ; scale: 0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 1.7; height: 0.27" material="color: black; opacity:0.53" text="value:Select NEXT to proceed.; align:center; width: 2.8;">
             </a-entity>
-
-
-
 
             <!-- click the plain  -->
             <a-entity id="i_clickThePlain" setactive="value:false ; scale: 0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.2; height: 0.6" material="color: black; opacity:0.53" text="value:Click the plane to split each image
   into two identical halves that are
 mirror images of each other.; align:center; width: 2.8;">
             </a-entity>
-
-
 
             <a-entity id="p_L2_2" setactive="value:false ; scale: 0.1" position="0 -0.5 -2" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.3; height: .5" material="color: black; opacity:0.8" text="value: Move toward the highlighted area by using your controller.; align:center; width: 2.3; wrapCount:35">
             </a-entity>
@@ -878,11 +798,7 @@ mirror images of each other.; align:center; width: 2.8;">
 
 </a-scene>
 
-
-
-
-
-<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<!--------------------------------------------------------------------------------------------->
 <script>
     var assetsId = '#assets';
     var entity = document.querySelector(assetsId);
