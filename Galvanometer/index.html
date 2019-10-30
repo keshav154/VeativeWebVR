@@ -1,0 +1,1390 @@
+<!-- <a-entity gearvr-controls laser-controls="hand: right" id="controller" line="color: #00ffff; opacity: 0.75" raycaster="far: 2"></a-entity> -->
+<link rel="manifest" href="manifest.json">
+<Title>Galvanometer</Title>
+
+<script src="scripts/aframe.min.js"></script>
+<script src="scripts/aframe-extras.min.js"></script>
+<script src="scripts/utility.js"></script>
+<script src="scripts/voiceover.js"></script>
+<script src="scripts/gamemanager.js"></script>
+<script src="scripts/cardboardjoystick.js"></script>
+<script src="scripts/colorchange.js"></script>
+<script src="scripts/questionmanager.js"></script>
+<script src="scripts/scoremanager.js"></script>
+<script src="scripts/databasemanager.js"></script>
+<script src="scripts/login.js"></script>
+<script src="appdata.js"></script>
+<script src="scripts/cursorzoom.js"></script>
+<script src="scripts/highlight.js"></script>
+<script src="scripts/animation.js"></script>
+<script src="scripts/dragobject.js"></script>
+<script src="scripts/raycastlistener.js"></script>
+
+
+<script>
+    AFRAME.registerComponent('auto-enter-vr', {
+        init: function() {
+            //this.el.sceneEl.enterVR();
+            var scene = this;
+
+            scene.el.addEventListener('loaded', function() {
+                setTimeout(function() {
+
+                }, 3000);
+            });
+
+        }
+    });
+
+    AFRAME.registerComponent('foo', {
+        init: function() {
+
+            this.el.addEventListener('animationcomplete', myfun);
+        }
+    });
+
+
+
+    function myfun() {
+        console.log("Responding-----------------------");
+    }
+</script>
+<!-- --------------------------------------------------------------------------------- -->
+
+<a-scene renderer="antialias: true;
+colorManagement: true;
+sortObjects: true;
+physicallyCorrectLights: true;">
+
+
+    <!-- Controllers -->
+    <a-entity setactive="value:false" gearvr-controls laser-controls="hand: right" id="gvrc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <a-entity setactive="value:false" daydream-controls laser-controls="hand: right" id="ddc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <a-entity setactive="value:false" oculus-go-controls laser-controls="hand: right" id="oc" line="color: #00ffff; opacity: 0.75"></a-entity>
+    <!-- /Controllers -->
+
+
+
+    <a-sound id="s_click" src="src: url(sounds/click.mp3)" poolSize=5></a-sound>
+    <a-sound id="s_hover" src="src: url(sounds/hover.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_btn_lo" src="src: url(sounds/btn_lo.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_l1" src="src: url(sounds/btn_l1.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_l2" src="src: url(sounds/btn_l2.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_as" src="src: url(sounds/btn_as.wav)" poolSize=5></a-sound>
+    <a-sound id="s_btn_close" src="src: url(sounds/btn_close.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_p_objective" src="src: url(sounds/p_objective.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_complete" src="src: url(sounds/p_complete.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_score_inst" src="src: url(sounds/p_score_inst.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_p_comp_as" src="src: url(sounds/p_comp_as.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_greaterthan" src="src: url(sounds/p_greaterthan.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_lessthan" src="src: url(sounds/p_lessthan.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_score_inst" src="src: url(sounds/p_score_inst.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_welldone" src="src: url(sounds/welldone.wav)" poolSize=5></a-sound>
+    <a-sound id="s_tryagain" src="src: url(sounds/tryagain.wav)" poolSize=5></a-sound>
+    <a-sound id="s_currectOption" src="src: url(sounds/currectOption.wav)" poolSize=5></a-sound>
+
+
+
+
+
+    <a-sound id="s_p_DefinitionPanel" src="src: url(sounds/p_DefinitionPanel.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_ToggleLabelIns" src="src: url(sounds/i_ToggleLabelIns.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_ToggleLabelIns2" src="src: url(sounds/i_ToggleLabelIns2.wav)" poolSize=5></a-sound>
+    <a-sound id="s_b_Magnet" src="src: url(sounds/b_Magnet.wav)" poolSize=5></a-sound>
+    <a-sound id="s_b_Spring" src="src: url(sounds/b_Spring.wav)" poolSize=5></a-sound>
+    <a-sound id="s_b_Needle" src="src: url(sounds/b_Needle.wav)" poolSize=5></a-sound>
+    <a-sound id="s_b_Scale" src="src: url(sounds/b_Scale.wav)" poolSize=5></a-sound>
+    <a-sound id="s_b_Electromagnet" src="src: url(sounds/b_Electromagnet.wav)" poolSize=5></a-sound>
+    <a-sound id="s_C_Inst_ActivityComplete" src="src: url(sounds/C_Inst_ActivityComplete.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_ToggleLabelIns3" src="src: url(sounds/CloseKeyInstruction.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_InstructionPanel1" src="src: url(sounds/CloseMessage.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_ToggleLabelIns4" src="src: url(sounds/OpenkeyInstruction.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_InstructionPanel2" src="src: url(sounds/OpenMessage.wav)" poolSize=5></a-sound>
+
+    <a-sound id="s_p_InstructionPanel4" src="src: url(sounds/C_Inst_ActivityComplete.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_InstructionPanel5" src="src: url(sounds/p_DefinitionPanel5.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_Q1" src="src: url(sounds/Q1.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_Q2" src="src: url(sounds/Q2.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_Q3" src="src: url(sounds/Q3.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_Q4" src="src: url(sounds/Q4.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_Q5" src="src: url(sounds/Q5.wav)" poolSize=5></a-sound>
+
+
+
+
+    <!-- <a-sound id="s_i_selectCircuitInstruction" src="src: url(sounds/i_selectCircuitInstruction.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_selectR1andValueInstruction" src="src: url(sounds/i_selectR1andValueInstruction.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_selectR2andValueInstructionId" src="src: url(sounds/i_selectR2andValueInstruction.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_selectWireInstructionId" src="src: url(sounds/i_selectWireInstruction.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_wellDoneAftercktSeries" src="src: url(sounds/p_wellDoneAftercktSeries.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_wellDoneAftercktParallel" src="src: url(sounds\p_wellDoneAftercktParallel.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_observeParameter" src="src: url(sounds/p_observeParameter.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q1_L1" src="src: url(sounds/Q1_L1.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q2_L1" src="src: url(sounds/Q2_L1.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_learningOutcomeSeries" src="src: url(sounds/p_learningOutcomeSeries.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_learningOutcomeParallel" src="src: url(sounds/p_learningOutcomeParallel.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_completeLevel" src="src: url(sounds/p_completeLevel.wav)" poolSize=5></a-sound>
+    <a-sound id="s_p_score_inst" src="src: url(sounds/p_score_inst.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q1_AS" src="src: url(sounds/Q1_AS.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q2_AS" src="src: url(sounds/Q2_AS.wav)" poolSize=5></a-sound>
+    <a-sound id="s_Q3_AS" src="src: url(sounds/Q3_AS.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_completeCktWithin60Id" src="src: url(sounds/i_completeCktWithin60Id.wav)" poolSize=5></a-sound>
+    <a-sound id="s_i_click8cktId" src="src: url(sounds/i_click8cktId.wav)" poolSize=5></a-sound>
+    <a-sound id="s_welldone_6" src="src: url(sounds/welldone.wav)" poolSize=5></a-sound>
+    <a-sound id="s_tryagain_6" src="src: url(sounds/tryagain.wav)" poolSize=5></a-sound> -->
+
+
+
+    <a-assets id="assets" timeout="3600000">
+
+        <img id="tex_menu_off" src="images/Btn_Off.png">
+        <img id="tex_menu_on" src="images/Btn_On.png">
+
+        <img id="img360" src="images\LivingRoom_sence_left.jpg">
+        <img id="img3602" src="images\skybox.jpg">
+        <audio id="bgsound" src="sounds/bg.mp3"></audio>
+
+
+        <!--------------------------- Sumit Models ----------------------------->
+        <a-asset-item id="BaseL1" src="Hs40060_Galvanometer_Data/Model/Base/Base.gltf"></a-asset-item>
+        <a-asset-item id="ElectroMagnetL1" src="Hs40060_Galvanometer_Data/Model/Electromagnet/Electromagnet.gltf"></a-asset-item>
+        <a-asset-item id="MagnetL1" src="Hs40060_Galvanometer_Data/Model/Magnet/Magnet.gltf"></a-asset-item>
+        <a-asset-item id="MeterL1" src="Hs40060_Galvanometer_Data/Model/Meter/Meter.gltf"></a-asset-item>
+        <a-asset-item id="NiddleL1" src="Hs40060_Galvanometer_Data/Model/Niddle/Niddle.gltf"></a-asset-item>
+        <a-asset-item id="CageL1" src="Hs40060_Galvanometer_Data/Model/Transparent/Cage.gltf"></a-asset-item>
+        <a-asset-item id="RingL1" src="Hs40060_Galvanometer_Data/Model/Ring/Ring.gltf"></a-asset-item>
+
+
+        <a-asset-item id="Meter2L1" src="Hs40060_Galvanometer_Data/Gal/Scale/Scale.gltf"></a-asset-item>
+        <a-asset-item id="Niddle2L1" src="Hs40060_Galvanometer_Data/Gal/Needle/Needle.gltf"></a-asset-item>
+        <a-asset-item id="Ring2L1" src="Hs40060_Galvanometer_Data/Gal/Coil/Coil.gltf"></a-asset-item>
+
+
+        <a-asset-item id="Clip1L2" src="Hs40060_Galvanometer_Data/Animation/Clip_01/Clip_01.gltf"></a-asset-item>
+        <a-asset-item id="Clip2L2" src="Hs40060_Galvanometer_Data/Animation/Clip_02/Clip_02.gltf"></a-asset-item>
+        <a-asset-item id="CurrentFlowL2" src="Hs40060_Galvanometer_Data/Animation/Current_flow/Current_flow.gltf"></a-asset-item>
+        <a-asset-item id="KeyL2" src="Hs40060_Galvanometer_Data/Gal/Holder/Holder.gltf"></a-asset-item>
+
+
+        <a-asset-item id="TransparentRing" src="Hs40060_Galvanometer_Data/Model/Transparent/Coil.gltf"></a-asset-item>
+        <a-asset-item id="TransparentMagnet" src="Hs40060_Galvanometer_Data/Model/Transparent/Magnet.gltf"></a-asset-item>
+        <a-asset-item id="TransparentMotor" src="Hs40060_Galvanometer_Data/Model/Transparent/Motor.gltf"></a-asset-item>
+        <a-asset-item id="TransparentNeedle" src="Hs40060_Galvanometer_Data/Model/Transparent/Needle.gltf"></a-asset-item>
+        <a-asset-item id="TransparentScale" src="Hs40060_Galvanometer_Data/Model/Transparent/Scale.gltf"></a-asset-item>
+
+
+
+
+
+
+        <!--------------------------- End ----------------------------->
+
+        <img id="MainMenu_close" src="models/Images/close.png">
+
+
+        <a-mixin id="Welldone" text="value:Well Done ; width:2.8 ; align:center;  color: #35ff35"></a-mixin>
+        <a-mixin id="Tryagain" text="value:Try Again ; width:2.8 ; align:center;  color: red"></a-mixin>
+
+        <a-mixin id="OK" text="value: OK; align:center; width: 3; color: white" material="color: black; opacity:0.8" click_sound cardboard_input color_hover>
+        </a-mixin>
+
+
+
+    </a-assets>
+    <a-sound src="#bgsound" autoplay="true" volume="0.5" loop='true'></a-sound>
+
+
+    <!-- ----------------------------  Main Menu  ------------------------------------- -->
+
+    <a-entity id="MainMenu" setactive="value:false">
+
+        <a-sky src="#img360" rotation="0 -95 0"></a-sky>
+
+
+        <!-- Title -->
+        <a-entity position="0 2.5 -3" geometry="primitive: plane; width: 1.5; height: 0.35;" material="color: black; opacity:1" text="value:Galvanometer; align:center; width: 5 ">
+        </a-entity>
+
+
+        <a-image id="btn_lo" position="-1.8 1.5 -3" geometry="primitive: plane; width: 1.2; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: View learning \n objectives; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickObjective();">
+        </a-image>
+
+        <a-image id="btn_l1" position="-0.5 1.5 -3" geometry="primitive: plane; width: 1.2; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Construction of \n a galvanometer;
+
+              align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickL1();">
+        </a-image>
+
+        <a-image id="btn_l2" position="0.8 1.5 -3" geometry="primitive: plane; width: 1.2; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Working of \n a galvanometer;
+
+              align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickL2();">
+        </a-image>
+
+        <a-image id="btn_as" position="2.1 1.5 -3"
+        geometry="primitive: plane; width: 1.2; height: 0.65" material="color: white; opacity:1 ; src: #tex_menu_off ;" text="value: Assess your \n knowledge; align:center; width: 3" click_sound cardboard_input vo_hover color_hover onclick="OnClickAS();">
+        </a-image>
+
+
+        <a-image id="btn_close" setactive="value:true" position="1.2 2.2 -2" src="#MainMenu_close" geometry="primitive: plane; width: 0.18; height: 0.18"
+         click_sound cardboard_input vo_hover onclick="btn_close_click();">
+        </a-image>
+
+
+    </a-entity>
+
+
+
+
+    <!-- ----------------------------  /Main Menu  ------------------------------------- -->
+
+
+    <!-- ----------------------------  Objective Scene  ------------------------------------- -->
+    <a-entity id="LO" setactive="value:false">
+        <a-sky src="#img360" rotation="0 -95 0"></a-sky>
+
+
+        <!-- Objective panel -->
+        <a-entity id="p_objective" position="0 2 -3" vo_enable="play:false"
+        geometry="primitive: plane; width: 3.2; height: 1.2"
+        material="color: black; opacity:1">
+            <a-text value="Learning Objectives
+
+   After completing this module, you will be able to:
+ 1- Describe the construction of a galvanometer.
+ 2- Explain the workings of a galvanometer.
+" position="-1.4 0.2 0" align="left" width="3"></a-text>
+
+            <!-- Ok button -->
+            <a-image id="btn_ok" position="0 -0.361 0.01" src="#tex_menu_off" geometry="primitive: plane; width: 0.6; height: 0.3" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="OnClickObjectiveOk();">
+            </a-image>
+
+        </a-entity>
+
+
+    </a-entity>
+    <!-- ----------------------------  /Objective Scene  ------------------------------------- -->
+
+
+    <!-- ----------------------------  Level 1  ------------------------------------- -->
+    <a-entity id="L1" setactive="value:false">
+        <a-sky src="#img360" rotation="0 -95 0"></a-sky>
+        <a-light intensity="1" position="0 0 0" rotation="0 0 0" type="ambient"></a-light>
+
+        <a-entity id="Base_lvl1" setactive="value:true;scale:0.1" gltf-model="#BaseL1" position="0 0 -7" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="ElectroMagnet_lvl1" setactive="value:true;scale:0.1" gltf-model="#ElectroMagnetL1" position="0 0 -7" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Magnet_lvl1" setactive="value:true;scale:0.1" gltf-model="#MagnetL1" position="0 0 -7" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Meter_lvl1" setactive="value:true;scale:0.1" gltf-model="#MeterL1" position="0 0 -7" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Niddle_lvl1" setactive="value:true;scale:0.1" gltf-model="#NiddleL1" position="0 0 -7" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Cage_lvl1" setactive="value:false;scale:0.1" gltf-model="#CageL1" position="0 0 -7" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Ring_lvl1" setactive="value:true;scale:0.1" gltf-model="#RingL1" position="0 0 -7" rot ="enabled:false"  scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Ring2_lvl1" setactive="value:false;scale:0.1" gltf-model="#Ring2L1" position="0 0 -7" rot ="enabled:false"  scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Niddle2_lvl1" setactive="value:false;scale:0.1" gltf-model="#Niddle2L1" position="0 0 -7"  rot ="enabled:false"  scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+        <a-entity id="Meter2_lvl1" setactive="value:false;scale:0.1" gltf-model="#Meter2L1" position="0 0 -7" rot ="enabled:false"  scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+
+
+        <a-entity id="p_DefinitionPanel" position="0 2.5 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 3; height: 0.8"
+        material="color: black; opacity:1" text="value:A galvanometer is a device used to detect electric current.;
+         align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25"
+            material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+            click_sound cardboard_input color_hover onclick="p_Definationpnl_OKclick();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="b_LabelOn" position="0 2.035 -2" setactive="value:false" geometry="primitive: plane; width: 0.6; height: 0.2" material="color: black; opacity:0.9"
+        text="value: LABEL ON; align:center; width: 2.5; color: white" click_sound cardboard_input color_hover onclick="onClickb_LabelOn();">
+        </a-entity>
+
+        <a-entity id="b_Split" position="0 2.25 -2" setactive="value:false" geometry="primitive: plane; width: 0.6; height: 0.2" material="color: black; opacity:0.9"
+        text="value: SPLIT; align:center; width: 2.5; color: white" click_sound cardboard_input color_hover onclick="onClickb_Split();">
+        </a-entity>
+
+
+        <a-entity id="label_Scale" position="2.865 1.649 -6.790" setactive="value:false" geometry="primitive: plane;
+         width: 1.5; height: 0.4" material="color: black; opacity:0.9"
+        text="value: Scale; align:center; width: 5; color: white" >
+        <a-image id="Indicator_Scale" position="-1.53 0 0"  geometry="primitive: plane;
+         width: 1.6; height: 0.02" material="color: white; opacity:0.9"
+         <a-image>
+        </a-entity>
+
+        <a-entity id="label_Needle" position="2.362 1.208 -6.618" setactive="value:false" geometry="primitive: plane;
+         width: 1.5; height: 0.4" material="color: black; opacity:0.9"
+        text="value: Needle; align:center; width: 5; color: white" >
+        <a-image id="Indicator_Needle" position="-1.53 0 0"  geometry="primitive: plane;
+         width: 1.6; height: 0.02" material="color: white; opacity:0.9"
+         <a-image>
+
+        </a-entity>
+
+        <a-entity id="label_PermanentMagnet" position="2.88 0.751 -6.618"
+        setactive="value:false" geometry="primitive: plane;
+         width: 2; height: 0.4" material="color: black; opacity:0.9"
+        text="value: Permanent Magnet; align:center; width: 5; color: white" >
+        <a-image id="Indicator_PermamnentMagnet" position="-1.53 0 0"  geometry="primitive: plane;
+         width: 1.4; height: 0.02" material="color: white; opacity:0.9"
+         <a-image>
+
+        </a-entity>
+
+        <a-entity id="label_Electromagnet" position="2.442 0.291 -6.618"
+        setactive="value:false" geometry="primitive: plane;
+         width: 2; height: 0.4" material="color: black; opacity:0.9"
+        text="value: Electromagnet; align:center; width: 5; color: white" >
+        <a-image id="Indicator_Electromagnet" position="-1.53 0 0"  geometry="primitive: plane;
+         width: 1.4; height: 0.02" material="color: white; opacity:0.9"
+         <a-image>
+
+        </a-entity>
+
+
+        <a-entity id="label_Spring" position="-2.47 0.283 -6.618"
+        setactive="value:false" geometry="primitive: plane;
+         width: 2; height: 0.4" material="color: black; opacity:0.9"
+        text="value: Spring; align:center; width: 5; color: white" >
+        <a-image id="Indicator_Spring" position="1.7 0 0"  geometry="primitive: plane;
+         width: 1.4; height: 0.02" material="color: white; opacity:0.9"
+         <a-image>
+
+        </a-entity>
+
+        <a-entity id="p_DefinitionPanel" position="0 2.5 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 0.8"
+        material="color: black; opacity:1" text="value:A galvanometer is a device used to detect electric current.;
+         align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25"
+            material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+            click_sound cardboard_input color_hover onclick="p_Definationpnl_OKclick();">
+            </a-image>
+        </a-entity>
+
+        <a-entity id="b_Magnet" position="-5.51 0.869 -6.746" rotation="0, 30, 0" setactive="value:false"
+        geometry="primitive: plane; width: 1.7; height: 0.25" material="color: black; opacity:0.9"
+        text="value:Permanent magnet; align:center; width: 4; color: white" click_sound cardboard_input color_hover onclick="button_click(1);">
+        </a-entity>
+
+        <a-entity id="label_Magnetdefine" position="-5.51 0.482 -6.746" rotation="0, 30, 0" setactive="value:false" geometry="primitive: plane;
+         width: 5.2 ; height: 0.5" material="color: black; opacity:0.9"
+        text="value: A permanent magnet is a strong, U-shaped magnet with concave pole pieces.; align:center; width: 5; color: white" >
+       </a-entity>
+
+        <a-entity id="b_Spring" position="-4 3.5 -7" rotation="0, 30, 0" setactive="value:false" geometry="primitive: plane; width: 0.8; height: 0.3" material="color: black; opacity:0.9"
+        text="value: Spring; align:center; width: 4; color: white" click_sound cardboard_input color_hover onclick="button_click(2);">
+        </a-entity>
+
+        <a-entity id="label_Springdefine" position="-3.6 2.86 -7" rotation="0, 30, 0" setactive="value:false" geometry="primitive: plane;
+         width:5 ; height: 0." material="color: black; opacity:0.9"
+        text="value: A spring is connected to the electromagnet and tends to resist the movement of the coil when there is current running through it. This controls the motion of the coil.; align:center; width: 5; color: white" >
+
+        </a-entity>
+
+        <a-entity id="b_Needle" position="0 3.84 -6.5" setactive="value:false" geometry="primitive: plane; width: 1.0; height: 0.3" material="color: black; opacity:0.9"
+        text="value:Needle ; align:center; width: 5; color: white" click_sound cardboard_input color_hover onclick="button_click(3);">
+        </a-entity>
+        <a-entity id="label_Needledefine" position="0 3.21 -6.5" setactive="value:false" geometry="primitive: plane;
+         width: 5 ; height: 0.6" material="color: black; opacity:0.9"
+        text="value: A needle is attached to the moving coil so that it moves over the scale when the coil rotates.; align:center; width: 5; color: white" >
+
+        </a-entity>
+
+        <a-entity id="b_Scale" position="4 3.5 -7" rotation="0, -30, 0" setactive="value:false" geometry="primitive: plane; width: 0.65; height: 0.25" material="color: black; opacity:0.9"
+        text="value: Scale; align:center; width: 4; color: white" click_sound cardboard_input color_hover onclick="button_click(4);">
+        </a-entity>
+
+        <a-entity id="label_Scaledefine" position="4.307 2.9 -7" rotation="0, -30, 0" setactive="value:false" geometry="primitive: plane;
+         width: 5; height: 0.8" material="color: black; opacity:0.9"
+        text="value: A scale is used to measure the deflection of the coil.; align:center; width: 5; color: white" >
+
+        </a-entity>
+
+        <a-entity id="b_Electromagnet" position="5.51 0.869 -6.746" rotation="0, -30, 0"  setactive="value:false" geometry="primitive: plane; width: 1.3; height: 0.2" material="color: black; opacity:0.9"
+        text="value: Electromagnet; align:center; width: 4; color: white" click_sound cardboard_input color_hover onclick="button_click(5);">
+        </a-entity>
+
+        <a-entity id="label_Electromagnetdefine" position="5.51 0.452 -6.746" rotation="0, -30, 0"  setactive="value:false" geometry="primitive: plane;
+         width: 5.2 ; height: 0.55" material="color: black; opacity:0.9"
+        text="value: An electromagnet consists of a soft iron core, over which a rectangular coil of several turns is wound.; align:center; width: 5; color: white" >
+
+        </a-entity>
+
+        <a-entity id="p_completeLvl1" position="0 2 -3.5" rotation="0 0 0"
+        setactive="value:false" geometry="primitive: plane; width: 2.5; height: 0.9"
+        material="color: black; opacity:1"
+        text="value:You have completed this activity. Select OK
+to return to the menu and continue
+to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+            <a-image id="btn_ok" position="0 -0.24 0.01" geometry="primitive: plane; width: 0.5; height: 0.25"
+            material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+            click_sound cardboard_input color_hover onclick="OnClick_CompleteOk();">
+            </a-image>
+        </a-entity>
+
+
+      </a-entity>
+
+      <!-- ----------------------------  Level 1 Completed ------------------------------------- -->
+
+
+<!-- ----------------------------  Level 2 ------------------------------------- -->
+
+<a-entity id="L2" setactive="value:false">
+    <a-sky src="#img360" rotation="0 -95 0"></a-sky>
+    <a-light intensity="1" position="0 0 0" rotation="0 0 0" type="ambient"></a-light>
+
+    <a-entity id="aClip1_lvl2" setactive="value:true;scale:0.1" gltf-model="#Clip1L2"  position="0 0 -5" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+    <a-entity id="aClip2_lvl2" setactive="value:false;scale:0.1" gltf-model="#Clip2L2" position="0 0 -5" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+    <a-entity id="aCurrentFlow_lvl2" setactive="value:false;scale:0.1"  gltf-model="#CurrentFlowL2" position="0 0 -5" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+    <a-entity id="mkey1_lvl2" setactive="value:true;scale:0.1" gltf-model="#KeyL2" position="0.579 0.505 -3.747" scale="0.1 0.1 0.1" rotation="0 0 -90">
+      <a-sphere id="highlight_key" highlight position="-1.88 0.055 -0.587" highlight radius="1" setactive="value:true"
+              material="color:green"
+              click_sound cardboard_input onclick="OnClick_HighlightKey();">
+            </a-sphere>
+    </a-entity>
+
+
+  <a-entity id="mkey2_lvl2" setactive="value:false;scale:0.1" gltf-model="#KeyL2" position="0.28 0.116 -3.747" scale="0.1 0.1 0.1" rotation="0 0 0">
+    <a-sphere id="highlight_key2" highlight position="-2.079 0.116 -0.020" highlight radius="1" setactive="value:true"
+            material="color:green"
+            click_sound cardboard_input onclick="OnClick_HighlightKey2();">
+          </a-sphere>
+  </a-entity>
+
+
+    <a-entity id="p_InstructionPanel1" position="0 2.5 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3.2; height: 1.2"
+    material="color: black; opacity:1" text="value:When current passes through the electromagnet, it rotates until the force between it and the permanent magnet is balanced by the forces exerted on it by the spring.;
+     align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+        <a-image id="btn_ok" position="0 -0.33 0.01" geometry="primitive: plane; width: 0.5; height: 0.25"
+        material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+        click_sound cardboard_input color_hover onclick="button_click1();">
+        </a-image>
+    </a-entity>
+
+
+    <a-entity id="p_InstructionPanel2" position="0 2.5 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 2.9; height: 0.8"
+    material="color: black; opacity:1" text="value:When the current through the coil is switched off, the coil returns to its original position.;
+     align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+        <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25"
+        material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+        click_sound cardboard_input color_hover onclick="button_click2();">
+        </a-image>
+    </a-entity>
+
+    <a-entity id="p_InstructionPanel3" position="0 2.5 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 2.9; height: 0.8"
+    material="color: black; opacity:1" text="value:You have completed this activity. Select OK to return to the menu and continue to the next activity.;
+     align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+        <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25"
+        material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+        click_sound cardboard_input color_hover onclick="OnClick_CompleteOk2();">
+        </a-image>
+    </a-entity>
+</a-entity>
+
+    <!-- ----------------------------  Level 2 Completed ------------------------------------- -->
+
+    <!-- ----------------------------  Level As ------------------------------------- -->
+
+
+<a-entity id="AS" setactive="value:false">
+  <a-sky src="#img360" rotation="0 -95 0"></a-sky>
+  <a-light intensity="1" position="0 0 0" rotation="0 0 0" type="ambient"></a-light>
+  <a-entity id="Cage_lvlAs" setactive="value:false; scale:0.1" gltf-model="#CageL1" position="0 0 -7" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0">
+  </a-entity>
+
+
+  <a-entity id="p_InstructionPanel4" position="0 2.956 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 2.9; height: 1.1"
+  material="color: black; opacity:1" text="value:Follow the instructions to perform the assessment and earn points. You can try multiple times, but points are only awarded if you answer correctly on the first try.;
+   align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+      <a-image id="btn_ok" position="0 -0.34 0.01" geometry="primitive: plane; width: 0.5; height: 0.25"
+      material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+      click_sound cardboard_input color_hover onclick="button_clickAs1();">
+      </a-image>
+
+
+   </a-entity>
+   <a-entity id="p_InstructionPanel5" position="0 2.956 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 2.9; height: 0.8"
+   material="color: black; opacity:1" text="value:Identify the parts according to the description provided and drag them over the wireframe.;
+    align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+       <a-image id="btn_ok" position="-0.06 -0.3 0.098" geometry="primitive: plane; width: 0.5; height: 0.25"
+       material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white"
+       click_sound cardboard_input color_hover onclick="button_clickAs2();">
+       </a-image>
+
+
+  </a-entity>
+
+  <a-entity id="Base_lvlAs" setactive="value:true;scale:0.1" gltf-model="#BaseL1" position="0 0 -7" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+  <a-entity id="ElectroMagnet_lvlAs" cardboard_input dragit="enabled:true" setactive="value:true;scale:0.1" gltf-model="#ElectroMagnetL1" position="5.56, 0.0, -7.291" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+  <a-entity id="Magnet_lvlAs" cardboard_input dragit="enabled:true" setactive="value:true;scale:0.1" gltf-model="#MagnetL1" position="-2.77, 1.5, -6.276" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+  <a-entity id="Meter_lvlAs" cardboard_input dragit="enabled:true" setactive="value:true;scale:0.1" gltf-model="#MeterL1" position="3.474, 0.630, -7.156" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+  <a-entity id="Niddle_lvlAs" cardboard_input dragit="enabled:true" setactive="value:true;scale:0.1" gltf-model="#NiddleL1" position="-4.51, 0.0, -5.741" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+  <a-entity id="Ring_lvlAs" cardboard_input dragit="enabled:true" setactive="value:true;scale:0.1" gltf-model="#RingL1" position="-0.02, 2.222, -5.783" rot ="enabled:false"  scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+
+
+
+
+  <a-entity id="b_Ok" position="-0.02 2.0779 -5.637" rotation= "0 0 0" setactive="value:false"
+  geometry="primitive: plane; width: 0.7; height: 0.27" material="color: black; opacity:0.9"
+  text="value: OK; align:center; width: 4; color: white" click_sound cardboard_input color_hover onclick="">
+  </a-entity>
+
+
+    <a-entity id="TransparentRingAS" cardboard_input raycastlistener setactive="value:true;scale:0.1" gltf-model="#TransparentRing" position="0 0.277 -6.644" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+    <a-entity id="TransparentMagnetAS" cardboard_input raycastlistener setactive="value:true;scale:0.1" gltf-model="#TransparentMagnet" position="0 0.432 -7" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+    <a-entity id="TransparentMotorAS" cardboard_input raycastlistener  setactive="value:true;scale:0.1" gltf-model="#TransparentMotor" position="0 0.665 -5.257" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+    <a-entity id="TransparentNeedleAS" cardboard_input raycastlistener setactive="value:true;scale:0.1" gltf-model="#TransparentNeedle" position="0 0.937 -6.629" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+    <a-entity id="TransparentScaleAS" cardboard_input raycastlistener  setactive="value:true;scale:0.1" gltf-model="#TransparentScale" position="0 0.956 -6.714" rot ="enabled:false" scale="0.1 0.1 0.1" rotation="0 0 0"></a-entity>
+
+
+
+
+
+
+</a-entity>
+
+
+        <!-------------Series wire------------------->
+        <!-- <a-entity id="RedWireSeries" setactive="value:false" gltf-model="#Red" position="0 0.7 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_redWireSeries_click();">
+        </a-entity>
+
+        <a-entity id="GreenwireSeries" setactive="value:false" gltf-model="#Green" position="-0.6 0.5 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_greenWireSeries_click();">
+        </a-entity>
+
+        <a-entity id="BluewireSeries" setactive="value:false" gltf-model="#Blue" position="0.0 0.5 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_blueWireSeries_click();">
+        </a-entity> -->
+        <!------------------------------------------------->
+
+
+        <!-------------Parallel wire------------------->
+        <!-- <a-entity id="RedWireParallel" setactive="value:false" gltf-model="#Red" position="0 0.7 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_redWireParallel_click();">
+        </a-entity>
+
+        <a-entity id="GreenwireParallel" setactive="value:false" gltf-model="#Green" position="-0.6 0.5 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_greenWireParallel_click();">
+        </a-entity>
+
+        <a-entity id="BluewireParallel" setactive="value:false" gltf-model="#Blue" position="0.0 0.5 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_blueWireParallel_click();">
+        </a-entity>
+
+        <a-entity id="YellowwireParallel" setactive="value:false" gltf-model="#Yellow" position="0.5 0.5 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_yellowWireParallel_click();">
+        </a-entity> -->
+
+        <!-------------Series final wire------------------->
+
+        <!-- <a-entity id="blueWire_finalSeries" scale="0.5" setactive="value:false" gltf-model="#Blue_Series" position="0 0.5 -1.5" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+        <a-entity id="redWire_finalSeries" scale="0.5" setactive="value:false" gltf-model="#Red_Series" position="0 0.5 -1.5" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+        <a-entity id="greenWire_finalSeries" scale="0.5" setactive="value:false" gltf-model="#Green_Series" position="0 0.5 -1.5" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity> -->
+
+
+        <!-------------Parallel final wire------------------->
+
+        <!-- <a-entity id="blueWire_finalParallel" scale="0.5" setactive="value:false" gltf-model="#Blue_Parallel" position="0 0.5 -1.5" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+        <a-entity id="redWire_finalParallel" scale="0.5" setactive="value:false" gltf-model="#Red_Parallel" position="0 0.5 -1.5" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+        <a-entity id="greenWire_finalParallel" scale="0.5" setactive="value:false" gltf-model="#Green_Parallel" position="0 0.5 -1.5" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+        <a-entity id="yellowWire_finalParallel" scale="0.5" setactive="value:false" gltf-model="#Yellow_Parallel" position="0 0.5 -1.5" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity> -->
+        <!--------------------------------------------------->
+
+        <!-- <a-entity id="b_TypesofCkt" position="0 2.21 -2" setactive="value:false" geometry="primitive: plane; width: 1; height: 0.2" material="color: black; opacity:0.9" text="value: TYPE OF CIRCUIT; align:center; width: 2.5; color: white" click_sound cardboard_input color_hover onclick="b_typesofCkt_click();">
+        </a-entity> -->
+
+        <a-entity id="b_Series" position="0 2.035 -2" setactive="value:false" geometry="primitive: plane; width: 1; height: 0.2" material="color: black; opacity:0.9" text="value: Series; align:center; width: 2.5; color: white" click_sound cardboard_input color_hover onclick="b_Series_click();">
+        </a-entity>
+
+
+        <a-entity id="b_Parallel" position="0 1.85 -2" setactive="value:false" geometry="primitive: plane; width: 1; height: 0.2" material="color: black; opacity:0.9" text="value: Parallel; align:center; width: 2.5; color: white" click_sound cardboard_input color_hover onclick="b_Parallel_click();">
+        </a-entity>
+
+
+
+        <a-entity id="b_ResistorR1" position="-1 2.01 -2" setactive="value:false" geometry="primitive: plane; width: 1; height: 0.25" material="color: black; opacity:0.9" text="value: SELECT RESISTOR R1; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_ResistorR1_click();">
+        </a-entity>
+
+        <a-entity id="b_R1_10ohm" position="-1 1.8 -2" setactive="value:false" geometry="primitive: plane; width:0.5; height: 0.2" material="color: black; opacity:0.9" text="value:10 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R1Value_click(10);">
+        </a-entity>
+
+        <a-entity id="b_R1_20ohm" position="-1 1.6 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:20 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R1Value_click(20);">
+        </a-entity>
+
+
+        <a-entity id="b_R1_30ohm" position="-1 1.4 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:30 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R1Value_click(30);">
+        </a-entity>
+
+        <a-entity id="b_R1_40ohm" position="-1 1.2 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:40 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R1Value_click(40);">
+        </a-entity>
+
+        <a-entity id="b_R1_50ohm" position="-1 1 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:50 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R1Value_click(50);">
+        </a-entity>
+
+
+
+        <a-entity id="b_ResistorR2" position="1 2.01 -2" setactive="value:false" geometry="primitive: plane; width: 1; height: 0.25" material="color: black; opacity:0.9" text="value: SELECT RESISTOR R2; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_ResistorR2_click();">
+        </a-entity>
+
+        <a-entity id="b_R2_10ohm" position="1 1.8 -2" setactive="value:false" geometry="primitive: plane; width:0.5; height: 0.2" material="color: black; opacity:0.9" text="value:10 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R2Value_click(10);">
+        </a-entity>
+
+        <a-entity id="b_R2_20ohm" position="1 1.6 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:20 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R2Value_click(20);">
+        </a-entity>
+
+
+        <a-entity id="b_R2_30ohm" position="1 1.4 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:30 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R2Value_click(30);">
+        </a-entity>
+
+        <a-entity id="b_R2_40ohm" position="1 1.2 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:40 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R2Value_click(40);">
+        </a-entity>
+
+        <a-entity id="b_R2_50ohm" position="1 1 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.9" text="value:50 ohm; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_R2Value_click(50);">
+        </a-entity>
+
+        <a-entity id="p_R1display" position="0.229 1.121 -1.383" setactive="value:false" geometry="primitive: plane; width: 0.12; height:0.02" material="opacity:0" text="value:R1 = 50 ohm; align:center; width: 1.5; color:white">
+        </a-entity>
+
+        <a-entity id="p_R2display" position="-0.229 1.121 -1.377" setactive="value:false" geometry="primitive: plane; width: 0.12; height: 0.01" material="opacity:0" text="value:R2 = 50 ohm; align:center; width: 1.5; color: white">
+        </a-entity>
+
+
+        <a-entity id="p_Voltdisplay" position="-0.016 1.237 -1.735" setactive="value:false" geometry="primitive: plane; width: 0.38; height: 0.10" material="opacity:0" text="value:5 volt; align:center; width: 1.5; color: white">
+        </a-entity>
+
+        <a-entity id="p_wellDoneAfterckt" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="b_wellDoneAfterckt_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="p_totalResistanceckt" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_totalResistanceckt_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="p_totalCurentckt" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_totalCurentckt_click();">
+            </a-image>
+        </a-entity>
+
+
+        <!-------------Series----------->
+        <!-------------Series----------->
+        <!-------------Series----------->
+        <!-------------Series----------->
+        <!-------------Series----------->
+        <a-entity id="p_voltageDropR1Series" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_voltageDropR1Series_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="p_voltageDropR2Series" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_voltageDropR2Series_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="p_currentThroughR1Series" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_currentThroughR1Series_click();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity id="p_currentThroughR2Series" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.2 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="onObservationClick();">
+            </a-image>
+        </a-entity>
+        <!----------------------------->
+
+
+        <!-------------parallel----------->
+        <!-------------parallel----------->
+        <!-------------parallel----------->
+        <!-------------parallel----------->
+        <!-------------parallel----------->
+        <!-------------parallel----------->
+        <a-entity id="p_currentThroughR1Parallel" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.3 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_currentThroughR1Parallel_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="p_currentThroughR2Parallel" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.3 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_currentThroughR2Parallel_click();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity id="p_voltageDropR1Parallel" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.3 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_voltageDropR1Parallel_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="p_voltageDropR2Parallel" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:0; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.3 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="onObservationClick();">
+            </a-image>
+        </a-entity>
+        <!----------------------------->
+
+
+        <!-------------At last On Observation panel ---------------->
+        <!-------------At last On Observation panel ---------------->
+        <!-------------At last On Observation panel ---------------->
+        <!-------------At last On Observation panel ---------------->
+        <a-entity id="p_observeParameter" position="0 2 -3" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 0.8" material="color: black; opacity:1" text="value:Observe all the parameters when the current is flowing through the circuit, then click OK to proceed.; align:center; baseline:bottom;  width: 2.6; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.25 0.02" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="onObservationOKclick();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity id="p_observeParameterTotalR" position="-2 2.74 -3" rotation="0 10 0" setactive="value:false" geometry="primitive: plane; width: 1.19; height: 0.4" material="color: black; opacity:1" text="value:0; align:center;width: 2.8; xOffset:0.0; yOffset:1">
+        </a-entity>
+
+        <a-entity id="p_observeParameterTotalI" position="-1.95 2.3 -3" rotation="0 10 0" setactive="value:false" geometry="primitive: plane; width: 1.15; height: 0.4" material="color: black; opacity:1" text="value:0; align:center;width: 2.8; xOffset:0.0; yOffset:1">
+        </a-entity>
+
+        <a-entity id="p_observeParameterCurrentR1" position="-1.95 1.8 -3" rotation="0 10 0" setactive="value:false" geometry="primitive: plane; width: 1.15; height: 0.4" material="color: black; opacity:1" text="value:0; align:center;width: 2.8; xOffset:0.0; yOffset:1">
+        </a-entity>
+
+        <a-entity id="p_observeParameterCurrentR2" position="1.95 2.74 -3" rotation="0 -10 0" setactive="value:false" geometry="primitive: plane; width: 1.15; height: 0.4" material="color: black; opacity:1" text="value:0; align:center;width: 2.8; xOffset:0.0; yOffset:1">
+        </a-entity>
+
+        <a-entity id="p_observeParameterVoltageR1" position="1.95 2.3 -3" rotation="0 -10 0" setactive="value:false" geometry="primitive: plane; width: 1.15; height: 0.4" material="color: black; opacity:1" text="value:0; align:center;width: 2.8; xOffset:0.0; yOffset:1">
+        </a-entity>
+
+        <a-entity id="p_observeParameterVoltageR2" position="1.95 1.8 -3" rotation="0 -10 0" setactive="value:false" geometry="primitive: plane; width: 1.15; height: 0.4" material="color: black; opacity:1" text="value:0; align:center;width: 2.8; xOffset:0.0; yOffset:1">
+        </a-entity>
+
+        <!----------------------------------------------------------->
+
+
+
+
+
+        <!-----------------Question when series selected----------------------->
+        <!-----------------Question when series selected----------------------->
+        <!-----------------Question when series selected----------------------->
+        <!-----------------Question when series selected----------------------->
+        <a-entity id="Q1_L1" position="0 2.1 -3.5" rotation="0 0 0" geometry="primitive: plane; width: 3; height: 2" setactive="value:false" material="color: black; opacity:1">
+
+            <a-text value="Q. Find the incorrect statement." position="0.1 0.6 0" align="left" anchor="center" width="3"></a-text>
+
+            <a-entity position="-1.35 0.3 0.02">
+                <a-text value="A.The total resistance of the circuit is higher than  R1 or R2, individually." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q101at" position="1.35 -0.038 0.1" click_sound cardboard_input question="id:101; rightOption:c; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.35 -0.03 0.02">
+                <a-text value="B.The current through R1 and R2 is equal." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q101bt" position="1.3 -0.035 0.1" click_sound cardboard_input question="id:101 ; rightOption:c; option:b;" geometry="primitive: plane;  height:0.15; width:2.5;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+            <a-entity position="-1.35 -0.28 0.02">
+                <a-text value="C.The total current is lower than the current passing through R1 or R2." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q101ct" position="1.31 -0.038 0.1" click_sound cardboard_input question="id:101 ; rightOption:c; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+            <a-entity position="-1.35 -0.56 0.02">
+                <a-text value="D.The total current is equal to the current passing through R1 or R2." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q101dt" position="1.3 -0.035 0.1" click_sound cardboard_input question="id:101 ; rightOption:c; option:d;" geometry="primitive: plane; height:0.2; width:2.5;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_101" mixin="Welldone" position="-0.17 -0.8 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_101" mixin="Tryagain" position="-0.17 -0.8 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_101" mixin="OK" width="0.5" height="0.25" position="-0.17 -0.8 0.01" onclick="onQ1_L1OKclick();">
+            </a-image>
+        </a-entity>
+        <!----------------------------------------------------------->
+
+
+
+
+        <!-----------------Question when Parallel selected----------------------->
+        <!-----------------Question when Parallel selected----------------------->
+        <!-----------------Question when Parallel selected----------------------->
+        <!-----------------Question when Parallel selected----------------------->
+        <a-entity id="Q2_L1" position="0 2 -3.5" rotation="0 0 0" geometry="primitive: plane; width: 3; height: 2" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Q. Find the incorrect statement." position="0.1 0.6 0" align="left" anchor="center" width="3"></a-text>
+
+            <a-entity position="-1.35 0.3 0.02">
+
+                <a-text value="A.The total resistance of the circuit is lower than R1 or R2, individually." position="0 -0.05 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q102at" position="1.35 -0.038 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.35 -0.03 0.02">
+                <a-text value="B.The voltage drop across R1 is not equal to the voltage drop across R2." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q102bt" position="1.3 -0.035 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:b;" geometry="primitive: plane; height:0.2; width:2.5; " material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+            <a-entity position="-1.35 -0.28 0.02">
+                <a-text value="C.The total current is the sum of the current through R1 and the current through R2." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q102ct" position="1.31 -0.038 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+            <a-entity position="-1.35 -0.56 0.02">
+                <a-text value="D.The voltage of the battery is equal to the voltage drop across R1 and R2." position="0 0 0.1" align="left" width="2.5"></a-text>
+                <a-entity id="q102dt" position="1.3 -0.035 0.1" click_sound cardboard_input question="id:102 ; rightOption:b; option:d;" geometry="primitive: plane; height:0.2; width:2.5;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_102" mixin="Welldone" position="-0.17 -0.8 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_102" mixin="Tryagain" position="-0.17 -0.8 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_102" mixin="OK" width="0.5" height="0.25" position="-0.17 -0.8 0.01" onclick="onQ2_L1OKclick();">
+            </a-image>
+        </a-entity>
+        <!----------------------------------------------------------->
+
+
+
+        <a-entity id="p_learningOutcomeSeries" position="-2 1.75 -3" scale="0.6 0.5 0.6" rotation="0 20 0" setactive="value:false" vo_enable="play:false" geometry="primitive: plane; width:2.5; height: 2.5" material="color: black; opacity:1">
+            <a-text value="Key Concepts
+
+
+   Series circuit:
+
+   1- The current is same in every resistor, which is equal to that supplied by the battery. The same current reading is obtained regardless of where in the circuit it is measured.
+
+   2- Each component has an individual Ohm's law drop in voltage and by knowing the current through the resistors, we can calculate the voltage using Ohm's Law.
+
+   3- The sum of the voltage drops across individual resistors is equal to the total voltage of the circuit.
+
+   4- The total resistance in the circuit is equal to the sum of the individual resistances." position="-1.1 0.1 0" align="left" width="2.2"></a-text>
+
+            <!-- Ok button -->
+            <a-image id="btn_ok" position="0 -1.1 0.01" src="#tex_menu_off" geometry="primitive: plane; width: 0.6; height: 0.3" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="LearningOutcomeSeries_click();">
+            </a-image>
+
+        </a-entity>
+
+
+        <a-entity id="p_learningOutcomeParallel" position="-2.2 1.75 -3" scale="0.6 0.5 0.6" rotation="-5 30 0" setactive="value:false" vo_enable="play:false" geometry="primitive: plane; width:2.5; height: 2.5" material="color: black; opacity:1">
+            <a-text value="Key Concepts
+
+  Parallel circuit:
+
+  1- The voltage is the same across each resistor. Wherever the voltage is measured, the same reading, equivalent to that of the supply voltage, is obtained.
+
+  2- Each branch has an individual path for the current. The current can be calculated using Ohm's Law if the voltage across the resistors is known.
+
+  3- The sum of the current in each individual branch is equal to the current outside of the branches.
+
+  4- The total resistance in the circuit is equal to the inverse of the sum of the inverses of the individual resistances. In other words, the total resistance is less than any of the individual resistances." position="-1.1 0.1 0" align="left" width="2.2"></a-text>
+
+            <!-- Ok button -->
+            <a-image id="btn_ok" position="0 -1.1 0.01" src="#tex_menu_off" geometry="primitive: plane; width: 0.6; height: 0.3" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="LearningOutcomeParallel_click();">
+            </a-image>
+
+        </a-entity>
+
+
+
+        <!-- Complete Activity -->
+
+        <a-entity id="p_completeLvl1" position="0 2 -3.5" rotation="0 0 0" setactive="value:false" geometry="primitive: plane; width: 2.5; height: 0.9" material="color: black; opacity:1" text="value:You have completed this activity. Select OK
+to return to the menu and continue
+to the next activity.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.24 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_complete_click();">
+            </a-image>
+        </a-entity>
+
+
+    </a-entity>
+
+
+    <!-- ----------------------------  Level 1 Completed ------------------------------------- -->
+
+
+
+
+
+    <!-- ----------------------------  A_Knowledge  ------------------------------------- -->
+
+
+    <a-light intensity="3" position="0 0 0" rotation="0 0 0" type="ambient"></a-light>
+    <a-entity id="AS" setactive="value:false">
+
+        <a-entity id="AS_Model1" setactive="value:true; scale:0.5" gltf-model="#AS_Model11" position="-0.8 0.5 -2" scale="0.5 0.5 0.5" rotation="0 90 0"></a-entity>
+        <a-entity id="AS_Model2" setactive="value:false; scale:0.5" gltf-model="#AS_Model12" position="0 0.5 -1" scale="0.5 0.5 0.5" rotation="0 90 0"></a-entity>
+
+        <a-entity id="AS_Greenwire" setactive="value:false" gltf-model="#AS_Green1" position="-0.83 0.3 0" rotation="0 0 0" click_sound cardboard_input onclick="b_greenWireAS_click();">
+        </a-entity>
+
+        <a-entity id="AS_Redwire" setactive="value:false" gltf-model="#AS_Red1" position="0.38 0.2 -0.5" rotation="0 0 0" click_sound cardboard_input onclick="b_redWireAS_click();">
+        </a-entity>
+
+        <a-entity id="AS_Bluewire" setactive="value:false" gltf-model="#AS_Blue1" position="-0.3 0.8 -1.5" rotation="0 0 0" click_sound cardboard_input onclick="b_blueWireAS_click();">
+        </a-entity>
+
+        <a-entity id="AS_Greenwire_Final" scale="0.5" setactive="value:false" gltf-model="#AS_Green2" position="0 0.5 -1" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+        <a-entity id="AS_Redwwire_Final" scale="0.5" setactive="value:false" gltf-model="#AS_Red2" position="0 0.5 -1" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+        <a-entity id="AS_Bluewire_Final" scale="0.5" setactive="value:false" gltf-model="#AS_Blue2" position="0 0.5 -1" rotation="0 90 0" click_sound cardboard_input onclick="">
+        </a-entity>
+
+
+        <a-image id="AS_Image1" setactive="value:false" position="-0.7 2.2 -2.5" src="#AS_1Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(1);">
+
+            <a-image id="AS_Image1_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(1);">
+            </a-image>
+
+        </a-image>
+
+        <a-image id="AS_Image2" setactive="value:false" position="-0.1 2.2 -2.5" src="#AS_2Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(2);">
+
+            <a-image id="AS_Image2_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(2);">
+            </a-image>
+        </a-image>
+
+
+        <a-image id="AS_Image3" setactive="value:false" position="0.5 2.2 -2.5" src="#AS_3Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(3);">
+            <a-image id="AS_Image3_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(3);">
+            </a-image>
+        </a-image>
+
+        <a-image id="AS_Image4" setactive="value:false" position="1.1 2.2 -2.5" src="#AS_4Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(4);">
+            <a-image id="AS_Image4_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(4);">
+            </a-image>
+        </a-image>
+
+        <a-image id="AS_Image5" setactive="value:false" position="-0.7 1.6 -2.5" src="#AS_5Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(5);">
+            <a-image id="AS_Image5_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(5);">
+            </a-image>
+        </a-image>
+
+        <a-image id="AS_Image6" setactive="value:false" position="-0.1 1.6 -2.5" src="#AS_6Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(6);">
+            <a-image id="AS_Image6_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(6);">
+            </a-image>
+        </a-image>
+
+        <a-image id="AS_Image7" setactive="value:false" position="0.5 1.6 -2.5" src="#AS_7Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(7);">
+            <a-image id="AS_Image7_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(7);">
+            </a-image>
+        </a-image>
+
+        <a-image id="AS_Image8" setactive="value:false" position="1.1 1.6 -2.5" src="#AS_8Image" geometry="primitive: plane; width: 0.5; height: 0.5" click_sound cardboard_input onclick="onimage_click(8);">
+            <a-image id="AS_Image8_close" setactive="value:false" position="0.35 0.5 -1" src="#AS_close" geometry="primitive: plane; width: 0.15; height: 0.15" click_sound cardboard_input onclick="onclose_click(8);">
+            </a-image>
+        </a-image>
+
+        <a-image id="b_allCktOk" position="0.2 1.2 -2.5" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="on_allCktOk_click();">
+        </a-image>
+
+
+
+        <a-entity id="p_score_inst" position="0 2 -3" rotation="0 0 0" setactive="value:true" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1" text="value:Follow the instructions to perform the assessment and earn points. You can try multiple times, but points are only awarded if you answer correctly on the first try.; align:center; baseline:bottom;  width: 2.8; xOffset:0.0; yOffset:1">
+
+
+            <a-image id="btn_ok" position="0 -0.3 0.01" geometry="primitive: plane; width: 0.5; height: 0.25" material="color: black; opacity:0.8" text="value: OK; align:center; width: 3; color: white" click_sound cardboard_input color_hover onclick="p_score_inst_click();">
+            </a-image>
+        </a-entity>
+
+
+
+        <a-entity id="Q1_AS" position="0 2.3 -3.5" rotation="0 0 0" geometry="primitive: plane; width: 3.7; height: 2" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Q.1. Identify the series circuit and the parallel circuit from the models shown and select the correct option?" position="0 0.6 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-entity position="-1.65 0.2 0.02">
+                <a-text value="A. Model A is a parallel circuit and Model B is a series circuit." position="0 -0.05 0.1" align="left" width="3"></a-text>
+                <a-entity id="q1at" position="1.35 -0.038 0.1" click_sound cardboard_input question="id:1 ; rightOption:c; option:a;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.65 -0.05 0.02">
+                <a-text value="B. Both circuits are parallel circuits." position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q1bt" position="1.3 -0.035 0.1" click_sound cardboard_input question="id:1 ; rightOption:c; option:b;" geometry="primitive: plane; height:0.2; width:2.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.65 -0.30 0.02">
+                <a-text value="C. Model A is a series circuit and Model B is a parallel circuit." position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q1ct" position="1.31 -0.038 0.1" click_sound cardboard_input question="id:1 ; rightOption:c; option:c;" geometry="primitive: plane; height:0.26; width:2.7;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.65 -0.55 0.02">
+                <a-text value="D. Both curcuits are series circuits." position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q1dt" position="1.3 -0.035 0.1" click_sound cardboard_input question="id:1 ; rightOption:c; option:d;" geometry="primitive: plane; height:0.2; width:2.5;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_1" mixin="Welldone" position="-0.17 -0.8 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_1" mixin="Tryagain" position="-0.17 -0.8 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_1" mixin="OK" width="0.5" height="0.25" position="-0.17 -0.8 0.01" onclick="q1_ok();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity id="p_ModelA" position="-0.8 0.96 -1.45" setactive="value:false" geometry="primitive: plane; width: 0.3; height: 0.1" material="color: black; opacity:0.8" text="value:Model A; align:center; width: 1; color: white">
+        </a-entity>
+
+        <a-entity id="p_ModelB" position="0.8 0.96 -1.45" setactive="value:false" geometry="primitive: plane; width: 0.3; height: 0.1" material="color: black; opacity:0.8" text="value:Model B; align:center; width: 1; color: white">
+        </a-entity>
+
+        <a-entity id="p_start" position="0 2 -2" setactive="value:false" geometry="primitive: plane; width: 0.5; height: 0.2" material="color: black; opacity:0.8" text="value:START; align:center; width: 2; color: white" click_sound cardboard_input color_hover onclick="b_start_click();">
+        </a-entity>
+
+        <a-entity id="p_RegisterR1" position="0.244 1.130 -0.882" setactive="value:false" geometry="primitive: plane; width: 0.3; height: 0.1" material="color: black; opacity:0" text="value:R1 = 120 ohm; align:center; width: 1; color: white">
+        </a-entity>
+
+        <a-entity id="p_RegisterR2" position="-0.22 1.130 -0.863" setactive="value:false" geometry="primitive: plane; width: 0.3; height: 0.1" material="color: black; opacity:0" text="value:R2 = 200 ohm; align:center; width: 1; color: white">
+        </a-entity>
+
+
+        <a-entity id="Q2_AS" position="-1 2 -4" rotation="0 20 0" geometry="primitive: plane; width: 3.7; height: 2" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Q.2. In this setup, the resistors R1 and R2 are connected in series. What is the total resistance of the circuit?" position="0 0.6 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-entity position="-1.65 0.2 0.02">
+                <a-text value="A. 200 ohm" position="0 -0.05 0.1" align="left" width="3"></a-text>
+                <a-entity id="q3at" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:3 ; rightOption:d; option:a;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.65 -0.05 0.02">
+                <a-text value="B. 75 ohm" position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q3bt" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:3 ; rightOption:d; option:b;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.65 -0.30 0.02">
+                <a-text value="C. 120 ohm" position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q3ct" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:3 ; rightOption:d; option:c;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.65 -0.55 0.02">
+                <a-text value="D. 320 ohm" position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q3dt" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:3 ; rightOption:d; option:d;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_3" mixin="Welldone" position="-0.17 -0.8 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_3" mixin="Tryagain" position="-0.17 -0.8 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_3" mixin="OK" width="0.5" height="0.25" position="-0.17 -0.8 0.01" onclick="q2_ok();">
+            </a-image>
+        </a-entity>
+
+
+        <a-entity id="Q3_AS" position="-1 2 -3.5" rotation="0 20 0" geometry="primitive: plane; width: 3.7; height: 2" setactive="value:false" material="color: black; opacity:1">
+            <a-text value="Q.3. If the same resistors, R1 and R2, are connected in parallel, what would the total resistance of the circuit be?" position="0 0.6 0" align="left" anchor="center" width="3.37"></a-text>
+
+            <a-entity position="-1.65 0.2 0.02">
+                <a-text value="A. 200 ohm" position="0 -0.05 0.1" align="left" width="3"></a-text>
+                <a-entity id="q4at" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:4 ; rightOption:b; option:a;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0">
+                </a-entity>
+            </a-entity>
+
+
+            <a-entity position="-1.65 -0.05 0.02">
+                <a-text value="B. 75 ohm" position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q4bt" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:4 ; rightOption:b; option:b;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.65 -0.30 0.02">
+                <a-text value="C. 120 ohm" position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q4ct" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:4 ; rightOption:b; option:c;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity position="-1.65 -0.55 0.02">
+                <a-text value="D. 320 ohm" position="0 0 0.1" align="left" width="3"></a-text>
+                <a-entity id="q4dt" position="0.5 -0.035 0.1" click_sound cardboard_input question="id:4 ; rightOption:b; option:d;" geometry="primitive: plane; height:0.2; width:1;" material="opacity:0"></a-entity>
+            </a-entity>
+
+            <a-entity setactive="value:false" id="welldone_4" mixin="Welldone" position="-0.17 -0.8 0"></a-entity>
+            <a-entity setactive="value:false" id="tryagain_4" mixin="Tryagain" position="-0.17 -0.8 0"></a-entity>
+
+
+            <a-image setactive="value:false" id="btn_ok_4" mixin="OK" width="0.5" height="0.25" position="-0.17 -0.8 0.01" onclick="q3_ok();">
+            </a-image>
+        </a-entity>
+
+        <a-entity setactive="value:false" id="welldone_6" mixin="Welldone" position="0 1.8 -2"></a-entity>
+        <a-entity setactive="value:false" id="tryagain_6" mixin="Tryagain" position="0 1.8 -2"></a-entity>
+
+        <a-entity id="p_comp_as" position="0 2 -3" setactive="value:false" geometry="primitive: plane; width: 2.4; height: 1.1" material="color: black; opacity:1">
+
+            <a-text value="You have completed the assessment.
+    Here is your score:" position="0 0.3 0" align="center" width="2.8"></a-text>
+
+            <a-text id="score_percent" value="100 %" position="0 0 0" align="center" width="2.8"></a-text>
+
+            <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.2 0.01" onclick="p_comp_as_click();">
+
+        </a-entity>
+
+
+        <a-entity id="p_lessthan" position="0 2 -3" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-text value="You have scored less than 60%. After returning
+      to the menu, you can try the assessment
+      again to improve your score, or you can exit." position="0 0.2 0" align="center" width="2.8"></a-text>
+
+            <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_lessthan_click();">
+
+        </a-entity>
+
+
+        <a-entity id="p_greaterthan" position="0 2 -3" setactive="value:false" geometry="primitive: plane; width: 3; height: 1.1" material="color: black; opacity:1">
+
+            <a-text value="You scored well and you have completed the module! Select OK to return to the menu where you can exit." position="0 0.2 0" align="center" width="2.8"></a-text>
+
+            <a-image id="btn_ok" mixin="OK" width="0.5" height="0.25" position="0 -0.3 0.01" onclick="p_greaterthan_click();">
+
+        </a-entity>
+
+
+
+    </a-entity>
+    <!-- ----------------------------  /A_Knowledge  ------------------------------------- -->
+
+
+
+
+
+    <a-camera look-controls wasd-controls="ad-enabled:false;ws-enabled:false">
+    <a-cursor fuse="false" cursor-zoom id="cursor" setactive="value:false" fuseTimeout='60000' rayOrigin="mouse" geometry="primitive: ring" material="color: white;  shader: flat">
+    </a-cursor>
+
+
+        <!------------------------------------------ Camera instructions -->
+
+
+        <a-entity id="i_ToggleLabelIns" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 3; height: 0.55" material="color: black; opacity:1"
+        text="value:Click LABEL ON to view the different parts. You may zoom in, zoom out, or rotate the galvanometer using the controller.; align:center; width: 2.8;">
+        </a-entity>
+
+
+        <a-entity id="i_ToggleLabelIns2" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 3; height: 0.55" material="color: black; opacity:1"
+                text="value:Center the pointer on any part to zoom in or click on any label to view its description.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_ToggleLabelIns3" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 1.56; height: 0.25" material="color: black; opacity:1"
+                text="value:Click on the key to close it.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_ToggleLabelIns4" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 1.8; height: 0.25" material="color: black; opacity:1"
+                text="value:Now, click on the key to open it.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_Q1" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.5; height: 0.28" material="color: black; opacity:1"
+                text="value:It consists of a soft iron core over which a rectangular coil of several turns is wound.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_A1" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.5; height: 0.28" material="color: black; opacity:1"
+                text="value:It consists of a soft iron core over which a rectangular coil of several turns is wound.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_Q2" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 3.2; height: 0.54" material="color: black; opacity:1"
+                text="value:It is connected to the electromagnet and tends to resist the movement of the coil when there is current running through it. This controls the motion of the coil.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_Q3" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.99 ; height: 0.29" material="color: black; opacity:1"
+                text="value:It is attached to the moving coil so that it moves over the scale when the coil rotates.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_Q4" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.99; height: 0.299" material="color: black; opacity:1"
+                text="value:It is a strong, U-shaped magnet with concave pole pieces.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_Q5" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.9; height: 0.28" material="color: black; opacity:1"
+                text="value:It is used to measure the deflection of the coil via a needle.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="l_score" setactive="value:false ; scale: 0.1" position="-0.10 0.024 -0.275" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 0.59; height: 0.16" material="color: black; opacity:1" text="value: Score : 0; align:center; width: 2.8;">
+        </a-entity>
+
+
+        <!-- <a-entity id="i_selectR1andValueInstruction" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.9; height: 0.55" material="color: black; opacity:1" text="value:Choose SELECT RESISTOR R1 and then select the
+  value of the resistance for R1 from the dropdown list.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_selectR2andValueInstructionId" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.9; height: 0.55" material="color: black; opacity:1" text="value:Choose SELECT RESISTOR R2 and then select the
+  value of the resistance for R2 from the dropdown list.; align:center; width: 2.8;">
+        </a-entity>
+
+        <a-entity id="i_selectWireInstructionId" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.5; height: 0.5" material="color: black; opacity:1" text="value:Select any of the wires to
+connect it to the terminal of the battery.; align:center; width: 2.8;">
+        </a-entity>
+
+
+        <a-entity id="i_completeCktWithin60Id" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.5; height: 0.5" material="color: black; opacity:1" text="value:Make a series circuit by selecting the wires. The circuit should be completed within 60 seconds. Click START when you are ready.; align:center; width: 2.5;">
+        </a-entity>
+
+        <a-entity id="i_click8cktId" setactive="value:false ; scale :0.1" vo_enable position="0 -0.13 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 2.5; height: 0.5" material="color: black; opacity:1" text="value:The eight possible connections for the series circuit are shown. Click on the image to zoom in Then, click 'OK' to proceed.; align:center; width: 2.5;">
+        </a-entity>
+
+        <a-entity id="l_score" setactive="value:false ; scale: 0.1" position="-0.15 0.1 -0.3" scale="0.1 0.1 0.1" geometry="primitive: plane; width: 0.8; height: 0.25" material="color: black; opacity:1" text="value: Score : 0; align:center; width: 2.8;">
+        </a-entity>-->
+
+    </a-camera>
+
+</a-scene>
+
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<script>
+    var assetsId = '#assets';
+    var entity = document.querySelector(assetsId);
+    var controllerId = null;
+
+    if (entity != null) {
+        entity.addEventListener("loaded", function() {
+            console.log("All Assets looded");
+            setTimeout(ShowMainMenu, 2000);
+            setInterval(ActivateController, 1000);
+            login_isUserAuthenticated();
+
+        });
+
+        entity.addEventListener("timeout", function() {
+            console.log("Time up to load assets");
+            setTimeout(location.reload.bind(location), 500);
+        });
+
+    } else {
+        console.log("Exception : Id not found ID: ", assetsId);
+    }
+
+
+    function ShowMainMenu() {
+        SetActive('#MainMenu', true);
+        if (!login_isReferred()) {
+            SetActive('#btn_close', false);
+        }
+    }
+
+
+    function ActivateController() {
+        let cId = "";
+
+        if (AFRAME.utils.device.isGearVR()) {
+            cId = '#gvrc';
+            app_device_platform = "GearVR";
+        } else if (isDayDream()) {
+            cId = '#ddc';
+            var gvrc = document.querySelector('#gvrc');
+            var oc = document.querySelector('#oc');
+            gvrc.parentNode.removeChild(gvrc);
+            oc.parentNode.removeChild(oc);
+            SetActive('#cursor', false);
+            app_device_platform = "Daydream";
+        } else if (AFRAME.utils.device.isOculusGo()) {
+            cId = '#oc';
+            app_device_platform = "OculusGo";
+        } else {
+            cId = '#cursor';
+
+            let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                app_device_platform = "Cardboard";
+                let scene = document.querySelector('a-scene');
+                //scene.setAttribute('vr-mode-ui','enabled',true);
+            } else {
+                app_device_platform = "Desktop";
+                let scene = document.querySelector('a-scene');
+                //scene.setAttribute('vr-mode-ui','enabled',false);
+            }
+
+        }
+
+        if (cId != controllerId) {
+            SetActive(controllerId, false);
+            controllerId = cId;
+            SetActive(controllerId, true);
+            console.log("controller id is ", controllerId);
+        }
+    }
+
+    function isDayDream() {
+        let isDayDream = false;
+        let gamepad = navigator.getGamepads()[0];
+        if (gamepad != undefined) {
+            let gamepadId = gamepad.id;
+            isDayDream = gamepadId.includes("Daydream") || gamepadId.includes("daydream");
+        }
+        return isDayDream;
+    }
+
+
+    window.onload = function() {
+
+        login_referred_set();
+
+        // if (!login_isUserAuthenticated()) {
+        //     window.location.href = "login.html";
+        // } else {
+        //     console.log("User Name : ", login_getCookie('unicef_name'));
+        // }
+
+    };
+</script>
