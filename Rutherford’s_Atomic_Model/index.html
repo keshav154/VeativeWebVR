@@ -128,7 +128,7 @@ physicallyCorrectLights: true;">
     <!-- ----------------------------  Main Menu  ------------------------------------- -->
     <a-entity id="MainMenu" setactive="value:false">
 
-        <a-sky src="#img360" rotation="0 35 0"></a-sky>
+        <a-sky src="#img360" rotation="0 -90 0"></a-sky>
 
 
         <!-- Title -->
@@ -164,7 +164,7 @@ physicallyCorrectLights: true;">
 
     <!-- ----------------------------  Objective Scene  ------------------------------------- -->
     <a-entity id="LO" setactive="value:false">
-        <a-sky src="#img360" rotation="0 35 0"></a-sky>
+        <a-sky src="#img360" rotation="0 -90 0"></a-sky>
 
 
         <!-- Objective panel -->
@@ -190,7 +190,7 @@ After completing this module, you will be able to:
     <!-- ----------------------------  Level 1  ------------------------------------- -->
     <a-entity id="L1" setactive="value:false">
 
-      <a-sky src="#img360" rotation="0 250 0"></a-sky>
+      <a-sky src="#img360" rotation="0 -90 0"></a-sky>
         <a-light intensity="1" position="0 0 0" rotation="0 0 0" type="ambient"></a-light>
 
         <a-entity id="SI_FI_Lvl1" setactive="value:true;scale:1"
@@ -301,7 +301,7 @@ After completing this module, you will be able to:
 
     <a-entity id="AS" setactive="value:false">
       <!-- Load background image in A_Knowledge -->
-    <a-sky src="#img360" rotation="0 250 0"></a-sky>
+    <a-sky src="#img360" rotation="0 -90 0"></a-sky>
 
 
 
@@ -317,14 +317,18 @@ After completing this module, you will be able to:
 
 
     <!---------------------------------------------------Q1 Option A -------------------------->
-<!-- question= "id:1 ; rightOption:c; option:a;"> -->
+
         <a-entity id="AS_ModelCarbonShell" setactive="value:true; scale:0.15"
         gltf-model="#M_CarbonShell_L1" position="-30 10.5 -45.07"
-        scale="0.15 0.15 0.15" rotation="0 90 0" anim
-        click_sound cardboard_input onclick="onClickModel1Q1();">
+        scale="0.15 0.15 0.15" rotation="0 90 0" anim>
         <a-sphere id="q1aHighl" highlight position="-203.2 -2.104 -341.6"
         setactive="value:false; scale:1" radius="4"
         material="color:red; opacity:0.35">
+        </a-sphere>
+        <a-sphere id="q1aforclick"  position="32.55 -3.2 430.94" rotation="0 120 0"
+        radius="50"  setactive="value:true; scale:1"
+         material="color:red;opacity:0"
+         click_sound cardboard_input onclick="onClickModel1Q1();" >
         </a-sphere>
       </a-entity>
 
@@ -334,12 +338,15 @@ After completing this module, you will be able to:
 
         <a-entity id="AS_ModelCarbon" setactive="value:true; scale:0.1"
         gltf-model="#M_Carbon_L1" position="-116.181 7.944 -0.262"
-        scale="0.1 0.1 0.1" rotation="0 -70 0"
-          click_sound cardboard_input onclick="onClickModel2Q1();">
+        scale="0.1 0.1 0.1" rotation="0 -70 0">
 
         <a-sphere id="q1bHighl" highlight position="0.018 0.953 -972.8" rotation="0 120 0"
         radius="3.3"  setactive="value:false; scale:1"
          material="color:red;opacity:0.35">
+        </a-sphere>
+        <a-sphere id="q1bforclick"  position="0 0 -971" rotation="0 120 0"
+        radius="50"  setactive="value:true; scale:1"
+         material="color:red;opacity:0" click_sound cardboard_input onclick="onClickModel2Q1();">
         </a-sphere>
       </a-entity>
 
@@ -371,7 +378,7 @@ After completing this module, you will be able to:
 
       <a-entity id="btn_okAutoCorrect" setactive="value:false; scale:1"
       position="0 2.3 -4" src="#tex_menu_off"
-      geometry="primitive: plane; width: 0.6; height: 0.3"
+      geometry="primitive: plane; width: 0.6; height: 0.3" material="opacity:0.8"
       text="value: OK; align:center; width: 3; color: white"
       click_sound cardboard_input color_hover onclick="onClick_OkQ1();">
       </a-entity>
@@ -384,14 +391,16 @@ After completing this module, you will be able to:
 
         <a-entity id="AS_ModelCarbonShellL2" setactive="value:false; scale:0.15"
         gltf-model="#M_CarbonShell_L1" position="-142 11 -13"
-        scale="0.15 0.15 0.15" rotation="0 90 0"
-        click_sound cardboard_input onclick="onClickModel1Q2();">
+        scale="0.15 0.15 0.15" rotation="0 90 0">
 
         <a-sphere id="q1aHighlL2" highlight position="70 7.5 381"
         setactive="value:false; scale:1" radius="4"
         material="color:green; opacity:0.35">
         </a-sphere>
-
+        <a-sphere id="q2aforclick"  position="39.34 1.35 454" rotation="0 120 0"
+        radius="52"  setactive="value:true; scale:1"
+         material="color:red;opacity:0"
+         click_sound cardboard_input onclick="onClickModel1Q2();" >
 
       </a-entity>
 
@@ -401,14 +410,17 @@ After completing this module, you will be able to:
 
         <a-entity id="AS_ModelCarbonL2" setactive="value:false; scale:0.1"
         gltf-model="#M_Carbon_L1" position="-116.181 7.944 -0.262"
-        scale="0.1 0.1 0.1" rotation="0 -70 0"
-        click_sound cardboard_input onclick="onClickModel2Q2();">
+        scale="0.1 0.1 0.1" rotation="0 -70 0">
 
         <a-sphere id="q1bHighlL2" highlight position="0.018 0.953 -972.8" rotation="0 120 0"
         radius="3.3"  setactive="value:false; scale:1"
          material="color:red;opacity:0.35">
         </a-sphere>
-
+        <a-sphere id="q2bforclick"  position="0.018 0.953 -972.8" rotation="0 120 0"
+        radius="52"  setactive="value:true; scale:1"
+         material="color:red;opacity:0"
+         click_sound cardboard_input onclick="onClickModel2Q2();" >
+         </a-sphere>
       </a-entity>
 
 
@@ -439,7 +451,7 @@ After completing this module, you will be able to:
 
       <a-entity id="btn_okAutoCorrectL2" setactive="value:false; scale:1"
       position="0 2.3 -4" src="#tex_menu_off"
-      geometry="primitive: plane; width: 0.6; height: 0.3"
+      geometry="primitive: plane; width: 0.6; height: 0.3" material="opacity:0.8"
       text="value: OK; align:center; width: 3; color: white"
       click_sound cardboard_input color_hover onclick="onClick_OkL2Q2();">
       </a-entity>
@@ -610,11 +622,11 @@ After completing this module, you will be able to:
 
         login_referred_set();
 
-        // if (!login_isUserAuthenticated()) {
-        //     window.location.href = "login.html";
-        // } else {
-        //     console.log("User Name : ", login_getCookie('unicef_name'));
-        // }
+        if (!login_isUserAuthenticated()) {
+            window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public/";
+        } else {
+            console.log("User Name : ", login_getCookie('unicef_name'));
+        }
 
     };
 </script>

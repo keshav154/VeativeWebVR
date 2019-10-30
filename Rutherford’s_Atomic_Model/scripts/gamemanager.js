@@ -23,6 +23,10 @@ var q1aHighlId='#q1cHighl';
 var q1bHighlId='#q1bHighl';
 var q1cHighlId='#q1aHighl';
 var q1dHighlId='#q1dHighl';
+var q1aforclickId='#q1aforclick';
+var q1bforclickId='#q1bforclick';
+var q2aforclickId='#q2aforclick';
+var q2bforclickId='#q2bforclick';
 
 
 
@@ -187,8 +191,10 @@ function onClickModel1Q1()
     addScore(1,userattempt);
     SetActive(q1aHighlId,true);
     PlayVO2(as_ModelCjjId);
-    SetOnClickListener(as_ModelCarbonShellId,'');
-    SetOnClickListener(as_ModelCarbonId,'');
+    SetActive(q1aforclickId,false);
+    SetActive(q1bforclickId,false);
+    SetOnClickListener(q1aforclickId,'');
+    SetOnClickListener(q1bforclickId,'');
     SetOnClickListener(as_ModelCjjId,'');
     SetOnClickListener(as_ModelQuantumOrbitalId,'');
     userattempt=0;
@@ -207,7 +213,8 @@ function onClickModel2Q1()
     autoCorrectQ1();
     SetActive(q1bHighlId,true);
     PlayVO2(as_ModelCarbonId);
-    SetOnClickListener(as_ModelCarbonId,'');
+    SetActive(q1bforclickId,false);
+    SetOnClickListener(q1bforclickId,'');
 
 }
 
@@ -244,8 +251,10 @@ function autoCorrectQ1()
     wrongAttempt=0;
     userattempt=0;
     SetActive(i_AS_Lvl1Id,false);
-    SetOnClickListener(as_ModelCarbonShellId,'');
-    SetOnClickListener(as_ModelCarbonId,'');
+    SetActive(q1aforclickId,false);
+    SetActive(q1bforclickId,false);
+    SetOnClickListener(q1aforclickId,'');
+    SetOnClickListener(q1bforclickId,'');
     SetOnClickListener(as_ModelCjjId,'');
     SetOnClickListener(as_ModelQuantumOrbitalId,'');
     setTimeout(startCorrection,5000);
@@ -302,8 +311,10 @@ function onClickModel1Q2()
     addScore(1,userattempt);
     SetActive(q1cHighlL2Id,true);
     PlayVO2(rutherMgId);
-    SetOnClickListener(as_ModelCarbonShellL2Id,'');
-    SetOnClickListener(as_ModelCarbonL2Id,'');
+    SetActive(q2aforclickId,false);
+    SetActive(q2bforclickId,false);
+    SetOnClickListener(q2aforclickId,'');
+    SetOnClickListener(q2bforclickId,'');
     SetOnClickListener(as_ModelCjjL2Id,'');
     SetOnClickListener(as_ModelQuantumOrbitalL2Id,'');
     userattempt=0;
@@ -321,9 +332,10 @@ function onClickModel2Q2()
     userattempt++;
     wrongAttempt++;
     autoCorrectQ2();
-     SetActive(q1bHighlL2Id,true);
+    SetActive(q1bHighlL2Id,true);
     PlayVO2(as_ModelCarbonId);
-    SetOnClickListener(as_ModelCarbonL2Id,'');
+    SetActive(q2bforclickId,false);
+    SetOnClickListener(q2bforclickId,'');
 
 }
 
@@ -360,8 +372,10 @@ function autoCorrectQ2()
     wrongAttempt=0;
     userattempt=0;
     SetActive(i_selectTheMgStruc_ASId,false);
-    SetOnClickListener(as_ModelCarbonShellL2Id,'');
-    SetOnClickListener(as_ModelCarbonL2Id,'');
+    SetActive(q2aforclickId,false);
+    SetActive(q2bforclickId,false);
+    SetOnClickListener(q2aforclickId,'');
+    SetOnClickListener(q2bforclickId,'');
     SetOnClickListener(as_ModelCjjL2Id,'');
     SetOnClickListener(as_ModelQuantumOrbitalL2Id,'');
     setTimeout(startCorrectionL2,5000);
