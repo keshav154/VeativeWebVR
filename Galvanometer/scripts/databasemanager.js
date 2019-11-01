@@ -34,7 +34,7 @@ function getUUID() {
 function getFullDate() {
     var date = new Date();
     var y = addZero(date.getFullYear(), 4);
-    var mo = addZero(date.getMonth(), 2);
+    var mo = addZero(date.getMonth()+1, 2);
     var d = addZero(date.getDate(), 2);
     var h = addZero(date.getHours(), 2);
     var m = addZero(date.getMinutes(), 2);
@@ -69,19 +69,19 @@ function addScoreData(qinfo) {
     qdata.GL_QUESTION_COGNITIVE = qinfo.cognitiveDom;
     qdata.TR_USER_SCORE = ''.concat(qinfo.uScore);
 
-    qdata.UUID = database_uuid;
+    //qdata.UUID = database_uuid;
     qdata.GL_MODULE_ID = app_module_id;
     qdata.GL_MODULE_NAME = app_module_name;
     qdata.ATTEMPTED_ON = getFullDate();
 
-    qdata.HOST_IP = window.location.host;
+    qdata.HOST_IP = app_server_ip;
     qdata.DEVICE_BROWSER_VERSION = get_browser().name.concat(' ').concat(get_browser().version);
     qdata.DEVICE_PLATFORM = app_device_platform;
 
-    qdata.USR_NAME = app_unicef_name;
-    qdata.USR_AGE = app_unicef_age;
-    qdata.USR_AVATAR = app_unicef_avatar;
-    qdata.USR_GENDER = app_unicef_gender;
+    //qdata.USR_NAME = app_unicef_name;
+    //qdata.USR_AGE = app_unicef_age;
+    qdata.USER_OID = app_unicef_user_id;
+    //qdata.USR_GENDER = app_unicef_gender;
 
     data.data.push(qdata);
     console.log("Entry Added ", qdata);
@@ -95,7 +95,7 @@ function saveScoreToLocalDB() {
     localStorage.setItem("UserScoreData", "");
     localStorage.setItem("UserScoreData", dataInJson);
 
-    if (app_unicef_name != null) {
+    if (app_unicef_user_id != null) {
         setTimeout(sendDataToServer, 1000);
     }
 }
@@ -135,12 +135,12 @@ function datamodel() {
 }
 
 function questiondata() {
-    this.UUID = "ef718367-41d9-41fd-a0sfdf-ac2b01007epd";
-    this.USR_NAME = "Pankaj Verma";
-    this.USR_AGE = 22;
-    this.USR_AVATAR = "mango";
-    this.USR_GENDER = "Boy";
-    this.USR_LANGUAGE = "English";
+    //this.UUID = "ef718367-41d9-41fd-a0sfdf-ac2b01007epd";
+    //this.USR_NAME = "Pankaj Verma";
+    //this.USR_AGE = 22;
+    this.USER_OID = "mango";
+    //this.USR_GENDER = "Boy";
+    //this.USR_LANGUAGE = "English";
     this.GL_MODULE_ID = "SSD";
     this.GL_MODULE_NAME = "Disability Statistics";
     this.GL_LEVEL_ID = 1;
@@ -193,6 +193,31 @@ function get_browser() {
     };
 }
 
+
+var xhrIpRequest = new XMLHttpRequest();
+
+function GetIpAddResss() {
+  var ipUrl="https://api.ipify.org";
+    xhrIpRequest.open('GET', ipUrl, true);
+    xhrIpRequest.setRequestHeader("Content-type", "application/json");
+    xhrIpRequest.send();
+}
+
+
+xhrIpRequest.onload = function() {
+    //console.log("State : ",xhr.readyState," || Status : ",xhr.status," || ",xhr.responseText);
+    if (xhrIpRequest.readyState = 4 && xhrIpRequest.status == 200) {
+        console.log("IP ",xhrIpRequest.responseText);
+        app_server_ip = xhrIpRequest.responseText;
+    }
+}
+
+xhrIpRequest.onerror = function(e) {
+    console.log("IP error ", xhrIpRequest.status);
+}
+
+
+GetIpAddResss();
 
 // function GoLauncherPage()
 // {
