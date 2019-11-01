@@ -308,7 +308,7 @@ function onClickModel1Q2()
 {
   //Right answer
     userattempt++;
-    addScore(1,userattempt);
+    addScore(2,userattempt);
     SetActive(q1cHighlL2Id,true);
     PlayVO2(rutherMgId);
     SetActive(q2aforclickId,false);
@@ -368,7 +368,7 @@ function autoCorrectQ2()
   if(wrongAttempt>2)
   {
     userattempt++;
-    addScore(1,userattempt);
+    addScore(2,userattempt);
     wrongAttempt=0;
     userattempt=0;
     SetActive(i_selectTheMgStruc_ASId,false);

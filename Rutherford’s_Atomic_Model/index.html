@@ -510,7 +510,7 @@ After completing this module, you will be able to:
                   text="value:Click on the nucleus and/or the electrons to further explore Rutherford's atomic model.; align:center; width: 2.8;">
                   </a-entity>
 
-                  <a-entity id="l_score" setactive="value:false ; scale: 0.1" position="-0.15 0.1 -0.3" scale="0.1 0.1 0.1"
+                  <a-entity id="l_score" setactive="value:false ; scale: 0.1" position="-0.10 0.1 -0.3" scale="0.1 0.1 0.1"
                   geometry="primitive: plane; width: 0.8; height: 0.25" material="color: black; opacity:1" text="value: Score : 0 ; align:center; width: 2.8;">
                   </a-entity>
 
@@ -623,10 +623,23 @@ After completing this module, you will be able to:
         login_referred_set();
 
         if (!login_isUserAuthenticated()) {
-            window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public/";
+           window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public/";
         } else {
-            console.log("User Name : ", login_getCookie('unicef_name'));
+            console.log("Id : ", login_getCookie('unicef_user_id'));
         }
 
+      //  setInterval(AuthCheck, 3000);
+
     };
+
+
+    // function AuthCheck()
+    // {
+    //   if (!login_isUserAuthenticated()) {
+    //       window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public/";
+    //   }
+    // }
+
+
+
 </script>

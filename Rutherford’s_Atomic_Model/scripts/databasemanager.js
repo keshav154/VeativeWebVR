@@ -34,7 +34,7 @@ function getUUID() {
 function getFullDate() {
     var date = new Date();
     var y = addZero(date.getFullYear(), 4);
-    var mo = addZero(date.getMonth(), 2);
+    var mo = addZero(date.getMonth()+1, 2);
     var d = addZero(date.getDate(), 2);
     var h = addZero(date.getHours(), 2);
     var m = addZero(date.getMinutes(), 2);

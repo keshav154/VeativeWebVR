@@ -31,7 +31,7 @@ var login_isUserAuthenticated = function() {
     app_unicef_user_id = login_getCookie("unicef_user_id");
     //app_unicef_gender = login_getCookie("unicef_gender");
 
-    console.log(app_unicef_user_id);
+    //console.log(app_unicef_user_id);
 
     if (app_unicef_user_id == null)
         return false;
