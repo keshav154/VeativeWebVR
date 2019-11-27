@@ -1,0 +1,14 @@
+{
+  "name" :"Series and Parallel Circuits",
+  "description" : "This app helps you donate to worthy causes.",
+  "icons" : [{
+    "src":  "icon.png",
+    "sizes":  "192x192"
+  }],
+
+  "start_url": "",
+  "background_color": "#3367D6",
+  "display": "fullscreen",
+  "short_name":"HS400034",
+  "theme_color": "#3367D6"
+}
