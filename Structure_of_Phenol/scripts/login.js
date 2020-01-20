@@ -26,23 +26,21 @@ var login_getCookie = function(cname) {
 
 
 var login_isUserAuthenticated = function() {
-    app_unicef_name = login_getCookie("unicef_name");
-    app_unicef_age = login_getCookie("unicef_age");
-    app_unicef_avatar = login_getCookie("unicef_avatar");
-    app_unicef_gender = login_getCookie("unicef_gender");
+    //app_unicef_name = login_getCookie("unicef_name");
+    //app_unicef_age = login_getCookie("unicef_age");
+    app_unicef_user_id = login_getCookie("unicef_user_id");
+    //app_unicef_gender = login_getCookie("unicef_gender");
 
-    //console.log(app_unicef_name);
+    console.log(app_unicef_user_id);
 
-    if (app_unicef_name == null || app_unicef_age == null)
+    if (app_unicef_user_id == null)
         return false;
     else
         return true;
 }
 
 function login_isReferred() {
-    if (login_referred_get() != null)
-        return login_referred_get().length > 0;
-    else return false;
+    return login_referred_get().length > 0;
 }
 
 function login_referred_set() {

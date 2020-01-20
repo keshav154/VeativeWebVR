@@ -1019,7 +1019,8 @@ connect it to the terminal of the battery.; align:center; width: 2.8;">
         login_referred_set();
 
         if (!login_isUserAuthenticated()) {
-            window.location.href = "login.html";
+            //window.location.href = "login.html";
+			window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public/";
         } else {
             console.log("User Name : ", login_getCookie('unicef_name'));
         }
