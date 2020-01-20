@@ -1,5 +1,5 @@
-app_module_id = "HS400060"
-app_module_name = "Galvanometer";
+app_module_id = "MS100176"
+app_module_name = "Dominant And Recessive Allele";
 app_module_version = "1.0";
 app_device_platform = "";
 
