@@ -428,12 +428,67 @@ Add below code in index.html file at last
 ```
 
 
+### Sending user activity on Impact analysis platform
+
+URL: http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public
+
+API: /api/app-activity
+
+
+#### Used parameter 
+
+```
+function questiondata() {
+    this.USER_OID = "mango";
+    this.GL_MODULE_ID = "SSD";
+    this.GL_MODULE_NAME = "Disability Statistics";
+    this.GL_LEVEL_ID = 1;
+    this.GL_LEVEL_NAME = "L1";
+    this.GL_LEVEL_KNOWLEDGE_DOMAIN = "Seeing";
+    this.GL_LEVEL_COGNITIVE_DOMAIN = "CFM-7";
+    this.GL_LEVEL_TYPE = "T1";
+    this.GL_LEVEL_INTERACTIVITY = "GL_l1";
+    this.GL_QUESTION_ID = "1";
+    this.GL_QUESTION_COGNITIVE = "dsgdsgsdg";
+    this.GL_QUESTION_ACTION_VERB = "sdgdgdfg";
+    this.LL_QUESTION_TYPE = "QT1";
+    this.TR_USER_SCORE = "1";
+    this.HOST_IP = "";
+    this.DEVICE_BROWSER_VERSION = "";
+    this.DEVICE_MODEL = "NA";
+    this.DEVICE_KERNEL_VERSION = "NA";
+    this.DEVICE_SERIAL_NUMBER = "NA";
+    this.DEVICE_PLATFORM = "";
+    this.ATTEMPTED_ON = "";
+}
+```
+
+
+#### Save data to local DB in Json format
+```
+function saveScoreToLocalDB() {
+    let dataInJson = JSON.stringify(data);
+    data = new datamodel();
+    localStorage.setItem("UserScoreData", "");
+    localStorage.setItem("UserScoreData", dataInJson);
+
+    if (app_unicef_user_id != null) {
+        setTimeout(sendDataToServer, 1000);
+    }
+}
+```
+#### Sending data to server
+```
+function sendDataToServer() {
+    xhr.open(method, url.concat(saveActivity), true);
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(userNamePassword));
+    xhr.setRequestHeader("Content-type", "application/json");
+    let scoreDate = localStorage.getItem("UserScoreData");
+    xhr.send(scoreDate);
+}
+```
+
+
 ### Cookie parameters
 
-unicef_name,
-
-unicef_age,
-
-unicef_avatar,
-
-unicef_gender
+app_unicef_user_id
