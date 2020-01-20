@@ -22,6 +22,12 @@ These instructions will get you a copy of the project up and running on your loc
 * [Reproductive Parts of a Flower](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms100027/)
 * [Opaque Translucent and Transparent](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs400052/)
 * [Series and Parallel Circuits](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs400034/)
+* [Galvanometer](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs400034/)
+* [Rutherford’s Atomic model](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs200040/)
+* [Lewis dot structures](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/hs200069/)
+* [Human brain](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms100057/)
+* [Lines](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms300045/)
+* [Dominant and Recessive Alleles](http://ec2-52-5-117-32.compute-1.amazonaws.com/WebVR/Aframe/ms100176/)
 
 ## Working with VeativeWebVR
 
