@@ -133,7 +133,7 @@
     <a-sound id="s_tryagain1" src="src: url(sounds/tryagain.wav)" poolSize=5></a-sound>
     <a-sound id="s_welldone1" src="src: url(sounds/welldone1.wav)" poolSize=5></a-sound>
 
-    <a-assets id="assets" timeout="990000000">
+    <a-assets id="assets" timeout="3600000">
 
         <img id="tex_menu_off" src="images/Btn_Off.png">
         <img id="tex_menu_on" src="images/Btn_On.png">
@@ -1772,14 +1772,14 @@
 
         window.onload = function() {
 
+          login_referred_set();
 
-
-            login_referred_set();
-
-            // if (!login_isUserAuthenticated()) {
-            //     window.location.href = "login.html";
-            // } else {
-            //     console.log("User Name : ", login_getCookie('unicef_name'));
-            // }
-        };
+          if (!login_isUserAuthenticated()) {
+              //window.location.href = "login.html";
+  		 	window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public/";
+          } else {
+              console.log("User Name : ", login_getCookie('unicef_name'));
+          }
+          //
+      };
     </script>
