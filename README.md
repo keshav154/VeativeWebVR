@@ -431,10 +431,11 @@ Add below code in index.html file at last
 ### Sending user activity on Impact analysis platform
 
 URL: http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public
+
 API: /api/app-activity
 
 
-# Used parameter 
+#### Used parameter 
 
 ```
 function questiondata() {
@@ -463,7 +464,7 @@ function questiondata() {
 ```
 
 
-# Save data to local DB in Json format
+#### Save data to local DB in Json format
 ```
 function saveScoreToLocalDB() {
     let dataInJson = JSON.stringify(data);
@@ -476,7 +477,7 @@ function saveScoreToLocalDB() {
     }
 }
 ```
-# Sending data to server
+#### Sending data to server
 ```
 function sendDataToServer() {
     xhr.open(method, url.concat(saveActivity), true);
