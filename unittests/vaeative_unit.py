@@ -13,7 +13,7 @@ class Test(unittest.TestCase):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver_win32\chromedriver.exe")
         cls.driver.get('file:///D:/Santhosh/VeativeWebVR/Structure_of_Phenol/login.html')
         cls.driver.implicitly_wait(10)
-    
+ ''' 
     def test_structure_of_phenol_girl(self):
         self.driver = webdriver.Chrome(executable_path="C:\chromedriver_win32\chromedriver.exe")
         self.driver.get('file:///D:/Santhosh/VeativeWebVR/Structure_of_Phenol/login.html')
@@ -153,6 +153,7 @@ class Test(unittest.TestCase):
         element.select_by_value("Snake")
         self.driver.find_element_by_id("submitBtn").click()
         pass
+'''
     
     def test_login_form_validations(self):
         self.driver = webdriver.Chrome(executable_path="C:\chromedriver_win32\chromedriver.exe")
