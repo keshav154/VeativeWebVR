@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<testsuite errors="0" failures="0" name="Test-20200204200658" tests="1" time="18.133">
+	<testcase classname="Test" name="test_login_form_validations" time="18.133"/>
+	<system-out>
+<![CDATA[logged in successfully
+Test completed..!!
+]]>	</system-out>
+	<system-err>
+<![CDATA[]]>	</system-err>
+</testsuite>
