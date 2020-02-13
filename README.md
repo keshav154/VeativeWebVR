@@ -1,6 +1,5 @@
 ## Status
 * [![Build Status] :(http://localhost:8080/buildStatus/icon?job=VeativeWebVR)](http://localhost:8080/job/VeativeWebVR/)
-  http://localhost:8080/buildStatus/icon?job=VeativeWebVR
 
 # VeativeWebVR
 
