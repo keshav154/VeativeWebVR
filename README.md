@@ -1,3 +1,5 @@
+
+[![Build Status](http://localhost:8080/buildStatus/icon?job=VeativeWebVR&build=30)](http://localhost:8080/job/VeativeWebVR/30/)
 # VeativeWebVR
 
 Gaining real-life experience in certain professions can be difficult to achieve, dangerous, or just plain expensive. However, WebVR can connect users with those experiences, from the most specialized skill-set training, to simple lab experiments performed by school students. VeativeWebVR is a package of 6 Interactive WebVR Modules covering topics from STEM for Cardboard, DayDream, Oculus Go and GearVR devices using [A-Frame](https://aframe.io/).
