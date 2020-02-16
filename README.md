@@ -1,9 +1,4 @@
-[![Build Status](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/buildStatus/icon?job=VativeWebVR&build=2)](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/job/VativeWebVR/2/)
-# Status
-
-* ![][![Build Status] :(http://localhost:8080/buildStatus/icon?job=VeativeWebVR)](http://localhost:8080/job/VeativeWebVR/)
-# BUILD URL:
-*http://localhost:8080/buildStatus/icon?job=VeativeWebVR
+[![Build Status](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/buildStatus/icon?job=VativeWebVR)](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/job/VativeWebVR/lastBuild/)
 
 # VeativeWebVR
 
