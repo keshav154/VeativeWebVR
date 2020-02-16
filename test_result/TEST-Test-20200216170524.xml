@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<testsuite name="Test-20200216170524" tests="19" time="823.753" failures="0" errors="0">
+	<testcase classname="Test" name="test_componet_Dominent_recessive_validations" time="17.188"/>
+	<testcase classname="Test" name="test_componet_Galv_validations" time="8.939"/>
+	<testcase classname="Test" name="test_componet_Humun_brain_validations" time="15.018"/>
+	<testcase classname="Test" name="test_componet_OpaqueT_validations" time="9.937"/>
+	<testcase classname="Test" name="test_componet_Reproduct_part_validations" time="7.623"/>
+	<testcase classname="Test" name="test_componet_atomic_model_validations" time="12.178"/>
+	<testcase classname="Test" name="test_componet_complexNumbers_validations" time="7.491"/>
+	<testcase classname="Test" name="test_componet_dot_structure_validations" time="9.837"/>
+	<testcase classname="Test" name="test_componet_lineandplain_validations" time="13.810"/>
+	<testcase classname="Test" name="test_componet_lines_validations" time="8.000"/>
+	<testcase classname="Test" name="test_componet_series_parallel_validations" time="9.688"/>
+	<testcase classname="Test" name="test_componet_structurePhonel_validations" time="12.116"/>
+	<testcase classname="Test" name="test_impact_analysis_AI" time="24.880"/>
+	<testcase classname="Test" name="test_impact_analysis_launch" time="40.984"/>
+	<testcase classname="Test" name="test_impact_analysis_module_attempted" time="53.590"/>
+	<testcase classname="Test" name="test_impact_analysis_socre_by_module" time="99.554"/>
+	<testcase classname="Test" name="test_login_form_validations" time="179.095"/>
+	<testcase classname="Test" name="test_signup_form_validations" time="181.343"/>
+	<testcase classname="Test" name="test_signup_tag_validations" time="112.486"/>
+	<system-out><![CDATA[impact analysis logged successfully..
+logged in successfully
+]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>
