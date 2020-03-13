@@ -1,8 +1,8 @@
 ﻿<!-- <a-entity gearvr-controls laser-controls="hand: right" id="controller" line="color: #00ffff; opacity: 0.75" raycaster="far: 2"></a-entity> -->
 <link rel="manifest" href="manifest.json">
 <Title>Human Brain</Title>
-
-<script src="scripts/aframe.min.js"></script>
+<script src="../aframe.min.js"></script>
+<!-- <script src="scripts/aframe.min.js"></script> -->
 <script src="scripts/aframe-extras.min.js"></script>
 <script src="scripts/utility.js"></script>
 <script src="scripts/voiceover.js"></script>
@@ -143,10 +143,10 @@ physicallyCorrectLights: true;">
 
     <a-assets id="assets" timeout="3600000">
 
-        <img id="tex_menu_off" src="images/Btn_Off.png">
-        <img id="tex_menu_on" src="images/Btn_On.png">
+        <img id="tex_menu_off" src="images/Btn_Off.png" alt="" />
+        <img id="tex_menu_on" src="images/Btn_On.png" alt="" />
 
-        <img id="img360" src="images\LivingRoom_sence_left.jpg">
+        <img id="img360" src="images\LivingRoom_sence_left.jpg" alt="" />
         <audio id="bgsound" src="sounds/bg.mp3"></audio>
 
 
@@ -1116,102 +1116,4 @@ physicallyCorrectLights: true;">
 
 
 <!-- -------------------------------------------------------------------------------------------------------------------- -->
-<script>
-    var assetsId = '#assets';
-    var entity = document.querySelector(assetsId);
-    var controllerId = null;
-
-    if (entity != null) {
-        entity.addEventListener("loaded", function() {
-            console.log("All Assets looded");
-            setTimeout(ShowMainMenu, 2000);
-            setInterval(ActivateController, 1000);
-            login_isUserAuthenticated();
-
-        });
-
-        entity.addEventListener("timeout", function() {
-            console.log("Time up to load assets");
-            setTimeout(location.reload.bind(location), 500);
-        });
-
-    } else {
-        console.log("Exception : Id not found ID: ", assetsId);
-    }
-
-
-    function ShowMainMenu() {
-        SetActive('#MainMenu', true);
-        if (!login_isReferred()) {
-            SetActive('#btn_close', false);
-        }
-    }
-
-
-    function ActivateController() {
-        let cId = "";
-
-        if (AFRAME.utils.device.isGearVR()) {
-            cId = '#gvrc';
-            app_device_platform = "GearVR";
-        } else if (isDayDream()) {
-            cId = '#ddc';
-            var gvrc = document.querySelector('#gvrc');
-            var oc = document.querySelector('#oc');
-            gvrc.parentNode.removeChild(gvrc);
-            oc.parentNode.removeChild(oc);
-            SetActive('#cursor', false);
-            app_device_platform = "Daydream";
-        } else if (AFRAME.utils.device.isOculusGo()) {
-            cId = '#oc';
-            app_device_platform = "OculusGo";
-        } else {
-            cId = '#cursor';
-
-            let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                app_device_platform = "Cardboard";
-                let scene = document.querySelector('a-scene');
-                //scene.setAttribute('vr-mode-ui','enabled',true);
-            } else {
-                app_device_platform = "Desktop";
-                let scene = document.querySelector('a-scene');
-                //scene.setAttribute('vr-mode-ui','enabled',false);
-            }
-
-        }
-
-        if (cId != controllerId) {
-            SetActive(controllerId, false);
-            controllerId = cId;
-            SetActive(controllerId, true);
-            console.log("controller id is ", controllerId);
-        }
-    }
-
-    function isDayDream() {
-        let isDayDream = false;
-        let gamepad = navigator.getGamepads()[0];
-        if (gamepad != undefined) {
-            let gamepadId = gamepad.id;
-            isDayDream = gamepadId.includes("Daydream") || gamepadId.includes("daydream");
-        }
-        return isDayDream;
-    }
-
-
-    window.onload = function() {
-
-        login_referred_set();
-
-        if (!login_isUserAuthenticated()) {
-            //window.location.href = "login.html";
-           window.location.href = "http://ec2-52-5-117-32.compute-1.amazonaws.com/unicef/public/";
-
-        } else {
-            console.log("User Name : ", login_getCookie('unicef_name'));
-        }
-
-    };
-</script>
+<script src="human_brain.js"></script>
