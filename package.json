@@ -1,0 +1,35 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "node-modules": "^1.0.1"
+  },
+  "name": "veativewebvr",
+  "description": "[![Build Status](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/buildStatus/icon?job=VativeWebVR)](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/job/VativeWebVR/lastBuild/)",
+  "version": "1.0.0",
+  "main": "karma.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "karma start ./karma.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshav154/VeativeWebVR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keshav154/VeativeWebVR/issues"
+  },
+  "homepage": "https://github.com/keshav154/VeativeWebVR#readme",
+  "devDependencies": {
+    "@jsdevtools/karma-config": "^3.1.2",
+    "jasmine-core": "^3.5.0",
+    "karma": "^4.4.1",
+    "karma-cli": "^2.0.0",
+    "karma-jasmine": "^3.1.1",
+    "protractor-beautiful-reporter": "^1.3.6"
+  }
+}
