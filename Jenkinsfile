@@ -1,3 +1,4 @@
+// jenkins file format 
 pipeline {
 
     agent any
@@ -9,16 +10,14 @@ pipeline {
                 expression {
                     BRANCH_NAME == 'master'
                 }
+            }
             steps{
                 
-             echo 'building the application'
-                scripts {
-                    dir('C:\\Users\\thinksysuser\\VeactiveWebVR') {
-                      bat 'git pull'
-                      bat 'npm install'
-                           
-                    }
-                }
+             scripts{
+                 dir('C:\\Users\\thinksysuser\\VeativeWebVR'){
+                     bat 'npm install'
+                 }
+             }
             }
         }
         stage("test") {
@@ -29,15 +28,12 @@ pipeline {
             }
             steps{ 
                 echo 'testing the application'
-                scripts {
-                    dir('C:\\Users\\thinksysuser\\VeactiveWebVR') {
+                scripts{
+                    dir('C:\\Users\\thinksysuser\\VeativeWebVR'){
                         bat 'npm test'
                     }
-            }
-        }
-        stage("deploy") {
-            steps{
-                echo 'deploying the application'
+                }
+                
             }
         }
     }
