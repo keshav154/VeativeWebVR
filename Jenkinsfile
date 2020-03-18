@@ -12,7 +12,7 @@ pipeline {
                 }
             }
             steps{
-             scripts{
+             script{
 
                bat 'npm install'
              }   
