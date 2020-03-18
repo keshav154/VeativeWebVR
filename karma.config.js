@@ -56,7 +56,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
@@ -81,20 +81,20 @@ singleRun: true
  //   concurrency: 1
   });
 };
-module.exports = function(config) {
-  config.set({
-    reporters: ['progress', 'html'],
+//module.exports = function(config) {
+//  config.set({
+//    reporters: ['html'],
 
-    htmlReporter: {
-      outputFile: 'tests/units.html',
+//    htmlReporter: {
+//      outputFile: 'tests/units.html',
 
       // Optional
-      pageTitle: 'Unit Tests',
-      subPageTitle: 'A sample project description',
-      groupSuites: true,
-      useCompactStyle: true,
-      useLegacyStyle: true,
-      showOnlyFailed: false
-    }
-  });
-};
+//      pageTitle: 'Unit Tests',
+//      subPageTitle: 'A sample project description',
+//      groupSuites: true,
+//      useCompactStyle: true,
+//      useLegacyStyle: true,
+//      showOnlyFailed: false
+//    }
+//  });
+//};
