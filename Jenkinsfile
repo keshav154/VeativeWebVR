@@ -14,7 +14,7 @@ pipeline {
             steps{
              script{
 
-               bat 'C:\Program Files\nodejs\npm install'
+               bat "C:\Program Files\nodejs\npm install"
              }   
              
             }
@@ -28,7 +28,7 @@ pipeline {
             steps{ 
                 echo 'testing the application'
                 
-                bat 'C:\Program Files\nodejs\npm test'
+                bat "C:\Program Files\nodejs\npm test"
                 
             }
         }
