@@ -14,7 +14,13 @@ pipeline {
             steps{
                 
              echo 'building the application'
-             sh 'npm install'
+                scripts {
+                    dir('C:\\Users\\thinksysuser\\VeactiveWebVR') {
+                      bat 'git pull'
+                      bat 'npm install'
+                        
+                    }
+                }
             }
         }
         stage("test") {
@@ -25,8 +31,10 @@ pipeline {
             }
             steps{ 
                 echo 'testing the application'
-                sh 'npm test'
-                
+                scripts {
+                    dir('C:\\Users\\thinksysuser\\VeactiveWebVR') {
+                        bat 'npm test'
+                    }
             }
         }
         stage("deploy") {
