@@ -1,4 +1,3 @@
-// jenkins file format 
 pipeline {
 
     agent any
@@ -10,7 +9,6 @@ pipeline {
                 expression {
                     BRANCH_NAME == 'master'
                 }
-            }
             steps{
                 
              echo 'building the application'
@@ -18,7 +16,7 @@ pipeline {
                     dir('C:\\Users\\thinksysuser\\VeactiveWebVR') {
                       bat 'git pull'
                       bat 'npm install'
-                        
+                           
                     }
                 }
             }
