@@ -1,5 +1,4 @@
 // jenkins file format 
-//
 pipeline {
 
     agent any
@@ -13,8 +12,11 @@ pipeline {
                 }
             }
             steps{
-                
-             bat 'npm.cmd install'
+             scripts{
+
+               bat 'npm install'
+             }   
+             
             }
         }
         stage("test") {
@@ -26,7 +28,7 @@ pipeline {
             steps{ 
                 echo 'testing the application'
                 
-                bat 'npm.cmd test'
+                bat 'npm test'
                 
             }
         }
