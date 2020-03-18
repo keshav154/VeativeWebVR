@@ -13,11 +13,7 @@ pipeline {
             }
             steps{
                 
-             scripts{
-                 dir('C:\\Users\\thinksysuser\\VeativeWebVR'){
-                     bat 'npm install'
-                 }
-             }
+             bat 'npm install'
             }
         }
         stage("test") {
@@ -28,11 +24,8 @@ pipeline {
             }
             steps{ 
                 echo 'testing the application'
-                scripts{
-                    dir('C:\\Users\\thinksysuser\\VeativeWebVR'){
-                        bat 'npm test'
-                    }
-                }
+                
+                bat 'npm test'
                 
             }
         }
