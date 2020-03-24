@@ -13,7 +13,7 @@ pipeline {
             }
             steps{
              script{
-               bat 'npm config set scripts-prepend-node-path true'
+               bat 'npm config set scripts-prepend-node-path auto'
                bat 'npm install'
                bat 'npm install -g karma'
              }   
@@ -28,7 +28,7 @@ pipeline {
             }
             steps{ 
                 echo 'testing the application'
-                bat 'npm config set scripts-prepend-node-path true'
+                bat 'npm config set scripts-prepend-node-path auto'
                 bat 'npm test'
                 
             }
