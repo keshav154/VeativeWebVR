@@ -15,7 +15,7 @@ pipeline {
              script{
                bat 'npm config set scripts-prepend-node-path auto'
                bat 'npm install'
-               bat 'npm install -g karma-cli'
+//               bat 'npm install -g karma-cli'
              }   
              
             }
