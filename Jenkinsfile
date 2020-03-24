@@ -15,6 +15,7 @@ pipeline {
              script{
 
                bat 'npm install'
+               bat 'npm install -g karma'
              }   
              
             }
