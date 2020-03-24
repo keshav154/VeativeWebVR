@@ -12,91 +12,121 @@
 ///         2. ClickSound(id,bool)
 ///         3. Update component click_sound
 
+
+
 ///////////////////////////////////////////////////////////////////
 //////////  Click Sound
-AFRAME.registerComponent("click_sound", {
-  schema: {
-    enable: {
-      type: "string",
-      default: "true"
-    }
-  },
+AFRAME.registerComponent('click_sound', {
 
-  init: function() {
-    var elename = this.el.getAttribute("id");
-    var element = this.el;
-
-    this.el.addEventListener("click", function(evt) {
-      var entity = document.querySelector("[sound]");
-      var soundplay = element.getAttribute("click_sound", "enable").enable;
-
-      if (entity != null) {
-        if (soundplay == "true") {
-          entity.components.sound.playSound();
+    schema: {
+        enable: {
+            type: 'string',
+            default: 'true'
         }
-      }
-    });
+    },
 
-    this.el.addEventListener("mouseenter", function(evt) {
-      var entity = document.querySelector("#s_hover");
+    init: function() {
 
-      if (entity != null) {
-        entity.components.sound.playSound();
-      }
-    });
-  }
+        var elename = this.el.getAttribute('id');
+        var element = this.el;
+
+        this.el.addEventListener('click', function(evt) {
+
+            var entity = document.querySelector('[sound]');
+            var soundplay = element.getAttribute('click_sound', 'enable').enable;
+
+            if (entity != null) {
+                if (soundplay == 'true') {
+                    entity.components.sound.playSound();
+                }
+            }
+        });
+
+
+        this.el.addEventListener('mouseenter', function(evt) {
+
+            var entity = document.querySelector('#s_hover');
+
+            if (entity != null) {
+                entity.components.sound.playSound();
+            }
+
+        });
+
+    }
+
 });
+
+
+
 
 ///////////////////////////////////////////////////////////////////
 //////////  SetActive True/False
-AFRAME.registerComponent("setactive", {
-  schema: {
-    value: {
-      type: "string",
-      default: "true"
+AFRAME.registerComponent('setactive', {
+
+    schema: {
+        value: {
+            type: 'string',
+            default: 'true'
+        },
+        scale: {
+            type: 'number',
+            default: 1.0
+        }
     },
-    scale: {
-      type: "number",
-      default: 1.0
-    }
-  },
 
-  init: function() {},
 
-  update: function() {
-    if (this.data.value == "true") {
-      this.el.setAttribute("visible", "true");
-      this.el.setAttribute("scale", {
-        x: this.data.scale,
-        y: this.data.scale,
-        z: this.data.scale
-      });
-    }
+    init: function() {
 
-    if (this.data.value == "false") {
-      this.el.setAttribute("visible", "false");
-      this.el.setAttribute("scale", {
-        x: 0.0,
-        y: 0.0,
-        z: 0.0
-      });
+    },
+
+
+    update: function() {
+
+
+        if (this.data.value == 'true') {
+            this.el.setAttribute('visible', 'true');
+            this.el.setAttribute("scale", {
+                x: this.data.scale,
+                y: this.data.scale,
+                z: this.data.scale
+            });
+        }
+
+        if (this.data.value == 'false') {
+            this.el.setAttribute('visible', 'false');
+            this.el.setAttribute("scale", {
+                x: 0.0,
+                y: 0.0,
+                z: 0.0
+            });
+        }
+
     }
-  }
 });
 
-var t = 0;
 
-AFRAME.registerComponent("rot", {
-  tick: function(time, timeDelta) {
-    t += timeDelta / 30;
-    this.el.setAttribute("rotation", {
-      x: 0,
-      y: t,
-      z: 0
-    });
-  }
+
+
+
+
+var t=0;
+
+AFRAME.registerComponent('rot', {
+
+
+   tick : function(time, timeDelta) {
+
+t+=timeDelta/30;
+           this.el.setAttribute("rotation", {
+               x: 0,
+               y: t,
+               z: 0
+           });
+   }
 });
 // old code
+
 
 // var t=0;
 //
@@ -124,6 +154,8 @@ AFRAME.registerComponent("rot", {
 //    }
 // });
 
+
+
 ///////////////////////////////////////////////////////
 ///////////////// Entity Enable/Disable
 // function SetActive(id,bool)
@@ -132,11 +164,13 @@ AFRAME.registerComponent("rot", {
 //    // var entityId = prefix.concat(id);
 //    var entity = document.querySelector(id);
 
+
 //    if(entity==null)
 //    {
 //        console.log('Exception : Id not found' ,id);
 //        return;
 //    }
+
 
 //    if(bool)
 //    {
@@ -157,65 +191,39 @@ AFRAME.registerComponent("rot", {
 
 // }
 
+
 ///////////////////////////////////////////////////////
 ///////////////// Overloaded method for Entity Enable/Disable
 function SetActive(id, bool, scale = 1) {
-  //var prefix = "#";
-  //var entityId = prefix.concat(id);
-  //console.log("hello puneet ",id,"   ",bool);
+    //var prefix = "#";
+    //var entityId = prefix.concat(id);
+    //console.log("hello puneet ",id,"   ",bool);
 
-  var setActiveAttr = {};
+    var entity = document.querySelector(id);
+    if (entity == null) {
+        console.log('Exception : Id not found', id);
+        return;
+    }
 
-  var entity = document.querySelector(id) || document.createElement("a-entity"); //document.createElement("a-entity") <- is added for test case execution
-  console.log("entityNew", entity, id, bool);
+    if (bool) {
+        entity.setAttribute('visible', 'true');
+        entity.setAttribute("scale", {
+            x: scale,
+            y: scale,
+            z: scale
+        });
+    }
+    if (!bool) {
+        entity.setAttribute('visible', 'false');
+        entity.setAttribute("scale", {
+            x: 0.0,
+            y: 0.0,
+            z: 0.0
+        });
+    }
 
-  if (entity === null) {
-    console.log("Exception : Id not found", id);
-    return null;
-  }
-
-  if (bool) {
-    // console.log("bool", bool);
-    entity.setAttribute("visible", "true");
-    entity.setAttribute("scale", {
-      x: scale,
-      y: scale,
-      z: scale
-    });
-
-    setActiveAttr = {
-      entityState: entity,
-      entityId: id,
-      visible: "true",
-      scale: {
-        x: scale,
-        y: scale,
-        z: scale
-      }
-    };
-  }
-  if (!bool) {
-    entity.setAttribute("visible", "false");
-    entity.setAttribute("scale", {
-      x: 0.0,
-      y: 0.0,
-      z: 0.0
-    });
-
-    setActiveAttr = {
-      entityState: entity,
-      entityId: id,
-      visible: "false",
-      scale: {
-        x: 0.0,
-        y: 0.0,
-        z: 0.0
-      }
-    };
-  }
-  console.log("setActiveAttr:-", setActiveAttr);
-  return setActiveAttr;
 }
+
 
 // function VariableSetActive(id, bool, xScale,yScale,zScale) {
 //
@@ -244,81 +252,96 @@ function SetActive(id, bool, scale = 1) {
 //
 // }
 
+
 ///////////////////////////////////////////////////////
 ////////// Add Set Method on onclick event
 function SetOnClickListener(id, method) {
-  var entity = document.querySelector(id);
+    var entity = document.querySelector(id);
 
-  if (entity != null) {
-    entity.setAttribute("onclick", method);
-  } else {
-    console.log("Exception : Id not found ID: ", id);
-  }
+    if (entity != null) {
+        entity.setAttribute('onclick', method);
+    } else {
+        console.log("Exception : Id not found ID: ", id);
+    }
+
 }
+
 
 ///////////////////////////////////////////////////////
 ////////// Play Animation
 function PlayAnimation(id) {
-  var entity = document.querySelector(id);
+    var entity = document.querySelector(id);
 
-  if (entity != null) {
-    entity.setAttribute("animation", "enabled", "true");
-  } else {
-    console.log("Exception : Id not found ID: ", id);
-  }
+    if (entity != null) {
+        entity.setAttribute('animation', 'enabled', 'true');
+    } else {
+        console.log("Exception : Id not found ID: ", id);
+    }
 }
+
+
+
 
 ///////////////////////////////////////////////////////
 ////////// Add Event Listener for Animation
 function AddAnimationCallBack(id, method) {
-  var entity = document.querySelector(id);
-  if (entity != null) {
-    entity.addEventListener("animationcomplete", method);
-  } else {
-    console.log("Exception : Id not found ID: ", id);
-  }
+    var entity = document.querySelector(id);
+    if (entity != null) {
+        entity.addEventListener('animationcomplete', method);
+    } else {
+        console.log("Exception : Id not found ID: ", id);
+    }
 }
+
+
 
 function SetPosition(id, _x, _y, _z) {
-  var entity = document.querySelector(id);
-  if (entity == null) {
-    console.log("Exception : Id not found", id);
-    return;
-  }
+    var entity = document.querySelector(id);
+    if (entity == null) {
+        console.log('Exception : Id not found', id);
+        return;
+    }
 
-  entity.setAttribute("position", {
-    x: _x,
-    y: _y,
-    z: _z
-  });
+    entity.setAttribute("position", {
+        x: _x,
+        y: _y,
+        z: _z
+    });
 }
+
+
 
 ///////////////////////////////////////////////////
 ///////// GetEntityById
 
 function GetEntityById(id) {
-  var entity = document.querySelector(id);
-  if (entity != null) {
-    return entity;
-  } else {
-    console.log("Exception : Id not found ID: ", id);
-  }
+    var entity = document.querySelector(id);
+    if (entity != null) {
+        return entity;
+    } else {
+        console.log("Exception : Id not found ID: ", id);
+    }
 }
+
+
 
 ///////////////////////////////////////////////////////
 //////////////////// Disable Click sound
 
 function ClickSound(id, bool) {
-  var entity = GetEntityById(id);
-  if (bool) entity.setAttribute("click_sound", "enable", "true");
-  else entity.setAttribute("click_sound", "enable", "false");
+    var entity = GetEntityById(id);
+    if (bool)
+        entity.setAttribute('click_sound', 'enable', 'true');
+    else
+        entity.setAttribute('click_sound', 'enable', 'false');
 }
+
 
 //////////////////////////////
 ///////// Change Text Value
 function utility_changeText(id, txt) {
-  var entity = GetEntityById(id);
-  entity.setAttribute("text", {
-    value: txt
-  });
+    var entity = GetEntityById(id)
+    entity.setAttribute("text", {
+        value: txt
+    });
 }
