@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "veativewebvr",
   "version": "1.0.0",
   "description": "[![Build Status](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/buildStatus/icon?job=VativeWebVR)](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/job/VativeWebVR/lastBuild/)",
@@ -24,7 +23,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Veativetech/VeativeWebVR.git"
-=======
   "requires": true,
   "lockfileVersion": 1,
   "dependencies": {
@@ -43,12 +41,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/keshav154/VeativeWebVR.git"
->>>>>>> 412eae0d3e8175e12ba5a34e0b1b203fb9e03bd1
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-<<<<<<< HEAD
     "url": "https://github.com/Veativetech/VeativeWebVR/issues"
   },
   "homepage": "https://github.com/Veativetech/VeativeWebVR#readme"
@@ -65,5 +61,4 @@
     "karma-jasmine": "^3.1.1",
     "protractor-beautiful-reporter": "^1.3.6"
   }
->>>>>>> 412eae0d3e8175e12ba5a34e0b1b203fb9e03bd1
 }
