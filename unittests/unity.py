@@ -1,6 +1,3 @@
-
-#developed by me
-
 import unittest
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
@@ -50,5 +47,5 @@ class Test(unittest.TestCase):
 
             
 if __name__ == "__main__":
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='example_dir'))
+    # unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='example_dir'))
     unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test_result'))
