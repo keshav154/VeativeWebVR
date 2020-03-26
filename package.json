@@ -39,12 +39,10 @@
     "start": "webpack",
     "test": "jest --coverage --coverageDirectory=output/coverage/jest"
   },
-  ...
   "jest": {
     "coverageReporters": [
       "text",
       "cobertura"
     ]
-    ...
   }
 }
