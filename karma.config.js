@@ -55,19 +55,30 @@ module.exports = function(config) {
             // "tests/dummy.js": ["coverage"]
             //   "**/src/app/*.js": ["coverage"],
         },
-        plugins: ["karma-jasmine", "karma-chrome-launcher", "karma-coverage"],
+                plugins: ["karma-jasmine", "karma-chrome-launcher", "karma-coverage"],
         reporters: ["progress", "coverage"],
         port: 9878,
         colors: true,
         logLevel: config.LOG_DEBUG,
         autowatch: true,
-        browsers: ["Chrome"],
-        singleRun: false,
+//        browsers: ["Chrome"],
+//        singleRun: false,
         concurrency: Infinity,
-        coverageReporter: {
-            includeAllSources: true,
-            dir: "coverage/",
-            reporters: [{ type: "html", subdir: "html" }, { type: "text-summary" }]
-        }
-    });
+customLaunchers: {
+ChromeHeadless: {
+  base: 'Chrome',
+  flags: [
+   '--headless','--disable-gpu',
+   '--no-sandbox',
+   '--remote-debugging-port=9222']
+ }
+},
+        browsers: ['ChromeHeadless'],
+        singleRun: true,
+coverageReporter: {
+  includeAllSources: true,
+  dir: "coverage/",
+  reporters: [{ type: "html", subdir: "html" }, { type: "text-summary" }]
+   }
+ });
 };
