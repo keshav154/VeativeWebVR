@@ -35,12 +35,13 @@ pipeline {
                 
             }
         }
-        post {
+        
+ }
+    post {
     always {
        mail to: 'saxena.keshav@thinksys.com',
           subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
           body: "${env.BUILD_URL} has result ${currentBuild.result}"
     }
   }
- }
 }
