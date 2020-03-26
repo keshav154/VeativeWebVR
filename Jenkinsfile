@@ -32,7 +32,7 @@ pipeline {
                 echo 'testing the application'
                 
                 bat 'npm test'
-                bat "del test.zip"
+//                bat "del test.zip"
                 zip zipFile: 'test.zip', archive: false, dir: 'coverage/html'
             }
             }
