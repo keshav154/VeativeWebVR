@@ -27,7 +27,7 @@
       "text",
       "cobertura"
     ]
-  }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Veativetech/VeativeWebVR.git"
