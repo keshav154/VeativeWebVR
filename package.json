@@ -22,6 +22,12 @@
     "start": "webpack",
     "test": "jest --coverage --coverageDirectory=output/coverage/jest"
   },
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Veativetech/VeativeWebVR.git"
@@ -32,11 +38,4 @@
     "url": "https://github.com/Veativetech/VeativeWebVR/issues"
   },
   "homepage": "https://github.com/Veativetech/VeativeWebVR#readme"
-  
-  "jest": {
-    "coverageReporters": [
-      "text",
-      "cobertura"
-    ]
-  }
 }
