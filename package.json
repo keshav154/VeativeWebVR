@@ -30,4 +30,16 @@
     "url": "https://github.com/Veativetech/VeativeWebVR/issues"
   },
   "homepage": "https://github.com/Veativetech/VeativeWebVR#readme"
+  
+  "name": "continuous-test-code-coverage-guide",
+  "scripts": {
+    "start": "webpack",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
+  },
+  ...
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
 }
