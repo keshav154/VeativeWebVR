@@ -39,8 +39,8 @@ pipeline {
         }
         
  }
-    post {
-    success {
+   post {
+    always {
           // publish html
           publishHTML target: [
               allowMissing: false,
@@ -50,8 +50,6 @@ pipeline {
               reportFiles: 'index.html',
               reportName: 'Veative Report'
             ]
-        }
-    always {
         emailext attachmentsPattern: 'test.zip', body: '''${SCRIPT, template="groovy-html.template"}''', 
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
                     mimeType: 'text/html',to: "saxena.keshav@thinksys.com"
