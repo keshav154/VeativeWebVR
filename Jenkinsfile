@@ -32,19 +32,23 @@ pipeline {
                 echo 'testing the application'
                 
                 bat 'npm test'
-                publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'coverage',
-            reportFiles: 'index.html',
-            reportName: 'Veative Test Result Report'
-          ]
+                
             }
         }
         
  }
     post {
+    success {
+          // publish html
+          publishHTML target: [
+              allowMissing: false,
+              alwaysLinkToLastBuild: false,
+              keepAll: true,
+              reportDir: 'coverage',
+              reportFiles: 'index.html',
+              reportName: 'Veative Report'
+            ]
+        }
     always {
        mail to: 'saxena.keshav@thinksys.com',
           subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
