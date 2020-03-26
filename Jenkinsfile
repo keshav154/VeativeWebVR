@@ -33,7 +33,7 @@ pipeline {
                 
                 bat 'npm test'
                 bat "del test.zip"
-                zip zipFile: 'test.zip', archive: false, dir: coverage/html
+                zip zipFile: 'test.zip', archive: false, dir: 'coverage/html'
             }
             }
         }
