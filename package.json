@@ -32,8 +32,6 @@
   "homepage": "https://github.com/Veativetech/VeativeWebVR#readme"
   
   
-}
-{
   "name": "continuous-test-code-coverage-guide",
   "scripts": {
     "start": "webpack",
@@ -45,4 +43,5 @@
       "cobertura"
     ]
   }
+}
 }
