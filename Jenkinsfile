@@ -7,14 +7,15 @@ pipeline {
     stage('Startup') {
       steps {
         script {
-          sh 'npm install'
+          bat 'npm install'
         }
       }
     }
+  }
     stage('Test') {
       steps {
         script {
-          sh 'npm run test'
+          bat 'npm run test'
         }
       }
       post {
