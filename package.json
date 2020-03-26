@@ -19,6 +19,8 @@
   },
   "scripts": {
     "test": "karma start karma.config.js"
+    "start": "webpack",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
   },
   "repository": {
     "type": "git",
@@ -31,17 +33,10 @@
   },
   "homepage": "https://github.com/Veativetech/VeativeWebVR#readme"
   
-  
-  "name": "continuous-test-code-coverage-guide",
-  "scripts": {
-    "start": "webpack",
-    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
-  },
   "jest": {
     "coverageReporters": [
       "text",
       "cobertura"
     ]
   }
-}
 }
