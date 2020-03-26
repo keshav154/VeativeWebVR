@@ -1,16 +1,6 @@
 {
   "name": "veativewebvr",
   "version": "1.0.0",
-  "scripts": {
-    "start": "webpack",
-    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
-  },
-  "jest": {
-    "coverageReporters": [
-      "text",
-      "cobertura"
-    ]
-  }
   "description": "[![Build Status](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/buildStatus/icon?job=VativeWebVR)](http://ec2-174-129-91-236.compute-1.amazonaws.com:8080/job/VativeWebVR/lastBuild/)",
   "main": "index.js",
   "dependencies": {
@@ -42,4 +32,19 @@
   "homepage": "https://github.com/Veativetech/VeativeWebVR#readme"
   
   
+}
+{
+  "name": "continuous-test-code-coverage-guide",
+  "scripts": {
+    "start": "webpack",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
+  },
+  ...
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
+    ...
+  }
 }
