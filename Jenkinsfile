@@ -37,10 +37,9 @@ pipeline {
                 zip zipFile: 'test.zip', archive: false, dir: 'coverage/html'
              }
           }
-       }
   }
-   post {
-    always {
+   post{
+    always{
           // publish html
           publishHTML target: [
               allowMissing: false,
@@ -58,4 +57,3 @@ pipeline {
 //          body: "${env.BUILD_URL} has result ${currentBuild.result}"
     }
   }
-}
